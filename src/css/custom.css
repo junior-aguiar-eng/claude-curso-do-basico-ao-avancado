@@ -12,6 +12,11 @@
   --ifm-color-primary-lighter: #e1947e;
   --ifm-color-primary-lightest: #e9ac9a;
   --ifm-code-font-size: 95%;
+
+  /* Cor do eixo A (Claude/Claude Code) nos componentes de trilha.
+     O eixo B reaproveita o coral (--ifm-color-primary) já existente. */
+  --curso-eixo-a-azul: #3b6ea5;
+  --curso-eixo-a-azul-claro: #6b95c4;
 }
 
 [data-theme='dark'] {
@@ -22,4 +27,7 @@
   --ifm-color-primary-light: #e9ac9a;
   --ifm-color-primary-lighter: #edb6a6;
   --ifm-color-primary-lightest: #f4d0c6;
+
+  --curso-eixo-a-azul: #6b95c4;
+  --curso-eixo-a-azul-claro: #8fb0d6;
 }
