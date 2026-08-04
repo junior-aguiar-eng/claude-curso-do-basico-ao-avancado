@@ -1,0 +1,111 @@
+---
+title: "Lição de exemplo: o que é código"
+sidebar_position: 2
+---
+
+{/*
+  Esqueleto estrutural de toda lição do curso (referência para quem for
+  escrever novas lições — ver CLAUDE.md, seção "Convenções de conteúdo"):
+
+  1. Frontmatter: title, sidebar_position
+  2. Título (H1)
+  3. Objetivo — admonition :::tip
+  4. Por que isso importa — motivação, enquadrada como automação
+  5. Conceito — corpo didático; todo termo técnico é linkado ao
+     glossário na primeira aparição
+  6. Diagrama — quando ajudar a visualizar (opcional por lição)
+  7. Pratique aqui — <SandboxPython>, nível 1, obrigatório, todo aluno
+  8. Verifique o que aprendeu — <Quiz>
+  9. Quer ir além? — lab opcional no Claude Code, nível 2, nunca
+     pré-requisito; admonition :::info
+  10. Marque seu progresso — <Checkpoint>
+*/}
+
+# O que é código, e por que ele vira automação
+
+:::tip Objetivo
+Ao final desta lição, você vai entender o que é [código](/glossario#codigo)
+e vai ter rodado sua primeira instrução para o computador — sem instalar
+nada.
+:::
+
+## Por que isso importa
+
+Toda vez que você faz algo repetitivo no computador — organizar arquivos,
+responder mensagens parecidas, extrair informação de uma planilha — existe
+uma chance de ensinar o computador a fazer isso por você. Isso é
+automação, e é o motivo prático de aprender a escrever código: não é
+sobre "virar programador", é sobre criar suas próprias ferramentas.
+
+## O que é código
+
+[Código](/glossario#codigo) é um conjunto de instruções escritas numa
+linguagem que o computador entende e segue à risca — diferente de uma
+pessoa, ele não tenta adivinhar o que você quis dizer, ele faz exatamente
+o que está escrito.
+
+Uma das peças mais simples de código é a [variável](/glossario#variavel):
+uma espécie de caixinha com um nome, que guarda um valor para você usar
+depois. No exemplo que você vai rodar daqui a pouco, `nome` é uma
+variável que guarda um texto.
+
+## Como as peças se encaixam
+
+<Diagrama
+  title="O ciclo básico de rodar código"
+  chart={`flowchart LR
+    A[Você escreve o código] --> B[O computador segue as instruções]
+    B --> C[Você vê o resultado]`}
+/>
+
+## Pratique aqui
+
+O quadro abaixo é um [sandbox](/glossario#sandbox): um ambiente onde você
+roda Python de verdade, direto nesta página, sem instalar nada e sem
+precisar de conta. Troque o texto entre aspas na variável `nome` pelo seu
+nome e clique em **Rodar**.
+
+<SandboxPython code={`nome = "SEU NOME AQUI"
+print(f"Olá, {nome}! Você acabou de rodar código de verdade.")`} />
+
+Se aparecer uma mensagem de erro, tudo bem — errar faz parte de
+programar. Leia a mensagem, ajuste o código e rode de novo.
+
+## Verifique o que aprendeu
+
+<Quiz
+  question="No sandbox acima, o que faz o valor de 'nome' aparecer na frase de saudação?"
+  options={[
+    {
+      text: 'A variável guarda o valor, e o código lê essa variável para montar a frase',
+      correct: true,
+      explanation: 'Isso mesmo — a variável "nome" guarda o texto, e o código lê esse valor guardado para montar a saudação.',
+    },
+    {
+      text: 'O computador adivinha o que você quis dizer',
+      explanation: 'Não: o computador não adivinha nada, ele só segue exatamente o que está escrito no código.',
+    },
+    {
+      text: 'É preciso instalar um programa à parte para isso funcionar',
+      explanation: 'Não: o sandbox já roda Python direto nesta página, sem instalação.',
+    },
+  ]}
+/>
+
+## Quer ir além? (opcional)
+
+:::info Opcional — para assinantes
+Tudo que você fez aqui roda igual — e vai muito além — dentro do
+[Claude Code](/glossario#claude-code), o ambiente de programação real que
+este curso ensina a usar. Assinantes têm acesso a um ambiente pronto no
+navegador (GitHub Codespaces, sem instalar nada) para praticar por lá.
+
+Isso é sempre opcional: nenhuma lição deste curso exige o Claude Code
+para ser entendida ou concluída.
+:::
+
+## Marque seu progresso
+
+<Checkpoint id="licao-exemplo-o-que-e-codigo">
+  Rodei meu primeiro código e entendi o que é uma variável.
+</Checkpoint>

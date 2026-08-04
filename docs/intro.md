@@ -6,9 +6,12 @@ title: Bem-vindo
 
 # Bem-vindo ao curso
 
-Este é o esqueleto inicial do site do curso de **Claude** e **Claude Code**
-para quem nunca programou.
+Este é o curso de **Claude** e **Claude Code** para quem nunca programou.
+Você aprende no seu próprio ritmo, direto no navegador — sem instalar
+nada.
 
-Por enquanto esta é apenas uma página de placeholder que confirma que o
-site builda e roda. A lição-exemplo com os componentes interativos
-(sandbox de Python, quiz, checkpoint e diagrama) chega na próxima etapa.
+Pronto para começar? Vá para a primeira lição: [O que é código, e por que
+ele vira automação](/licao-exemplo).
+
+Termos técnicos que aparecerem pelo caminho estão explicados no
+[glossário](/glossario).
