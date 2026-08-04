@@ -1,0 +1,63 @@
+.paginaGlossario {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.grupo {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  background: var(--ifm-background-surface-color);
+}
+
+.tituloGrupo {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.lista {
+  margin: 0;
+}
+
+.item {
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.termo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  font-weight: 600;
+  margin: 0;
+}
+
+.eixo {
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  color: var(--ifm-font-color-base);
+}
+
+.eixoA {
+  background: rgba(59, 110, 165, 0.15);
+  color: var(--curso-eixo-a-azul);
+}
+
+.eixoB {
+  background: rgba(217, 119, 87, 0.15);
+  color: var(--ifm-color-primary);
+}
+
+.definicao {
+  margin: 0.3rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+}

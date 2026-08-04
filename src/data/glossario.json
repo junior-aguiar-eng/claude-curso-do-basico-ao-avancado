@@ -1,0 +1,374 @@
+{
+  "claude": {
+    "termo": "Claude",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M1",
+    "eixo": "A"
+  },
+  "claude-code": {
+    "termo": "Claude Code",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M1",
+    "eixo": "A"
+  },
+  "modelo-de-linguagem": {
+    "termo": "Modelo de linguagem",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M1",
+    "eixo": "A"
+  },
+  "loop-agentico": {
+    "termo": "Loop agêntico",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M1",
+    "eixo": "A"
+  },
+  "superficie": {
+    "termo": "Superfície",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M1",
+    "eixo": "A"
+  },
+  "terminal": {
+    "termo": "Terminal",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M2",
+    "eixo": "A"
+  },
+  "sessao": {
+    "termo": "Sessão",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M2",
+    "eixo": "A"
+  },
+  "modo-de-permissao": {
+    "termo": "Modo de permissão",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M2",
+    "eixo": "A"
+  },
+  "slash-command": {
+    "termo": "Slash command",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M3",
+    "eixo": "A"
+  },
+  "workflow": {
+    "termo": "Workflow",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M3",
+    "eixo": "A"
+  },
+  "pull-request": {
+    "termo": "Pull request (PR)",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M3",
+    "eixo": "A"
+  },
+  "valor": {
+    "termo": "Valor",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M4",
+    "eixo": "B"
+  },
+  "variavel": {
+    "termo": "Variável",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M4",
+    "eixo": "B"
+  },
+  "tipo-de-dado": {
+    "termo": "Tipo de dado",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M4",
+    "eixo": "B"
+  },
+  "condicional": {
+    "termo": "Condicional",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M5",
+    "eixo": "B"
+  },
+  "if": {
+    "termo": "If",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M5",
+    "eixo": "B"
+  },
+  "laco": {
+    "termo": "Laço",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M6",
+    "eixo": "B"
+  },
+  "for": {
+    "termo": "For",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M6",
+    "eixo": "B"
+  },
+  "while": {
+    "termo": "While",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M6",
+    "eixo": "B"
+  },
+  "claude-md": {
+    "termo": "CLAUDE.md",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M7",
+    "eixo": "A"
+  },
+  "janela-de-contexto": {
+    "termo": "Janela de contexto",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M7",
+    "eixo": "A"
+  },
+  "memoria-do-agente": {
+    "termo": "Memória do agente",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M7",
+    "eixo": "A"
+  },
+  "settings-json": {
+    "termo": "settings.json",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M8",
+    "eixo": "A"
+  },
+  "permissao": {
+    "termo": "Permissão",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M8",
+    "eixo": "A"
+  },
+  "allowlist": {
+    "termo": "Allowlist",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M8",
+    "eixo": "A"
+  },
+  "lista": {
+    "termo": "Lista",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M9",
+    "eixo": "B"
+  },
+  "dicionario": {
+    "termo": "Dicionário",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M9",
+    "eixo": "B"
+  },
+  "funcao": {
+    "termo": "Função",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M10",
+    "eixo": "B"
+  },
+  "parametro": {
+    "termo": "Parâmetro",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M10",
+    "eixo": "B"
+  },
+  "retorno": {
+    "termo": "Retorno",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M10",
+    "eixo": "B"
+  },
+  "skills": {
+    "termo": "Skills",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M11",
+    "eixo": "A"
+  },
+  "subagents": {
+    "termo": "Subagents",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M11",
+    "eixo": "A"
+  },
+  "slash-commands": {
+    "termo": "Slash Commands",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M11",
+    "eixo": "A"
+  },
+  "hooks": {
+    "termo": "Hooks",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M11",
+    "eixo": "A"
+  },
+  "plugins": {
+    "termo": "Plugins",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M11",
+    "eixo": "A"
+  },
+  "mcp": {
+    "termo": "MCP",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M12",
+    "eixo": "A"
+  },
+  "servidor-mcp": {
+    "termo": "Servidor MCP",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M12",
+    "eixo": "A"
+  },
+  "integracao-externa": {
+    "termo": "Integração externa",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M12",
+    "eixo": "A"
+  },
+  "subagente": {
+    "termo": "Subagente",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M13",
+    "eixo": "A"
+  },
+  "worktree": {
+    "termo": "Worktree",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M13",
+    "eixo": "A"
+  },
+  "agent-view": {
+    "termo": "Agent view",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M13",
+    "eixo": "A"
+  },
+  "agent-team": {
+    "termo": "Agent team",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M13",
+    "eixo": "A"
+  },
+  "paralelismo": {
+    "termo": "Paralelismo",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M13",
+    "eixo": "A"
+  },
+  "routine": {
+    "termo": "Routine",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M14",
+    "eixo": "A"
+  },
+  "loop": {
+    "termo": "/loop",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M14",
+    "eixo": "A"
+  },
+  "goal": {
+    "termo": "/goal",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M14",
+    "eixo": "A"
+  },
+  "sandboxing": {
+    "termo": "Sandboxing",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M14",
+    "eixo": "A"
+  },
+  "automacao": {
+    "termo": "Automação",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M14",
+    "eixo": "A"
+  },
+  "modulo": {
+    "termo": "Módulo",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M15",
+    "eixo": "B"
+  },
+  "biblioteca": {
+    "termo": "Biblioteca",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M15",
+    "eixo": "B"
+  },
+  "import": {
+    "termo": "Import",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M15",
+    "eixo": "B"
+  },
+  "json": {
+    "termo": "JSON",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M16",
+    "eixo": "B"
+  },
+  "dado-estruturado": {
+    "termo": "Dado estruturado",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M16",
+    "eixo": "B"
+  },
+  "async": {
+    "termo": "Async",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M17",
+    "eixo": "B"
+  },
+  "operacao-nao-bloqueante": {
+    "termo": "Operação não bloqueante",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M17",
+    "eixo": "B"
+  },
+  "agent-sdk": {
+    "termo": "Agent SDK",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  },
+  "agent-loop": {
+    "termo": "Agent loop",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  },
+  "custom-tool": {
+    "termo": "Custom tool",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  },
+  "structured-output": {
+    "termo": "Structured output",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  },
+  "api-key": {
+    "termo": "API key",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  },
+  "hosting": {
+    "termo": "Hosting",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  },
+  "observabilidade": {
+    "termo": "Observabilidade",
+    "definicao": "TODO: definir",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  }
+}

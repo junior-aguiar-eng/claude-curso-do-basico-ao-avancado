@@ -1,0 +1,13 @@
+.termo {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  color: inherit;
+}
+
+.termo:hover {
+  color: var(--ifm-color-primary);
+}
+
+.definicao strong {
+  color: var(--ifm-color-primary);
+}
