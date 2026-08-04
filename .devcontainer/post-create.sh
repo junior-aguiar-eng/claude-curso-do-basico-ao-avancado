@@ -8,6 +8,9 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 export PATH="$HOME/.local/bin:$PATH"
 uv python install 3.14
 
+echo "Atualizando npm..."
+npm install -g npm@12
+
 echo "Instalando dependências do site (Docusaurus)..."
 npm install
 
