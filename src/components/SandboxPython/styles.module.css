@@ -55,17 +55,70 @@
   color: var(--ifm-color-emphasis-700);
 }
 
-.saida {
+.saidaSucesso {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
   margin-top: 0.9rem;
   padding: 0.7rem 0.9rem;
   border-radius: 6px;
-  background: var(--ifm-color-emphasis-200);
+  background: rgba(46, 125, 50, 0.1);
+  color: #2e7d32;
+}
+
+.iconeSucesso {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.saidaTexto {
+  margin: 0;
+  color: var(--ifm-font-color-base);
   font-size: 0.9rem;
   white-space: pre-wrap;
   word-break: break-word;
 }
 
-.saidaErro {
-  background: rgba(198, 40, 40, 0.12);
-  color: #b71c1c;
+.painelErro {
+  margin-top: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(217, 119, 6, 0.4);
+  border-radius: 6px;
+  background: rgba(217, 119, 6, 0.1);
+}
+
+.mensagemErro {
+  margin: 0;
+  color: #92400e;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.linhaDestacada {
+  margin: 0.6rem 0 0;
+  padding: 0.5rem 0.7rem;
+  border-radius: 4px;
+  background: rgba(217, 119, 6, 0.18);
+  color: #92400e;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.botaoCorrigir {
+  display: inline-block;
+  margin-top: 0.7rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #92400e;
+  border-radius: 6px;
+  background: transparent;
+  color: #92400e;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.botaoCorrigir:hover {
+  background: rgba(217, 119, 6, 0.15);
 }
