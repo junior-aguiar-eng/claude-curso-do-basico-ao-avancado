@@ -68,10 +68,16 @@ interativos, os labs e o ambiente.
   (consultar quando a tarefa exigir; não é leitura de toda sessão).
 
 ## Comandos
-<!-- Preencher quando o esqueleto existir. NÃO inventar comandos. -->
-- Build: `[a definir]`
-- Dev local: `[a definir]`
-- Rodar testes de checkpoint: `[a definir]`
+- Toolchain: Node 24 (ver `.nvmrc`) + npm 12 (`npm install -g npm@12`
+  se o npm global do Node for mais antigo) para o site; Python 3.14 via
+  `uv` para os labs (ambiente opcional, ver `.devcontainer/`).
+- Instalar dependências do site: `npm install`
+- Dev local do site: `npm start` (porta 3000)
+- Build do site: `npm run build` (gera `build/`)
+- Servir o build localmente: `npm run serve`
+- Rodar testes de checkpoint: `[a definir]` — ainda não existem labs
+  versionados com checkpoint automatizado (ver "Fora de escopo por
+  enquanto").
 
 ## Fora de escopo por enquanto
 - Módulo enterprise (gateways, managed settings, analytics de time):
