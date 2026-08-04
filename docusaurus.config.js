@@ -26,6 +26,8 @@ const config = {
     locales: ['pt-BR'],
   },
 
+  clientModules: ['./src/clientModules/fonts.js'],
+
   // Habilita diagramas Mermaid nas lições (```mermaid).
   markdown: {
     mermaid: true,

@@ -1,0 +1,33 @@
+.icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.textoConcluido {
+  color: var(--ifm-color-emphasis-600);
+}
+
+.textoAtual {
+  color: var(--ifm-font-color-base);
+  font-weight: 600;
+}
+
+.textoBloqueado {
+  color: var(--ifm-color-emphasis-400);
+}
+
+/* Cor do ícone por estado, aplicada via composição no componente que usa. */
+.iconeConcluido {
+  color: var(--ifm-color-emphasis-600);
+}
+
+.iconeAtual {
+  color: var(--ifm-color-primary);
+}
+
+.iconeBloqueado {
+  color: var(--ifm-color-emphasis-400);
+}

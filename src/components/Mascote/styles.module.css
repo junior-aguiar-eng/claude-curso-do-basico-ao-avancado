@@ -1,0 +1,5 @@
+.mascote {
+  display: block;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
