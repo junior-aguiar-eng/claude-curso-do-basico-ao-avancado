@@ -13,6 +13,14 @@
   --ifm-color-primary-lightest: #e9ac9a;
   --ifm-code-font-size: 95%;
 
+  /* Newsreader (licença SIL OFL, hospedada localmente via @fontsource —
+     ver src/clientModules/fonts.js), como stand-in de licença livre
+     para a serif editorial da Anthropic. Código permanece monoespaçado
+     (--ifm-font-family-monospace, não alterado). */
+  --ifm-font-family-base: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman',
+    serif;
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+
   /* Cor do eixo A (Claude/Claude Code) nos componentes de trilha.
      O eixo B reaproveita o coral (--ifm-color-primary) já existente. */
   --curso-eixo-a-azul: #3b6ea5;
