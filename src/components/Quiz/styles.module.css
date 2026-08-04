@@ -1,0 +1,91 @@
+.quiz {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-left: 4px solid var(--ifm-color-primary);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.pergunta {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.opcoes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.opcao {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  font: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.opcao:hover:not(:disabled) {
+  border-color: var(--ifm-color-primary);
+}
+
+.opcao:disabled {
+  cursor: default;
+}
+
+.marcador {
+  display: inline-flex;
+  width: 1.1rem;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.correta {
+  border-color: #2e7d32;
+  background: rgba(46, 125, 50, 0.12);
+}
+
+.errada {
+  border-color: #c62828;
+  background: rgba(198, 40, 40, 0.12);
+}
+
+.feedback {
+  margin-top: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.acertou {
+  background: rgba(46, 125, 50, 0.12);
+}
+
+.errou {
+  background: rgba(198, 40, 40, 0.12);
+}
+
+.tentar {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ifm-color-primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+}

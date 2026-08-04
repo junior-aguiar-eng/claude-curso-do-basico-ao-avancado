@@ -1,0 +1,25 @@
+/**
+ * Estilos globais do curso. Mantido mínimo no esqueleto andante;
+ * componentes trazem seus próprios estilos em módulos CSS.
+ */
+
+:root {
+  --ifm-color-primary: #d97757;
+  --ifm-color-primary-dark: #d05f3b;
+  --ifm-color-primary-darker: #c65733;
+  --ifm-color-primary-darkest: #a3472a;
+  --ifm-color-primary-light: #de8b72;
+  --ifm-color-primary-lighter: #e1947e;
+  --ifm-color-primary-lightest: #e9ac9a;
+  --ifm-code-font-size: 95%;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #e1947e;
+  --ifm-color-primary-dark: #d97757;
+  --ifm-color-primary-darker: #d05f3b;
+  --ifm-color-primary-darkest: #c65733;
+  --ifm-color-primary-light: #e9ac9a;
+  --ifm-color-primary-lighter: #edb6a6;
+  --ifm-color-primary-lightest: #f4d0c6;
+}
