@@ -1,67 +1,67 @@
 {
   "claude": {
     "termo": "Claude",
-    "definicao": "TODO: definir",
+    "definicao": "Um modelo de linguagem que você acessa em modo conversa: você pergunta ou pede algo, e ele responde, dentro de uma janela de chat.",
     "moduloOrigem": "M1",
     "eixo": "A"
   },
   "claude-code": {
     "termo": "Claude Code",
-    "definicao": "TODO: definir",
+    "definicao": "O mesmo Claude, operando em modo agente: em vez de só responder, ele age — lê arquivos, escreve código, executa comandos e corrige o que deu errado, repetindo esse processo sozinho até completar uma tarefa, dentro dos limites que você definiu.",
     "moduloOrigem": "M1",
     "eixo": "A"
   },
   "modelo-de-linguagem": {
     "termo": "Modelo de linguagem",
-    "definicao": "TODO: definir",
+    "definicao": "Um sistema treinado para entender e gerar texto, capaz de responder perguntas, explicar conceitos, escrever e revisar textos e ajudar a pensar um problema.",
     "moduloOrigem": "M1",
     "eixo": "A"
   },
   "loop-agentico": {
     "termo": "Loop agêntico",
-    "definicao": "TODO: definir",
+    "definicao": "O ciclo de perceber o estado atual, decidir a próxima ação, executá-la e observar o resultado, repetindo até a tarefa estar pronta ou até precisar de uma decisão sua. É o que separa um agente de um chatbot, que só responde uma vez.",
     "moduloOrigem": "M1",
     "eixo": "A"
   },
   "superficie": {
     "termo": "Superfície",
-    "definicao": "TODO: definir",
+    "definicao": "A forma como você acessa e interage com o modelo — pelo navegador (Claude, em modo conversa) ou pelo terminal (Claude Code, em modo agente). O modelo por trás é o mesmo; o que muda é o que ele pode fazer e como você conversa com ele.",
     "moduloOrigem": "M1",
     "eixo": "A"
   },
   "terminal": {
     "termo": "Terminal",
-    "definicao": "TODO: definir",
+    "definicao": "A interface de texto onde você digita comandos diretamente para o computador, sem cliques nem menus — escreve uma instrução, aperta Enter, e o computador responde também em texto. É onde o Claude Code roda.",
     "moduloOrigem": "M2",
     "eixo": "A"
   },
   "sessao": {
     "termo": "Sessão",
-    "definicao": "TODO: definir",
+    "definicao": "Um período contínuo de trabalho com o Claude Code em que ele mantém o contexto do que está acontecendo — arquivos já lidos, decisões já tomadas, o que já foi feito. Termina quando você fecha o terminal ou encerra explicitamente.",
     "moduloOrigem": "M2",
     "eixo": "A"
   },
   "modo-de-permissao": {
     "termo": "Modo de permissão",
-    "definicao": "TODO: definir",
+    "definicao": "A configuração que decide o quanto de autonomia o Claude Code tem antes de agir: do mais cauteloso (pede confirmação antes de cada ação) ao mais autônomo (executa e avisa depois, ou só confirma ações potencialmente destrutivas).",
     "moduloOrigem": "M2",
     "eixo": "A"
   },
   "slash-command": {
     "termo": "Slash command",
-    "definicao": "TODO: definir",
+    "definicao": "Um comando que começa com \"/\", como /clear ou /help, reconhecido diretamente pelo Claude Code como um atalho para uma ação repetitiva — sem precisar de uma frase inteira explicando o que você quer.",
     "moduloOrigem": "M3",
     "eixo": "A"
   },
   "workflow": {
     "termo": "Workflow",
-    "definicao": "TODO: definir",
+    "definicao": "A sequência típica de passos que uma tarefa percorre do pedido até a entrega — no uso cotidiano do Claude Code, geralmente pedir, receber uma proposta ou mudança, e revisar.",
     "moduloOrigem": "M3",
     "eixo": "A"
   },
   "pull-request": {
     "termo": "Pull request (PR)",
-    "definicao": "TODO: definir",
+    "definicao": "Um pedido formal para que mudanças feitas em código sejam revisadas e incorporadas a um projeto principal. O Claude Code pode preparar um PR pronto para revisão humana depois de aplicar e testar uma mudança.",
     "moduloOrigem": "M3",
     "eixo": "A"
   },

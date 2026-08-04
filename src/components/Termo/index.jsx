@@ -13,11 +13,17 @@ import styles from './styles.module.css';
  *
  *   O <Termo id="loop-agentico">loop agêntico</Termo> é o ciclo...
  *
- * Modo `define` — primeira definição na lição: renderiza o termo em
- * destaque seguido da definição oficial do glossário, inline:
+ * Modo `define` — primeira definição na lição: marca o termo em destaque
+ * e cria a âncora `id`, mas não injeta a `definicao` do JSON — quem
+ * define o termo, nesse ponto, é a prosa da própria lição, escrita para
+ * fluir naturalmente a partir do termo destacado:
  *
  *   <Termo id="loop-agentico" define>Loop agêntico</Termo> é o ciclo em
  *   que...
+ *
+ * A `definicao` do JSON continua usada na página /glossario e como
+ * tooltip do modo referência (para quem só quer lembrar rapidinho, sem
+ * sair da lição atual).
  *
  * Um `id` que não existe em glossario.json quebra o build/dev de propósito
  * — isso evita link morto em produção e avisa cedo quem está escrevendo a
@@ -34,11 +40,9 @@ export default function Termo({id, children, define = false}) {
 
   if (define) {
     return (
-      <span id={id} className={styles.definicao}>
-        <strong>{children}</strong>
-        {': '}
-        {entrada.definicao}
-      </span>
+      <strong id={id} className={styles.definicao}>
+        {children}
+      </strong>
     );
   }
 

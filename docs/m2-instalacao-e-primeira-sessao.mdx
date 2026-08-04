@@ -1,0 +1,87 @@
+---
+title: "M2 — Instalação e Primeira Sessão"
+sidebar_position: 5
+modulo: "M2"
+---
+
+# M2 — Instalação e Primeira Sessão
+
+*Bloco 2 — Primeiro contato · Eixo A · Nível 🟢 teoria / 🔵 instalação real*
+
+## Abertura
+
+Agora que você sabe o que separa Claude de Claude Code (M1), esta lição
+mostra como colocar o Claude Code para funcionar de verdade no seu
+computador — o ambiente onde ele opera e as primeiras decisões que você
+toma antes de deixá-lo agir.
+
+## Conceito central
+
+Claude Code não roda dentro de uma janela de navegador — ele roda no
+<Termo id="terminal" define>terminal</Termo>, a interface de texto onde
+você digita comandos diretamente para o computador, sem cliques, sem
+menus. Se você nunca usou um terminal, a ideia é simples: é uma caixa de
+texto onde você escreve uma instrução, aperta Enter, e o computador
+responde também em texto. Claude Code se instala como um programa que
+roda dentro dessa caixa.
+
+Quando você inicia o Claude Code, você abre uma
+<Termo id="sessao" define>sessão</Termo> — um período contínuo de
+trabalho em que ele mantém o contexto do que está acontecendo: quais
+arquivos já foram lidos, quais decisões já foram tomadas, o que já foi
+feito. Uma sessão termina quando você fecha o terminal ou encerra
+explicitamente; a próxima sessão começa sem lembrar da anterior, a menos
+que você tenha guardado esse contexto em algum lugar (isso volta com
+força em M7, sobre memória do agente).
+
+Antes de deixar Claude Code agir livremente, existe uma decisão
+importante: o <Termo id="modo-de-permissao" define>modo de permissão</Termo>.
+Como o loop agêntico (M1) executa ações reais — ler arquivos, escrever
+código, rodar comandos — você decide o quanto de autonomia ele tem antes
+de agir. No modo mais cauteloso, ele pede sua confirmação antes de cada
+ação. No modo mais autônomo, ele executa e só te avisa depois, ou só
+pede confirmação para ações potencialmente destrutivas. Não existe modo
+"certo" — existe o modo adequado à tarefa e à sua confiança naquele
+momento.
+
+## Na prática
+
+Uma primeira sessão típica, logo após a instalação, se parece com isto:
+
+```
+$ claude
+Bem-vindo ao Claude Code.
+Modo de permissão: perguntar antes de cada ação.
+
+> Liste os arquivos deste projeto
+
+Vou listar o conteúdo do diretório atual.
+[Executar: ls -la] — Permitir? (s/n) s
+
+  README.md
+  package.json
+  src/
+  tests/
+
+Pronto. É um projeto Node.js com pasta de código-fonte e testes.
+```
+
+Note o pedido de permissão antes da ação — esse é o modo cauteloso em
+funcionamento. É a configuração recomendada para a sua primeira sessão,
+até você desenvolver confiança sobre como o Claude Code se comporta.
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+Instale o Claude Code seguindo a documentação oficial para o seu sistema
+operacional, abra uma primeira sessão no modo cauteloso, e peça para ele
+listar os arquivos de uma pasta qualquer do seu computador — só para
+observar o pedido de permissão em ação.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m2">
+  Instalei o Claude Code (ou entendi como instalar) e sei o que é uma
+  sessão e um modo de permissão.
+</Checkpoint>
