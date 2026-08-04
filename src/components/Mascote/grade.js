@@ -15,9 +15,20 @@ const LARGURA_CORPO = [1, 3, 4, 5, 5, 5, 5, 5, 4, 4, 3, 2, 1];
 // contida dentro dele.
 const LARGURA_BARRIGA = {9: 2, 10: 2, 11: 1};
 
-const LINHA_OLHOS = 4;
+// Olhos: 2 pixels de altura (linhas 4-5), para ficarem mais expressivos.
+const LINHAS_OLHOS = [4, 5];
 const COLUNA_OLHO_ESQUERDO = CENTRO - 2;
 const COLUNA_OLHO_DIREITO = CENTRO + 2;
+
+// Bochechas: um pixel de cada lado, mesma linha da base dos olhos.
+const LINHA_BOCHECHA = 5;
+const COLUNA_BOCHECHA_ESQUERDA = CENTRO - 4;
+const COLUNA_BOCHECHA_DIREITA = CENTRO + 4;
+
+// Boca: linha logo abaixo dos olhos, antes do cinto (linha 7).
+const LINHA_BOCA = 6;
+const COLUNA_BOCA_INICIO = CENTRO - 1;
+const COLUNA_BOCA_FIM = CENTRO + 1;
 
 const LINHA_TRANSICAO_SOMBRA = 7; // a partir daqui, tom mais escuro (voxel)
 const LINHA_CINTO = 7;
@@ -28,6 +39,7 @@ const PALETA = {
   corpoSombra: '#c65733',
   barriga: '#f4d0c6',
   olho: '#3d2418',
+  bochecha: '#e9ac9a',
   acessorio: '#8a5a3b',
   emblema: '#5b3a24',
 };
@@ -56,7 +68,15 @@ export function gerarGrade(estagio = 0) {
         cor = PALETA.barriga;
       }
 
-      if (y === LINHA_OLHOS && (x === COLUNA_OLHO_ESQUERDO || x === COLUNA_OLHO_DIREITO)) {
+      if (LINHAS_OLHOS.includes(y) && (x === COLUNA_OLHO_ESQUERDO || x === COLUNA_OLHO_DIREITO)) {
+        cor = PALETA.olho;
+      }
+
+      if (y === LINHA_BOCHECHA && (x === COLUNA_BOCHECHA_ESQUERDA || x === COLUNA_BOCHECHA_DIREITA)) {
+        cor = PALETA.bochecha;
+      }
+
+      if (y === LINHA_BOCA && x >= COLUNA_BOCA_INICIO && x <= COLUNA_BOCA_FIM) {
         cor = PALETA.olho;
       }
 
