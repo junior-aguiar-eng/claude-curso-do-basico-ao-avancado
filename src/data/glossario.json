@@ -67,49 +67,49 @@
   },
   "valor": {
     "termo": "Valor",
-    "definicao": "TODO: definir",
+    "definicao": "Um pedaço isolado de informação usado por um programa — um número, um texto, um resultado de verdadeiro ou falso. Sozinho, um valor não tem nome; ele só existe no momento em que é usado.",
     "moduloOrigem": "M4",
     "eixo": "B"
   },
   "variavel": {
     "termo": "Variável",
-    "definicao": "TODO: definir",
+    "definicao": "Um nome que aponta para um valor guardado na memória do programa — como uma caixa com etiqueta. Quando o código pede o nome, ele está pedindo o conteúdo da caixa, não a palavra em si.",
     "moduloOrigem": "M4",
     "eixo": "B"
   },
   "tipo-de-dado": {
     "termo": "Tipo de dado",
-    "definicao": "TODO: definir",
+    "definicao": "A categoria do que um valor representa (texto, número, verdadeiro/falso...), que determina o que pode ser feito com ele — um número pode ser somado, um texto pode ser concatenado, por exemplo.",
     "moduloOrigem": "M4",
     "eixo": "B"
   },
   "condicional": {
     "termo": "Condicional",
-    "definicao": "TODO: definir",
+    "definicao": "Uma estrutura que testa se algo é verdadeiro ou falso e executa um bloco de código diferente conforme o resultado — o mecanismo que permite ao programa escolher um caminho.",
     "moduloOrigem": "M5",
     "eixo": "B"
   },
   "if": {
     "termo": "If",
-    "definicao": "TODO: definir",
+    "definicao": "A forma mais comum de condicional: \"se esta condição for verdadeira, faça isto\", opcionalmente acompanhada de um \"senão\" (else) para o caso em que a condição é falsa.",
     "moduloOrigem": "M5",
     "eixo": "B"
   },
   "laco": {
     "termo": "Laço",
-    "definicao": "TODO: definir",
+    "definicao": "Uma estrutura que repete um bloco de código várias vezes, seguindo uma regra que define quando parar — evita escrever a mesma instrução manualmente para cada repetição.",
     "moduloOrigem": "M6",
     "eixo": "B"
   },
   "for": {
     "termo": "For",
-    "definicao": "TODO: definir",
+    "definicao": "Um laço que repete uma ação um número definido de vezes, ou uma vez para cada item de uma coleção — por exemplo, para cada nome de uma lista, imprimir o nome.",
     "moduloOrigem": "M6",
     "eixo": "B"
   },
   "while": {
     "termo": "While",
-    "definicao": "TODO: definir",
+    "definicao": "Um laço que repete uma ação enquanto uma condição continuar verdadeira, parando assim que ela deixa de ser — a mesma lógica, estruturalmente, do loop agêntico visto em M1.",
     "moduloOrigem": "M6",
     "eixo": "B"
   },

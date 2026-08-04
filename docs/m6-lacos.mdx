@@ -1,0 +1,66 @@
+---
+title: "M6 — Laços"
+sidebar_position: 9
+modulo: "M6"
+---
+
+# M6 — Laços
+
+*Bloco 3 — Programação, fundamentos · Eixo B · Nível 🟢*
+
+## Abertura
+
+Com condicionais decidindo caminhos (M5), esta lição fecha o Bloco 3 com
+o último fundamento essencial: como um programa repete uma ação várias
+vezes sem que alguém escreva a mesma linha de código repetidamente.
+
+## Conceito central
+
+Muitas tarefas de programação envolvem repetição: processar cada item
+de uma lista, tentar uma ação até dar certo, verificar cada arquivo de
+uma pasta. Escrever a mesma instrução manualmente para cada caso seria
+inviável — é aí que entra o <Termo id="laco" define>laço</Termo>: uma
+estrutura que repete um bloco de código várias vezes, seguindo uma regra
+que define quando parar.
+
+Existem duas formas principais de laço. O <Termo id="for" define>for</Termo>
+repete uma ação um número definido de vezes, ou uma vez para cada item
+de uma coleção — por exemplo, "para cada nome nesta lista, imprima o
+nome". O <Termo id="while" define>while</Termo> ("enquanto", em inglês)
+repete uma ação enquanto uma condição continuar verdadeira — por
+exemplo, "enquanto o servidor não responder, tente de novo" — e para
+assim que a condição deixa de ser verdadeira.
+
+Esse segundo padrão deveria soar familiar: é exatamente a lógica por
+trás do loop agêntico que você viu em M1. "Enquanto a tarefa não estiver
+concluída, continue agindo" é, na essência, um `while` — o loop agêntico
+é, estruturalmente, um laço de repetição, só que decidindo sozinho
+quando a condição de parada foi atingida.
+
+## Na prática
+
+<SandboxPython code={`frutas = ["maçã", "banana", "laranja"]
+
+for fruta in frutas:
+    print(fruta)`} />
+
+Ao executar, o programa imprime cada item da lista, um por linha:
+`maçã`, `banana`, `laranja` — sem que você tenha escrito três instruções
+separadas de `print`.
+
+<SandboxPython code={`tentativas = 0
+
+while tentativas < 3:
+    print("Tentando...")
+    tentativas = tentativas + 1`} />
+
+Aqui, o bloco `print("Tentando...")` repete três vezes, porque a cada
+volta `tentativas` aumenta em 1, até que `tentativas < 3` deixe de ser
+verdadeiro.
+
+## Checkpoint
+
+<Checkpoint id="m6">
+  Completei o Bloco 3: sei o que são valores, variáveis, tipos de dado,
+  condicionais e laços.
+</Checkpoint>

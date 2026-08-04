@@ -1,0 +1,60 @@
+---
+title: "M5 — Condicionais"
+sidebar_position: 8
+modulo: "M5"
+---
+
+# M5 — Condicionais
+
+*Bloco 3 — Programação, fundamentos · Eixo B · Nível 🟢*
+
+## Abertura
+
+Com valores e variáveis guardando informação (M4), esta lição ensina
+como um programa toma decisões com base nessa informação — o mecanismo
+que permite que o código faça uma coisa ou outra, dependendo do que
+encontra.
+
+## Conceito central
+
+Um programa raramente executa a mesma sequência de passos sem nenhuma
+variação. Ele precisa reagir ao que encontra: se o usuário está logado,
+mostrar uma coisa; se não está, mostrar outra. Essa capacidade de
+escolher um caminho com base numa condição é o
+<Termo id="condicional" define>condicional</Termo> — uma estrutura que
+testa se algo é verdadeiro ou falso, e executa um bloco de código
+diferente conforme o resultado.
+
+A forma mais comum de condicional é o <Termo id="if" define>if</Termo>
+(literalmente "se", em inglês): "se esta condição for verdadeira, faça
+isto". Um `if` pode vir acompanhado de um "senão" (`else`), para cobrir
+o caso em que a condição é falsa. A condição em si costuma ser uma
+comparação — `idade` é maior que `18`? o `nome` é igual a `"Maria"`? —
+que resulta sempre num valor verdadeiro ou falso, o tipo booleano que
+você viu em M4.
+
+É exatamente esse mecanismo que está por trás de boa parte das decisões
+que o Claude Code toma quando executa uma tarefa: "se o teste passar,
+prossiga; se não passar, corrija e tente de novo" é, na essência, um
+condicional — só que decidido por um agente, não escrito à mão por um
+programador.
+
+## Na prática
+
+<SandboxPython code={`idade = 20
+
+if idade >= 18:
+    print("Maior de idade")
+else:
+    print("Menor de idade")`} />
+
+Ao executar, o programa imprime `Maior de idade`, porque `20 >= 18` é
+verdadeiro. Se você mudar `idade` para `15` e rodar de novo, o resultado
+muda para `Menor de idade` — o mesmo código, caminhos diferentes,
+dependendo do valor guardado na variável.
+
+## Checkpoint
+
+<Checkpoint id="m5">
+  Entendi o que é um condicional e como o if decide entre dois caminhos.
+</Checkpoint>
