@@ -115,37 +115,37 @@
   },
   "claude-md": {
     "termo": "CLAUDE.md",
-    "definicao": "TODO: definir",
+    "definicao": "Um arquivo de texto na raiz do projeto que Claude Code lê no início de cada sessão. Nele você registra o que ele precisa saber toda vez: convenções de código, regras de trabalho, estrutura de pastas, decisões que não devem ser reabertas sem motivo forte.",
     "moduloOrigem": "M7",
     "eixo": "A"
   },
   "janela-de-contexto": {
     "termo": "Janela de contexto",
-    "definicao": "TODO: definir",
+    "definicao": "O espaço de informação que Claude Code consegue \"ter em mente\" ao mesmo tempo dentro de uma sessão — como uma memória de curto prazo, grande mas finita, e limitada àquela conversa específica.",
     "moduloOrigem": "M7",
     "eixo": "A"
   },
   "memoria-do-agente": {
     "termo": "Memória do agente",
-    "definicao": "TODO: definir",
+    "definicao": "Informação que Claude Code lê automaticamente no início de cada sessão, vinda de um arquivo como o CLAUDE.md — não uma memória automática e implícita, mas uma que você escreve explicitamente.",
     "moduloOrigem": "M7",
     "eixo": "A"
   },
   "settings-json": {
     "termo": "settings.json",
-    "definicao": "TODO: definir",
+    "definicao": "Um arquivo de dado estruturado que define permissões e comportamento técnico do Claude Code — por exemplo, quais comandos ele pode executar sem pedir confirmação e quais exigem aprovação explícita.",
     "moduloOrigem": "M8",
     "eixo": "A"
   },
   "permissao": {
     "termo": "Permissão",
-    "definicao": "TODO: definir",
+    "definicao": "Uma decisão sobre o que Claude Code pode fazer, configurada de antemão no settings.json — em vez de aprovar cada ação individualmente durante a sessão, você declara o que é permitido com antecedência.",
     "moduloOrigem": "M8",
     "eixo": "A"
   },
   "allowlist": {
     "termo": "Allowlist",
-    "definicao": "TODO: definir",
+    "definicao": "Uma lista explícita de comandos ou ações pré-aprovados, contra a qual cada nova ação é verificada: se está na lista, roda sem interrupção; se não está, Claude Code para e pede confirmação.",
     "moduloOrigem": "M8",
     "eixo": "A"
   },

@@ -1,10 +1,16 @@
 // Verifica o uso do glossário (src/data/glossario.json) nas lições
 // (docs/**/*.mdx):
 //
-//   - erro (bloqueia): <Termo id="..."> referenciando um id inexistente,
-//     ou usado numa lição de módulo anterior ao `moduloOrigem` do termo.
+//   - erro (bloqueia): <Termo id="..."> referenciando um id inexistente;
+//     <Termo id="..." define> usado antes do `moduloOrigem` do termo
+//     (não dá pra definir algo antes da hora); ou <Termo id="..."> (sem
+//     define, qualquer módulo) referenciando um id inexistente.
 //   - aviso (não bloqueia): o texto de um termo aparece solto na lição,
 //     fora de <Termo> — candidato a marcação esquecida.
+//
+// <Termo id="..."> sem `define` pode apontar para um termo de um módulo
+// futuro (gancho/referência para o que vem depois) sem bloquear o build
+// — só o modo `define` exige que o módulo de origem já tenha passado.
 //
 // Cada lição declara seu módulo via frontmatter `modulo: "M4"`. Lições
 // sem esse campo (ex. esqueletos/exemplos) só passam pela checagem de
@@ -54,7 +60,10 @@ function extrairUsosDeTermo(conteudo) {
   let match;
   while ((match = regex.exec(conteudo))) {
     const idMatch = match[1].match(/\bid=["']([^"']+)["']/);
-    if (idMatch) usos.push(idMatch[1]);
+    if (idMatch) {
+      const define = /\bdefine\b/.test(match[1]);
+      usos.push({id: idMatch[1], define});
+    }
   }
   return usos;
 }
@@ -84,17 +93,17 @@ function main() {
     const moduloArquivo = extrairModuloFrontmatter(conteudo);
     const numeroModuloArquivo = moduloArquivo ? numeroModulo(moduloArquivo) : null;
 
-    for (const id of extrairUsosDeTermo(conteudo)) {
+    for (const {id, define} of extrairUsosDeTermo(conteudo)) {
       const entrada = glossario[id];
       if (!entrada) {
         erros.push(`${caminhoRelativo}: <Termo id="${id}"> não existe em glossario.json`);
         continue;
       }
-      if (numeroModuloArquivo != null) {
+      if (define && numeroModuloArquivo != null) {
         const numeroModuloOrigem = numeroModulo(entrada.moduloOrigem);
         if (numeroModuloOrigem > numeroModuloArquivo) {
           erros.push(
-            `${caminhoRelativo} (${moduloArquivo}): <Termo id="${id}"> só é definido em ${entrada.moduloOrigem} — usado antes de existir`,
+            `${caminhoRelativo} (${moduloArquivo}): <Termo id="${id}" define> só é definido em ${entrada.moduloOrigem} — não dá pra definir antes da hora`,
           );
         }
       }
