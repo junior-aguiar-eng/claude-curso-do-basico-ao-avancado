@@ -1,0 +1,108 @@
+.mapa {
+  border: 0.5px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.25rem;
+  background: var(--ifm-background-surface-color);
+}
+
+.legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.5px solid var(--ifm-color-emphasis-300);
+}
+
+.legendaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.linha {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 6px;
+}
+
+.linhaAtual {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.nome {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.quadrados {
+  display: flex;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.quadrado {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.eixoA {
+  background: var(--curso-eixo-a-azul);
+}
+
+.eixoB {
+  background: var(--ifm-color-primary);
+}
+
+.rodape {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 0.5px solid var(--ifm-color-emphasis-300);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.rodapeTexto {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.botaoContinuar {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 0.5px solid var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.botaoContinuar:hover {
+  background: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
+}
