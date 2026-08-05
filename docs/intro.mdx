@@ -5,17 +5,22 @@ title: Bem-vindo
 hide_title: true
 ---
 
+import Link from '@docusaurus/Link';
 import Hero from '@site/src/components/Hero';
+import MascoteDestaque from '@site/src/components/MascoteDestaque';
 
 <Hero
-  eyebrow="Curso completo, do zero ao Agent SDK — grátis, direto no navegador"
-  title={['Bem-vindo ao curso de', 'Claude e Claude Code']}
-  subtitle="Para quem nunca programou. Você aprende no seu próprio ritmo, direto no navegador — sem instalar nada, e sem precisar de assinatura para acompanhar a teoria."
+  eyebrow="18 módulos · grátis · direto no navegador"
+  title={['Aprenda Claude e', 'Claude Code do zero']}
+  subtitle="Para quem nunca programou. Você aprende no seu próprio ritmo — sem instalar nada, sem precisar de assinatura para acompanhar a teoria."
   primaryHref="/m1-fundamentos-e-mentalidade"
   primaryLabel="Começar a primeira lição →"
   secondaryHref="/glossario"
   secondaryLabel="Ver o glossário"
 />
 
-Termos técnicos que aparecerem pelo caminho estão explicados no
-[glossário](/glossario).
+<MascoteDestaque>
+  <strong>Termos técnicos, sempre à mão.</strong> Toda palavra nova que
+  aparecer pelo caminho está explicada no{' '}
+  <Link to="/glossario">glossário vivo</Link> do curso.
+</MascoteDestaque>

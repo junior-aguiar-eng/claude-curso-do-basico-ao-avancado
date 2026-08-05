@@ -1,8 +1,8 @@
 .mapa {
-  border: 0.5px solid var(--ifm-color-emphasis-300);
-  border-radius: 8px;
+  border: 1px solid var(--curso-borda);
+  border-radius: calc(var(--ifm-global-radius) * 1.75);
   padding: 1.25rem;
-  background: var(--ifm-background-surface-color);
+  background: var(--curso-bg-card);
 }
 
 .legenda {
@@ -66,7 +66,7 @@
 }
 
 .eixoB {
-  background: var(--ifm-color-primary);
+  background: var(--curso-verde);
 }
 
 .rodape {
@@ -90,10 +90,10 @@
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
-  border: 0.5px solid var(--ifm-color-primary);
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-color-primary);
   background: var(--ifm-color-primary);
-  color: white;
+  color: #14100d;
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
@@ -103,6 +103,6 @@
 .botaoContinuar:hover {
   background: var(--ifm-color-primary-dark);
   border-color: var(--ifm-color-primary-dark);
-  color: white;
+  color: #14100d;
   text-decoration: none;
 }

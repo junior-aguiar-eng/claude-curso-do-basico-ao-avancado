@@ -26,7 +26,7 @@ const config = {
     locales: ['pt-BR'],
   },
 
-  clientModules: ['./src/clientModules/fonts.js'],
+  clientModules: ['./src/clientModules/fonts.js', './src/clientModules/cardGlow.js'],
 
   // Habilita diagramas Mermaid nas lições (```mermaid).
   markdown: {
@@ -58,6 +58,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // Tema único, sempre escuro — parte da identidade visual do
+      // curso (mockup aprovado), não uma preferência alternável.
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
+      },
       navbar: {
         title: 'Curso de Claude',
         items: [

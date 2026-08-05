@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 import Mascote from '@site/src/components/Mascote';
 import styles from './styles.module.css';
 
@@ -35,11 +36,12 @@ export default function ConclusaoBloco({
   onProximo,
   textoProximo = 'Seguir para o próximo bloco',
 }) {
-  const BotaoRevisar = hrefRevisar ? 'a' : 'button';
-  const propsRevisar = hrefRevisar ? {href: hrefRevisar} : {type: 'button', onClick: onRevisar};
+  // <Link> (não <a> cru) para respeitar o baseUrl do site em produção.
+  const BotaoRevisar = hrefRevisar ? Link : 'button';
+  const propsRevisar = hrefRevisar ? {to: hrefRevisar} : {type: 'button', onClick: onRevisar};
 
-  const BotaoProximo = hrefProximo ? 'a' : 'button';
-  const propsProximo = hrefProximo ? {href: hrefProximo} : {type: 'button', onClick: onProximo};
+  const BotaoProximo = hrefProximo ? Link : 'button';
+  const propsProximo = hrefProximo ? {to: hrefProximo} : {type: 'button', onClick: onProximo};
 
   return (
     <div className={styles.tela}>

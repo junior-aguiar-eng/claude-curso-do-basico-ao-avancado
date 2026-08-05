@@ -1,0 +1,25 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+  max-width: 700px;
+  margin: 2rem auto 3rem;
+  padding: 2rem;
+  border-radius: calc(var(--ifm-global-radius) * 2);
+  border: 1px solid var(--curso-borda);
+  background: linear-gradient(135deg, var(--curso-bg-card), var(--ifm-background-surface-color));
+}
+
+.texto {
+  margin: 0;
+  max-width: 480px;
+  color: var(--curso-texto-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.texto strong {
+  color: var(--ifm-font-color-base);
+  font-family: var(--ifm-heading-font-family);
+}

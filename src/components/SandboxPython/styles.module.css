@@ -1,10 +1,10 @@
 .sandbox {
-  border: 1px solid var(--ifm-color-emphasis-300);
+  border: 1px solid var(--curso-borda);
   border-left: 4px solid var(--ifm-color-primary);
-  border-radius: 8px;
+  border-radius: calc(var(--ifm-global-radius) * 1.75);
   padding: 1rem 1.25rem;
   margin: 1.5rem 0;
-  background: var(--ifm-background-surface-color);
+  background: var(--curso-bg-card);
 }
 
 .editor {
@@ -12,9 +12,9 @@
   min-height: 8rem;
   padding: 0.75rem;
   box-sizing: border-box;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 6px;
-  background: var(--ifm-background-color);
+  border: 1px solid var(--curso-borda);
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-background-surface-color);
   color: var(--ifm-font-color-base);
   font-family: var(--ifm-font-family-monospace);
   font-size: 0.9rem;
@@ -33,9 +33,9 @@
 .rodar {
   padding: 0.5rem 1.1rem;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--ifm-global-radius);
   background: var(--ifm-color-primary);
-  color: #fff;
+  color: #14100d;
   font: inherit;
   font-weight: 600;
   cursor: pointer;
@@ -61,9 +61,9 @@
   gap: 0.6rem;
   margin-top: 0.9rem;
   padding: 0.7rem 0.9rem;
-  border-radius: 6px;
-  background: rgba(46, 125, 50, 0.1);
-  color: #2e7d32;
+  border-radius: var(--ifm-global-radius);
+  background: rgba(127, 217, 154, 0.12);
+  color: var(--curso-verde);
 }
 
 .iconeSucesso {
@@ -90,17 +90,21 @@
   word-break: break-word;
 }
 
+/* Âmbar, nunca vermelho — decisão de produto proposital (mais
+   acolhedor pra quem está começando). Tom recalibrado pra fundo
+   escuro: o marrom escuro original (#92400e) foi pensado pra fundo
+   claro e ficaria sem contraste aqui. */
 .painelErro {
   margin-top: 0.9rem;
   padding: 0.7rem 0.9rem;
-  border: 1px solid rgba(217, 119, 6, 0.4);
-  border-radius: 6px;
-  background: rgba(217, 119, 6, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  border-radius: var(--ifm-global-radius);
+  background: rgba(251, 191, 36, 0.1);
 }
 
 .mensagemErro {
   margin: 0;
-  color: #92400e;
+  color: #fbbf24;
   font-size: 0.9rem;
   line-height: 1.5;
 }
@@ -108,9 +112,9 @@
 .linhaDestacada {
   margin: 0.6rem 0 0;
   padding: 0.5rem 0.7rem;
-  border-radius: 4px;
-  background: rgba(217, 119, 6, 0.18);
-  color: #92400e;
+  border-radius: calc(var(--ifm-global-radius) * 0.5);
+  background: rgba(251, 191, 36, 0.18);
+  color: #fbbf24;
   font-family: var(--ifm-font-family-monospace);
   font-size: 0.85rem;
   white-space: pre-wrap;
@@ -121,15 +125,15 @@
   display: inline-block;
   margin-top: 0.7rem;
   padding: 0.4rem 0.8rem;
-  border: 1px solid #92400e;
-  border-radius: 6px;
+  border: 1px solid #fbbf24;
+  border-radius: var(--ifm-global-radius);
   background: transparent;
-  color: #92400e;
+  color: #fbbf24;
   cursor: pointer;
   font: inherit;
   font-size: 0.85rem;
 }
 
 .botaoCorrigir:hover {
-  background: rgba(217, 119, 6, 0.15);
+  background: rgba(251, 191, 36, 0.15);
 }

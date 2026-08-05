@@ -4,9 +4,9 @@
   gap: 0.6rem;
   padding: 0.75rem 1rem;
   margin: 1.25rem 0;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 8px;
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--curso-borda);
+  border-radius: calc(var(--ifm-global-radius) * 1.75);
+  background: var(--curso-bg-card);
   cursor: pointer;
   transition: border-color 0.15s ease, background 0.15s ease;
 }
@@ -16,8 +16,8 @@
 }
 
 .concluido {
-  border-color: #2e7d32;
-  background: rgba(46, 125, 50, 0.1);
+  border-color: var(--curso-verde);
+  background: rgba(127, 217, 154, 0.12);
 }
 
 .caixa {

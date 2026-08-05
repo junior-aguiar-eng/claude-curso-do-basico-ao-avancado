@@ -5,10 +5,10 @@
 }
 
 .grupo {
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 8px;
+  border: 1px solid var(--curso-borda);
+  border-radius: calc(var(--ifm-global-radius) * 1.75);
   padding: 1rem 1.25rem;
-  background: var(--ifm-background-surface-color);
+  background: var(--curso-bg-card);
 }
 
 .tituloGrupo {
@@ -53,8 +53,8 @@
 }
 
 .eixoB {
-  background: rgba(217, 119, 87, 0.15);
-  color: var(--ifm-color-primary);
+  background: rgba(127, 217, 154, 0.15);
+  color: var(--curso-verde);
 }
 
 .definicao {

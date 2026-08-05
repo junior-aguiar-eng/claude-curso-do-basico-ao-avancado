@@ -1,12 +1,23 @@
 /**
- * Estilos globais do curso: identidade de "produto de IA moderno" —
- * sans-serif limpa, cantos suaves, sombras discretas, modo escuro
- * quase-preto com o coral da marca como brilho de fundo. Componentes
- * trazem seus próprios estilos em módulos CSS; aqui só tokens globais
- * do Infima (tema do Docusaurus) e o brilho decorativo.
+ * Estilos globais do curso — identidade visual definida pelo mockup
+ * aprovado (referência: dark-only, terracota + verde sobre quase-preto,
+ * Space Grotesk/Inter/JetBrains Mono). Tema único, sem alternância
+ * claro/escuro (ver docusaurus.config.js, themeConfig.colorMode).
+ * Componentes trazem seus próprios estilos em módulos CSS; aqui só
+ * tokens globais do Infima e padrões decorativos compartilhados (glow,
+ * navbar, glow de cursor nos cards).
  */
 
 :root {
+  /* Paleta do mockup aprovado. */
+  --ifm-background-color: #0b0c0e;
+  --ifm-background-surface-color: #15171a;
+  --curso-bg-card: #1b1e22;
+  --curso-borda: #2a2e33;
+  --curso-texto-dim: #9aa0a6;
+  --curso-verde: #7fd99a;
+  --curso-accent-soft: rgba(217, 119, 87, 0.14);
+
   --ifm-color-primary: #d97757;
   --ifm-color-primary-dark: #d05f3b;
   --ifm-color-primary-darker: #c65733;
@@ -16,71 +27,103 @@
   --ifm-color-primary-lightest: #e9ac9a;
   --ifm-code-font-size: 95%;
 
-  /* Manrope (licença SIL OFL, hospedada localmente via @fontsource — ver
-     src/clientModules/fonts.js): sans-serif geométrica e levemente
-     arredondada, como stand-in de licença livre para a tipografia real
-     da Anthropic (não redistribuível). Código permanece monoespaçado
-     (--ifm-font-family-monospace, não alterado). */
-  --ifm-font-family-base: 'Manrope Variable', 'Manrope', -apple-system, 'Segoe UI', sans-serif;
-  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --ifm-navbar-background-color: rgba(11, 12, 14, 0.75);
+  --ifm-navbar-shadow: none;
 
-  /* Cantos mais suaves e sombras discretas (tingidas de coral em vez de
-     preto puro) — cascateiam para cards, botões, admonitions e blocos
-     de código via tokens do Infima. */
+  /* Space Grotesk (títulos), Inter (corpo), JetBrains Mono (código e
+     elementos técnicos) — todas SIL OFL, hospedadas localmente via
+     @fontsource (ver src/clientModules/fonts.js), sem CDN externo. */
+  --ifm-font-family-base: 'Inter Variable', 'Inter', -apple-system, 'Segoe UI', sans-serif;
+  --ifm-heading-font-family: 'Space Grotesk Variable', 'Space Grotesk', var(--ifm-font-family-base);
+  --ifm-font-family-monospace: 'JetBrains Mono Variable', 'JetBrains Mono', 'SFMono-Regular', Consolas,
+    monospace;
+
+  /* Cards mais arredondados e sombra tingida de coral em vez de preto
+     puro — cascateia pra cards, botões, admonitions e código via
+     tokens do Infima (--ifm-card-border-radius = --ifm-global-radius * 2). */
   --ifm-global-radius: 0.5rem;
-  --ifm-global-shadow-lw: 0 1px 2px 0 rgba(166, 89, 61, 0.08);
-  --ifm-global-shadow-md: 0 8px 30px rgba(166, 89, 61, 0.12);
-
-  /* Fundo levemente quente em vez de branco puro, para combinar com o
-     coral e com o preto quente do modo escuro. */
-  --ifm-background-color: #fdfbfa;
-  --ifm-background-surface-color: #ffffff;
+  --ifm-global-shadow-lw: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+  --ifm-global-shadow-md: 0 8px 30px rgba(0, 0, 0, 0.45);
 
   /* Cor do eixo A (Claude/Claude Code) nos componentes de trilha.
-     O eixo B reaproveita o coral (--ifm-color-primary) já existente. */
+     O eixo B usa o verde do mockup — antes reaproveitava o coral, mas
+     o mockup reserva coral pro Eixo A e verde pro Eixo B (mesmo padrão
+     usado nos indicadores de sucesso). */
   --curso-eixo-a-azul: #3b6ea5;
   --curso-eixo-a-azul-claro: #6b95c4;
 }
 
-[data-theme='dark'] {
-  --ifm-color-primary: #e1947e;
-  --ifm-color-primary-dark: #d97757;
-  --ifm-color-primary-darker: #d05f3b;
-  --ifm-color-primary-darkest: #c65733;
-  --ifm-color-primary-light: #e9ac9a;
-  --ifm-color-primary-lighter: #edb6a6;
-  --ifm-color-primary-lightest: #f4d0c6;
-
-  /* Preto quase puro (não o cinza padrão do Infima), com leve calor —
-     combina com o coral e lê como produto, não como documento escuro. */
-  --ifm-background-color: #141210;
-  --ifm-background-surface-color: #1c1916;
-  --ifm-navbar-background-color: #1c1916;
-  --ifm-global-shadow-lw: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ifm-global-shadow-md: 0 8px 30px rgba(0, 0, 0, 0.5);
-
-  --curso-eixo-a-azul: #6b95c4;
-  --curso-eixo-a-azul-claro: #8fb0d6;
-}
-
-/* Brilho coral sutil no topo da página — a assinatura visual do tema.
-   Fixo e atrás do conteúdo (z-index negativo dentro do próprio body,
-   que tem fundo transparente por padrão no Infima — ver html {
-   background-color } —, então o brilho aparece por cima do fundo base
-   e por baixo de todo o conteúdo normal). */
+/* Brilho coral sutil no topo da página — a assinatura visual do tema,
+   réplica do body::before do mockup. Fixo e atrás do conteúdo. */
 body::before {
   content: '';
   position: fixed;
-  inset: 0;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 900px;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(600px circle at 50% -10%, rgba(217, 119, 87, 0.1), transparent 60%);
+  background: radial-gradient(circle, var(--curso-accent-soft) 0%, transparent 65%);
 }
 
-[data-theme='dark'] body::before {
-  background: radial-gradient(
-    700px circle at 50% -10%,
-    rgba(225, 148, 126, 0.18),
-    transparent 60%
-  );
+/* Navbar semi-transparente com blur, como no mockup. */
+.navbar {
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--curso-borda);
+}
+
+/* Footer: Infima define uma cor fixa própria pro estilo "dark"
+   (--ifm-footer-background-color: #303846), fora da nossa paleta —
+   sobrescrita aqui pra ficar consistente com o resto do site. */
+.footer--dark {
+  --ifm-footer-background-color: var(--curso-bg-card);
+  border-top: 1px solid var(--curso-borda);
+}
+
+/* Contorno de foco visível (navegação por teclado) sobre fundo escuro. */
+:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Glow que segue o cursor nos cards reais do site (opções do Quiz,
+   Checkpoint, cards de paginação Anterior/Próxima) — ver
+   src/clientModules/cardGlow.js, que define --mx/--my no mousemove.
+   Só ativa se o usuário não pediu menos movimento. */
+@media (prefers-reduced-motion: no-preference) {
+  .curso-glow-card,
+  .pagination-nav__link {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .curso-glow-card::before,
+  .pagination-nav__link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      180px circle at var(--mx, 50%) var(--my, 0%),
+      rgba(217, 119, 87, 0.12),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .curso-glow-card:hover::before,
+  .pagination-nav__link:hover::before {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
