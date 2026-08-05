@@ -1,0 +1,89 @@
+---
+title: "M0.2 — O que é Claude"
+sidebar_position: 3.2
+modulo: "M0.2"
+---
+
+import Cards from '@site/src/components/Cards';
+
+# M0.2 — O que é Claude
+
+*Bloco 0 — Panorama · Eixo A · Nível <NivelBadge nivel={1} /> puramente conceitual, sem lab*
+
+## Abertura
+
+Depois de M0.1 (quem constrói), este módulo trata do que é construído.
+Muita gente já usou algo parecido com Claude sem entender tecnicamente o
+que está por trás — este módulo fecha essa lacuna em termos simples, sem
+jargão de aprendizado de máquina.
+
+## Conceito central
+
+Claude é um <Termo id="modelo-de-linguagem" define>modelo de linguagem
+grande</Termo> — também chamado de LLM (a sigla em inglês para *large
+language model*) — um sistema treinado numa quantidade enorme de texto
+para prever, palavra por palavra, o que faz sentido responder a uma
+entrada. Você não precisa entender a arquitetura técnica por trás disso
+para usar bem o produto; o que importa é o comportamento observável:
+<Termo id="claude" define>Claude</Termo> conversa em linguagem natural,
+mantém o contexto ao longo de uma conversa inteira, pode ler e comentar
+arquivos e imagens que você envia, e gera texto, código e outros
+formatos de saída.
+
+É igualmente importante ser honesto sobre os limites reais. Claude pode
+errar fatos — isso se chama <Termo id="alucinacao" define>alucinação</Termo>:
+gerar uma resposta que soa confiante e coerente, mas que não corresponde
+à realidade. Ele também não tem acesso a informação em tempo real por
+padrão — só quando usa busca —, e o conhecimento dele tem um corte de
+treinamento, uma data depois da qual ele simplesmente não sabe o que
+aconteceu. É exatamente para superar essa limitação que existem
+ferramentas como a busca web, que você vai ver em detalhe em M0.4.
+
+## Na prática
+
+Não há sandbox técnico aqui — nível 0, sem programação —, mas uma
+conversa ilustrativa ajuda a ver os três pontos acima juntos: resposta
+em linguagem natural, contexto mantido numa pergunta de acompanhamento,
+e honestidade quando falta informação.
+
+<Cards
+  itens={[
+    {
+      tag: 'CONVERSA ILUSTRATIVA',
+      titulo: 'Uma troca com Claude',
+      texto: [
+        'Você: Resuma em 1 frase o que é fotossíntese.',
+        'Claude: É o processo pelo qual plantas convertem luz solar, água e CO₂ em energia (glicose) e liberam oxigênio.',
+        'Você: E funciona à noite?',
+        'Claude: Não — sem luz não há fotossíntese; à noite as plantas fazem só respiração celular, consumindo um pouco do oxigênio que produziram de dia.',
+        'Você: Qual foi a temperatura em São Paulo ontem?',
+        'Claude: Não tenho acesso a dados em tempo real por padrão, então não sei dizer com precisão — para isso eu precisaria usar busca web.',
+      ],
+    },
+  ]}
+/>
+
+Repare: a segunda pergunta ("E funciona à noite?") só faz sentido porque
+Claude manteve o contexto da primeira. E na terceira, em vez de
+inventar um número, ele admite o limite — a alucinação é quando isso
+*não* acontece e uma resposta errada é apresentada como se fosse certa.
+
+## Diagrama
+
+Uma forma simples de visualizar o que acontece a cada mensagem, sem
+entrar em arquitetura técnica:
+
+<Diagrama
+  title="Da sua pergunta à resposta de Claude"
+  chart={`flowchart LR
+    A[Sua pergunta] --> B[Claude processa o texto, com o contexto da conversa]
+    B --> C[Resposta gerada, palavra por palavra]`}
+/>
+
+## Checkpoint
+
+<Checkpoint id="m0-2">
+  Entendi o que é Claude como modelo de linguagem, o que ele consegue
+  fazer, e quais são seus limites reais (alucinação, sem tempo real por
+  padrão, corte de conhecimento).
+</Checkpoint>

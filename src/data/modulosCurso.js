@@ -1,11 +1,17 @@
-// Os 18 módulos reais do curso, na ordem do currículo — id igual ao
-// usado em <Checkpoint id="..."> de cada lição (docs/m*.mdx) e título
-// igual ao frontmatter `title` de cada arquivo. Diferente de
-// src/data/mockTrilha.js (dados fictícios para pré-visualizar
-// componentes), esta lista é usada para o marco de conclusão do curso,
-// que precisa dos módulos e ids reais.
+// Os módulos reais do curso, na ordem do currículo — id igual ao usado
+// em <Checkpoint id="..."> de cada lição (docs/m*.mdx) e título igual ao
+// frontmatter `title` de cada arquivo. Diferente de src/data/mockTrilha.js
+// (dados fictícios para pré-visualizar componentes), esta lista é usada
+// para o marco de conclusão do curso, que precisa dos módulos e ids
+// reais — inclui o Bloco 0 (M0.1-M0.5), já que ele também faz parte da
+// trilha real hoje.
 
 export const modulosCurso = [
+  {id: 'm0-1', titulo: 'M0.1 — O que é a Anthropic'},
+  {id: 'm0-2', titulo: 'M0.2 — O que é Claude'},
+  {id: 'm0-3', titulo: 'M0.3 — Modelos e Escolha'},
+  {id: 'm0-4', titulo: 'M0.4 — Ferramentas do Dia a Dia'},
+  {id: 'm0-5', titulo: 'M0.5 — Conectores e o Ecossistema Claude'},
   {id: 'm1', titulo: 'M1 — Fundamentos e Mentalidade'},
   {id: 'm2', titulo: 'M2 — Instalação e Primeira Sessão'},
   {id: 'm3', titulo: 'M3 — Uso Cotidiano'},

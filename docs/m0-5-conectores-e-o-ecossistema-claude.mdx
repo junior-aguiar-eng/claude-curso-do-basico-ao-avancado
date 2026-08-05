@@ -1,0 +1,86 @@
+---
+title: "M0.5 — Conectores e o Ecossistema Claude"
+sidebar_position: 3.5
+modulo: "M0.5"
+---
+
+import Cards from '@site/src/components/Cards';
+
+# M0.5 — Conectores e o Ecossistema Claude
+
+*Bloco 0 — Panorama · Eixo A · Nível <NivelBadge nivel={1} /> puramente conceitual, sem lab*
+
+## Abertura
+
+Último módulo do Bloco 0. Depois de ver as ferramentas nativas em M0.4,
+este módulo mostra como Claude se conecta a outros lugares onde você já
+trabalha — e fecha a ponte para a próxima etapa do curso: Claude Code.
+
+## Conceito central
+
+Um <Termo id="conector" define>conector</Termo> permite que Claude
+acesse e trabalhe com serviços externos que você já usa — Google Drive,
+Gmail, Slack, entre outros — sem sair da conversa: ele lê e age sobre
+esses serviços diretamente, em vez de você copiar e colar informação
+manualmente.
+
+Além dos conectores, o ecossistema Claude aparece em outras superfícies,
+cada uma levando Claude para dentro de um lugar onde você já trabalha:
+<Termo id="claude-em-chrome" define>Claude em Chrome</Termo>, dentro do
+navegador; <Termo id="claude-em-excel" define>Claude em Excel</Termo> e
+<Termo id="claude-em-powerpoint" define>Claude em PowerPoint</Termo>,
+dentro dos próprios apps do Office; e o
+<Termo id="claude-tag" define>Claude Tag</Termo>, para equipes que
+trabalham no Slack. O objetivo aqui não é ensinar a configurar cada um
+— foge do escopo de nível 0 —, é dar a você o mapa geral do ecossistema,
+para saber que essas opções existem quando precisar delas.
+
+Até aqui, você usou Claude como uma pessoa conversando com um
+assistente. A partir de M1, você vai conhecer o
+<Termo id="claude-code">Claude Code</Termo> — a versão de Claude que age
+diretamente no seu computador, como um agente autônomo com acesso a
+arquivos e terminal, não só à conversa.
+
+## Na prática
+
+Os conectores e superfícies do ecossistema, num relance:
+
+<Cards
+  itens={[
+    {tag: 'CONECTOR', titulo: 'Google Drive', texto: 'Claude lê e busca documentos e planilhas guardados no seu Drive.'},
+    {tag: 'CONECTOR', titulo: 'Gmail', texto: 'Claude lê, resume e ajuda a redigir e-mails direto da sua caixa de entrada.'},
+    {tag: 'CONECTOR', titulo: 'Slack', texto: 'Claude acessa conversas e canais do seu workspace para dar contexto às respostas.'},
+    {tag: 'SUPERFÍCIE', titulo: 'Claude em Chrome', texto: 'Claude opera dentro do navegador, vendo e agindo sobre a página aberta.'},
+    {tag: 'SUPERFÍCIE', titulo: 'Claude em Excel e PowerPoint', texto: 'Claude trabalha direto dentro da planilha ou da apresentação, sem trocar de app.'},
+    {tag: 'SUPERFÍCIE', titulo: 'Claude Tag', texto: 'Equipes mencionam Claude direto num canal do Slack para pedir ajuda ali mesmo.'},
+  ]}
+/>
+
+Esse é o fim do Bloco 0 — você agora tem o panorama de quem constrói
+Claude, o que ele é, como escolher um modelo, e onde ele aparece no seu
+dia a dia. A partir daqui, o curso muda de registro: em vez de conversar
+com Claude, você vai aprender a colocá-lo para agir, com o Claude Code.
+
+## Diagrama
+
+Assim como em M0.4, não é uma sequência — são conectores e superfícies
+independentes, todos ao redor do mesmo núcleo:
+
+<Diagrama
+  title="Conectores e superfícies ao redor de Claude"
+  chart={`flowchart TD
+    Core((Claude)) --> Drive[Google Drive]
+    Core --> Gmail
+    Core --> Slack
+    Core --> Chrome[Claude em Chrome]
+    Core --> Office[Claude em Excel/PowerPoint]
+    Core --> Tag[Claude Tag]`}
+/>
+
+## Checkpoint
+
+<Checkpoint id="m0-5">
+  Completei o Bloco 0: entendo quem é a Anthropic, o que é Claude, como
+  escolher entre os modelos, e o mapa geral de ferramentas, conectores e
+  superfícies do ecossistema Claude.
+</Checkpoint>
