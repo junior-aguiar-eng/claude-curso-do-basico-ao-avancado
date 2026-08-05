@@ -67,11 +67,13 @@ export default function SandboxPython({code: initialCode, height}) {
       // página rodariam nas mesmas variáveis globais do interpretador
       // compartilhado, e uma variável de um exemplo vazaria para outro
       // (ou para uma reexecução do mesmo código já editado).
-      const namespace = pyodideRef.current.globals.get('dict')();
+      const dictPy = pyodideRef.current.globals.get('dict');
+      const namespace = dictPy();
       try {
         await pyodideRef.current.runPythonAsync(code, {globals: namespace});
       } finally {
         namespace.destroy();
+        dictPy.destroy();
       }
       setStatus('sucesso');
     } catch (err) {
