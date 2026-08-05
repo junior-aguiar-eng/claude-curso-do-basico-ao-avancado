@@ -22,6 +22,11 @@ print(f"Olá, {nome}!")
  * é tratada à parte — não é um erro de código, então não passa pela
  * tradução de exceções Python.
  *
+ * O runtime Pyodide é compartilhado entre todos os sandboxes da página
+ * (ver loadPyodide.js), mas cada execução roda num namespace Python
+ * novo — variáveis de um sandbox (ou de uma execução anterior do mesmo
+ * sandbox) não vazam para a próxima.
+ *
  * Uso em uma lição (.mdx):
  *
  *   <SandboxPython code={'print("Olá, mundo!")'} />
@@ -58,7 +63,16 @@ export default function SandboxPython({code: initialCode, height}) {
 
     try {
       setStatus('rodando');
-      await pyodideRef.current.runPythonAsync(code);
+      // Namespace novo a cada execução: sem isso, todos os sandboxes da
+      // página rodariam nas mesmas variáveis globais do interpretador
+      // compartilhado, e uma variável de um exemplo vazaria para outro
+      // (ou para uma reexecução do mesmo código já editado).
+      const namespace = pyodideRef.current.globals.get('dict')();
+      try {
+        await pyodideRef.current.runPythonAsync(code, {globals: namespace});
+      } finally {
+        namespace.destroy();
+      }
       setStatus('sucesso');
     } catch (err) {
       setErro(traduzirErro(err?.message ?? String(err), code));
