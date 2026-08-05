@@ -1,0 +1,99 @@
+---
+title: "M13 — Paralelismo e Orquestração"
+sidebar_position: 16
+modulo: "M13"
+---
+
+# M13 — Paralelismo e Orquestração
+
+*Bloco 7 — Orquestração · Eixo A · Nível 🟢 / 🔵 lab*
+
+## Abertura
+
+Com o MCP conectando Claude Code a sistemas externos (M12), esta lição
+vai mais fundo no Subagent que você conheceu em M11: como múltiplas
+instâncias de Claude Code trabalham ao mesmo tempo, em paralelo, para
+acelerar tarefas maiores.
+
+## Conceito central
+
+Você já sabe que um Subagent (M11) é uma instância separada, disparada
+para cuidar de uma parte específica de uma tarefa maior. O que ainda não
+foi explorado é o que acontece quando vários subagentes trabalham ao
+mesmo tempo, em vez de um de cada vez — isso é o
+<Termo id="paralelismo" define>paralelismo</Termo>: várias linhas de
+trabalho acontecendo simultaneamente, cada uma progredindo de forma
+independente, em vez de uma esperar a outra terminar.
+
+Para que múltiplas instâncias trabalhem ao mesmo tempo sem interferir
+umas nas outras — especialmente quando mexem no mesmo código — existe a
+<Termo id="worktree" define>worktree</Termo>: uma cópia de trabalho
+isolada do repositório, onde uma instância pode fazer alterações sem
+afetar o que outra instância está fazendo em paralelo, até o momento de
+reunir os resultados.
+
+Para acompanhar o que várias instâncias estão fazendo simultaneamente,
+existe o <Termo id="agent-view" define>agent view</Termo> — uma visão
+que mostra o progresso de cada linha de trabalho paralela, permitindo
+que você monitore várias tarefas ao mesmo tempo sem perder o controle de
+nenhuma delas. Quando esse conjunto de instâncias trabalhando juntas é
+organizado com um propósito coordenado — várias abordando partes
+diferentes do mesmo objetivo maior — chama-se
+<Termo id="agent-team" define>agent team</Termo>.
+
+O ganho do paralelismo é velocidade: tarefas independentes entre si
+(investigar um bug em um módulo enquanto escreve testes em outro) não
+precisam esperar uma pela outra. O custo é a necessidade de isolamento —
+daí a worktree — e de coordenação — daí o agent team — para que o
+trabalho paralelo não vire conflito na hora de juntar tudo de volta.
+
+## Na prática
+
+Um cenário de paralelismo com worktrees:
+
+```
+> Investigue o bug de timeout e, ao mesmo tempo, escreva os 
+  testes que faltam no módulo de autenticação
+
+Criando worktree A (bug-timeout)...
+Criando worktree B (testes-autenticacao)...
+
+[Worktree A] Investigando causa do timeout...
+[Worktree B] Escrevendo testes para função de login...
+[Worktree A] Causa identificada: conexão não fechada
+[Worktree B] 4 testes escritos, 4 passando
+
+Ambas as tarefas concluídas em paralelo. Pronto para revisar 
+e integrar as duas mudanças.
+```
+
+As duas linhas de trabalho progrediram ao mesmo tempo, cada uma isolada
+na própria worktree, sem que uma interferisse na outra — só se
+encontrando no momento final de revisão.
+
+## Diagrama
+
+Duas worktrees avançando em paralelo, convergindo na integração final:
+
+<Diagrama
+  title="Worktrees paralelas convergindo na integração"
+  chart={`flowchart LR
+    T[Tarefa maior] --> A[Worktree A]
+    T --> B[Worktree B]
+    A --> I[Integração]
+    B --> I`}
+/>
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+Dispare duas tarefas independentes em worktrees separadas dentro de um
+projeto seu, e acompanhe o progresso das duas pelo agent view,
+observando como elas avançam sem bloquear uma à outra.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m13">
+  Entendi o que é paralelismo, worktree, agent view e agent team.
+</Checkpoint>

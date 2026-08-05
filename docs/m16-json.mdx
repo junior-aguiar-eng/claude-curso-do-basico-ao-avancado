@@ -1,0 +1,87 @@
+---
+title: "M16 — JSON"
+sidebar_position: 19
+modulo: "M16"
+---
+
+# M16 — JSON
+
+*Bloco 8 — Reuso e integração · Eixo B · Nível 🟢 + 🔵*
+
+## Abertura
+
+Em M15 você instalou e usou `requests` para se comunicar com serviços
+na internet. Mas para que dois programas diferentes — escritos em
+linguagens diferentes, rodando em máquinas diferentes — troquem dados
+entre si, é preciso um formato comum. Este módulo apresenta o formato
+que se tornou padrão de fato para isso: JSON.
+
+## Conceito central
+
+<Termo id="json" define>JSON</Termo> (JavaScript Object Notation) é um
+formato de texto para representar
+<Termo id="dado-estruturado" define>dado estruturado</Termo> — legível
+tanto por humanos quanto por máquinas. A estrutura do JSON mapeia quase
+diretamente para dicionários e listas em Python: um objeto JSON (entre
+`{}`) vira um dicionário, um array JSON (entre `[]`) vira uma lista. É
+por isso que a curva de aprendizado aqui é curta, se você já viu M9.
+
+Python converte entre JSON (que é sempre texto) e estruturas Python
+nativas através do módulo padrão `json`, parte da biblioteca padrão que
+você conheceu em M15: `json.loads()` transforma uma string JSON em
+dicionário ou lista Python; `json.dumps()` faz o caminho inverso,
+transformando uma estrutura Python de volta em texto JSON.
+
+Isso conecta direto com M15: bibliotecas como `requests` normalmente
+recebem e devolvem dados em JSON, e muitas já oferecem atalhos — como
+`resposta.json()` — que fazem essa conversão automaticamente, sem você
+precisar chamar `json.loads()` manualmente.
+
+## Na prática
+
+Uma string JSON representando um cadastro simples, com um campo
+aninhado:
+
+<SandboxPython code={`import json
+
+texto_json = '{"nome": "Ana", "idade": 30, "processos": ["1234", "5678"]}'
+
+dados = json.loads(texto_json)
+print(dados["nome"])
+print(dados["processos"][0])`} />
+
+E o caminho inverso — transformar uma estrutura Python de volta em
+texto JSON, formatado para leitura:
+
+<SandboxPython code={`import json
+
+pessoa = {"nome": "Ana", "idade": 30, "processos": ["1234", "5678"]}
+
+texto_formatado = json.dumps(pessoa, indent=2)
+print(texto_formatado)`} />
+
+## Diagrama
+
+A conversão nos dois sentidos entre texto JSON e estruturas Python:
+
+<Diagrama
+  title="json.loads() e json.dumps(): as duas direções"
+  chart={`flowchart LR
+    J[Texto JSON] -->|json.loads| P[Dicionário ou lista Python]
+    P -->|json.dumps| J2[Texto JSON]`}
+/>
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+A partir de uma resposta JSON de uma API pública gratuita (pode
+reaproveitar a mesma do lab de M15), extraia e imprima campos
+específicos usando o que você já sabe sobre dicionários aninhados.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m16">
+  Entendi o que é JSON, e sei converter entre texto JSON e estruturas
+  Python com json.loads() e json.dumps().
+</Checkpoint>

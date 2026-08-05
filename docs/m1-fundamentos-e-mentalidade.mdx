@@ -1,0 +1,105 @@
+---
+title: "M1 — Fundamentos e Mentalidade"
+sidebar_position: 4
+modulo: "M1"
+---
+
+# M1 — Fundamentos e Mentalidade
+
+*Bloco 1 — Mentalidade · Eixo A · Nível 🟢 puramente conceitual, sem lab*
+
+## Abertura
+
+Esta lição estabelece a distinção mais importante do curso: o que é
+Claude, o que é Claude Code, e por que essa diferença muda completamente
+a forma como você vai trabalhar com IA daqui em diante. Não há
+pré-requisito — é o ponto de partida de tudo.
+
+## Conceito central
+
+Imagine duas formas de pedir ajuda a alguém muito competente. Na
+primeira, você faz uma pergunta e recebe uma resposta — uma conversa,
+indo e voltando. Na segunda, você descreve um objetivo e essa pessoa vai
+embora, investiga, toma decisões, executa passos, verifica o próprio
+trabalho, e só volta quando terminou — ou quando precisa de uma decisão
+que só você pode tomar.
+
+<Termo id="claude" define>Claude</Termo> é a primeira forma. É um
+<Termo id="modelo-de-linguagem" define>modelo de linguagem</Termo> — um
+sistema treinado para entender e gerar texto, capaz de responder
+perguntas, explicar conceitos, escrever e revisar textos, ajudar a
+pensar um problema. Você conversa, ele responde, dentro de uma janela de
+chat como esta.
+
+<Termo id="claude-code" define>Claude Code</Termo> é a segunda forma. É
+o mesmo Claude, mas operando de um jeito diferente: em vez de só
+responder, ele age. Ele lê arquivos no seu computador, escreve código,
+executa comandos, corrige o que deu errado, e repete esse processo
+sozinho até completar uma tarefa — sempre dentro dos limites que você
+definiu.
+
+Essa capacidade de agir de forma repetida e autônoma até completar um
+objetivo tem nome: <Termo id="loop-agentico" define>loop agêntico</Termo>.
+É o ciclo de perceber o estado atual, decidir a próxima ação, executá-la,
+observar o resultado, e decidir a ação seguinte — repetindo até a tarefa
+estar pronta ou até precisar da sua decisão. É esse loop que separa um
+chatbot de um agente: o chatbot responde uma vez; o agente persiste até
+o objetivo ser alcançado.
+
+Claude e Claude Code não são duas ferramentas diferentes — são duas
+<Termo id="superficie" define>superfícies</Termo> diferentes do mesmo
+modelo. Superfície, aqui, significa a forma como você acessa e interage
+com ele: pelo navegador, você tem Claude em modo conversa; pelo terminal
+do seu computador, você tem Claude Code em modo agente. O "cérebro" por
+trás é o mesmo — o que muda é o que ele tem permissão de fazer e como
+você conversa com ele.
+
+## Na prática
+
+Uma conversa comum com Claude se parece com isto:
+
+```
+Você: Explique o que é uma API em termos simples.
+Claude: Uma API é como um cardápio de restaurante — ela lista o 
+que você pode pedir e como pedir, sem você precisar saber como a 
+cozinha funciona por dentro...
+```
+
+Uma sessão com Claude Code, para a mesma dúvida aplicada a um projeto
+real, se parece com isto:
+
+```
+> Adicione um endpoint que retorna a lista de usuários ativos
+
+Lendo estrutura do projeto...
+Encontrado: routes/users.js
+Analisando padrão dos endpoints existentes...
+Criando novo endpoint GET /api/users/active
+Escrevendo teste correspondente...
+Executando testes... ✓ passou
+Pronto. Endpoint criado e testado.
+```
+
+Repare na diferença: você não descreveu passo a passo o que fazer.
+Descreveu o resultado que queria, e o loop agêntico cuidou do "como" —
+ler, decidir, executar, verificar — sozinho, dentro do escopo pedido.
+
+## Diagrama
+
+O ciclo do loop agêntico, revelado passo a passo:
+
+<Diagrama
+  title="O loop agêntico: perceber, decidir, agir, observar — e repetir"
+  chart={`flowchart LR
+    A[Perceber] --> B[Decidir]
+    B --> C[Agir]
+    C --> D[Observar]
+    D --> A`}
+/>
+
+## Checkpoint
+
+<Checkpoint id="m1">
+  Entendi a diferença entre Claude e Claude Code, e o que é o loop
+  agêntico.
+</Checkpoint>

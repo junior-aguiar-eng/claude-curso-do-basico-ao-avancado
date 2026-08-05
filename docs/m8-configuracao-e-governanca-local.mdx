@@ -1,0 +1,82 @@
+---
+title: "M8 — Configuração e Governança Local"
+sidebar_position: 11
+modulo: "M8"
+---
+
+# M8 — Configuração e Governança Local
+
+*Bloco 4 — Configuração do Claude Code · Eixo A (usa Eixo B) · Nível 🟢 / 🔵 lab: allowlist*
+
+## Abertura
+
+Com o CLAUDE.md dando memória de projeto ao agente (M7), esta lição
+fecha o Bloco 4 mostrando como controlar, de forma mais fina e
+estruturada, o que Claude Code tem permissão de fazer no seu ambiente.
+
+## Conceito central
+
+Enquanto o CLAUDE.md registra convenções e contexto em linguagem
+natural, existe um segundo arquivo de configuração que trata
+especificamente de permissões e comportamento técnico: o
+<Termo id="settings-json" define>settings.json</Termo>, guardado em
+`.claude/settings.json` na raiz do projeto. É um arquivo de dado
+estruturado — na prática, um <Termo id="dicionario">dicionário</Termo>
+salvo em disco, o mesmo tipo de estrutura de dados que você vai
+formalizar em M9 — que define, entre outras coisas, quais comandos
+Claude Code pode executar sem pedir confirmação e quais exigem aprovação
+explícita. Por ficar dentro de `.claude/`, junto com outras configurações
+do projeto, esse arquivo costuma ser compartilhado com o time (versionado
+no controle de versão); preferências só suas, que não deveriam valer
+para todo mundo, vão num `.claude/settings.local.json` separado.
+
+Essa granularidade importa porque nem toda ação tem o mesmo risco. Ler
+um arquivo é seguro; apagar um arquivo, não necessariamente. A
+<Termo id="permissao" define>permissão</Termo>, no contexto de
+settings.json, é essa decisão configurada previamente — em vez de você
+aprovar cada ação individualmente durante a sessão (como vimos no modo
+cauteloso de M2), você declara de antemão o que é permitido.
+
+Uma forma comum de estruturar isso é a
+<Termo id="allowlist" define>allowlist</Termo>: uma lista explícita de
+comandos ou ações pré-aprovados, contra a qual cada nova ação é
+verificada. Se o comando está na lista, ele roda sem interrupção; se não
+está, Claude Code para e pede confirmação — o inverso de permitir tudo
+por padrão e bloquear exceções.
+
+## Na prática
+
+Um `.claude/settings.json` simples, com uma allowlist:
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm test)",
+      "Bash(git status)",
+      "Read"
+    ]
+  }
+}
+```
+
+Com essa configuração, Claude Code pode rodar `npm test`, checar `git
+status` e ler qualquer arquivo sem pedir confirmação a cada vez — mas
+qualquer outro comando, como apagar um arquivo ou fazer `git push`,
+ainda vai parar e perguntar, porque não está na lista.
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+Crie um `.claude/settings.json` com uma allowlist de dois ou três
+comandos seguros em um projeto seu. Peça ao Claude Code para executar um
+comando que está na lista e observe que ele não pede confirmação; peça
+um que não está, e observe que ele para e pergunta.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m8">
+  Completei o Bloco 4: sei o que é o settings.json, uma permissão
+  configurada de antemão e uma allowlist.
+</Checkpoint>

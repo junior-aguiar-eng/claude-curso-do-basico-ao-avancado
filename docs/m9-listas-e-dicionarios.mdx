@@ -1,0 +1,85 @@
+---
+title: "M9 — Listas e Dicionários"
+sidebar_position: 12
+modulo: "M9"
+---
+
+# M9 — Listas e Dicionários
+
+*Bloco 5 — Estruturas de dados e funções · Eixo B · Nível 🟢 + 🔵*
+
+## Abertura
+
+Até aqui (M4-M6), cada variável guardava um único valor. Mas a maioria
+dos problemas reais envolve coleções de dados — uma lista de tarefas,
+um cadastro com vários campos. Este módulo apresenta as duas estruturas
+de dados mais usadas em Python para isso.
+
+## Conceito central
+
+Uma <Termo id="lista" define>lista</Termo> é uma sequência ordenada de
+valores, criada com colchetes (`[]`), acessada por posição — o
+<Termo id="indice" define>índice</Termo>, que começa em 0, não em 1.
+Uma lista pode crescer ou encolher (`append` adiciona um item ao final,
+`remove` tira um item específico) e ser percorrida com o laço `for` que
+você já viu em M6.
+
+Um <Termo id="dicionario" define>dicionário</Termo> é uma coleção de
+pares chave-valor, criada com chaves (`{}`), onde cada valor é acessado
+pela sua chave — não por posição. É útil quando os dados têm nome, não
+ordem: `{"nome": "Ana", "idade": 30}` guarda duas informações, cada uma
+identificada pelo próprio nome, não por "primeira posição" e "segunda
+posição".
+
+Listas e dicionários podem ser aninhados: uma lista de dicionários
+(vários cadastros, um atrás do outro) ou um dicionário cujo valor é uma
+lista (um cadastro com um campo que guarda vários itens). Essa
+combinação é o que prepara o terreno para representar dados do mundo
+real de forma mais fiel — quase nenhum dado real é um valor solto; ele
+vem em coleções, e as coleções têm estrutura.
+
+## Na prática
+
+Uma lista de tarefas, com adição, remoção e iteração:
+
+<SandboxPython code={`tarefas = ["revisar PR", "escrever testes"]
+tarefas.append("corrigir bug")
+tarefas.remove("revisar PR")
+
+for tarefa in tarefas:
+    print(tarefa)`} />
+
+Um dicionário representando um cadastro simples:
+
+<SandboxPython code={`pessoa = {"nome": "Ana", "idade": 30}
+print(pessoa["nome"])
+
+pessoa["idade"] = 31
+print(pessoa["idade"])`} />
+
+Uma lista de dicionários — vários cadastros, percorridos para extrair
+um campo específico de cada um:
+
+<SandboxPython code={`pessoas = [
+    {"nome": "Ana", "idade": 30},
+    {"nome": "Bruno", "idade": 25},
+]
+
+for pessoa in pessoas:
+    print(pessoa["nome"])`} />
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+Crie uma lista de dicionários representando um pequeno cadastro (3 a 5
+itens, campos à sua escolha) e escreva um laço que filtra e imprime só
+os itens que atendem a uma condição — por exemplo, só os cadastros com
+idade acima de um valor.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m9">
+  Entendi o que é uma lista, um índice e um dicionário, e como combiná-los
+  numa lista de dicionários.
+</Checkpoint>

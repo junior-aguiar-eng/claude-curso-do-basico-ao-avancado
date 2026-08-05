@@ -1,0 +1,85 @@
+---
+title: "M3 — Uso Cotidiano"
+sidebar_position: 6
+modulo: "M3"
+---
+
+# M3 — Uso Cotidiano
+
+*Bloco 2 — Primeiro contato · Eixo A · Nível 🟢 / 🔵 lab bug→fix→PR*
+
+## Abertura
+
+Com o Claude Code instalado e a primeira sessão feita (M2), esta lição
+cobre o que muda quando ele deixa de ser novidade e vira ferramenta de
+trabalho: os comandos que você vai usar toda vez, e como uma tarefa
+termina em algo revisável.
+
+## Conceito central
+
+Boa parte do trabalho cotidiano com Claude Code não é escrever uma
+instrução longa do zero a cada vez — é usar atalhos que ele já
+reconhece. Esses atalhos são os
+<Termo id="slash-command" define>slash commands</Termo>: comandos que
+começam com `/`, como `/clear` (limpa o histórico da sessão atual) ou
+`/help` (lista o que está disponível). Eles existem para ações
+repetitivas que não valem uma frase inteira explicando o que você quer.
+
+O uso real e contínuo de Claude Code tende a seguir um padrão: você
+descreve um problema, ele investiga e propõe ou aplica uma mudança, você
+revisa. Esse padrão de trabalho — pedir, receber, revisar — é chamado
+aqui de <Termo id="workflow" define>workflow</Termo>: a sequência
+típica de passos que uma tarefa percorre do pedido até a entrega.
+
+Quando o trabalho envolve código que será compartilhado com outras
+pessoas ou integrado a um projeto maior, ele geralmente termina em um
+<Termo id="pull-request" define>pull request (PR)</Termo> — um pedido
+formal para que as mudanças feitas sejam revisadas e incorporadas ao
+projeto principal. Claude Code pode preparar esse PR para você: escrever
+a mudança, testá-la, e deixá-la pronta para revisão humana antes de
+entrar de vez no projeto.
+
+## Na prática
+
+Um workflow cotidiano completo, do pedido ao PR:
+
+```
+> Corrija o bug relatado na issue #42: o botão de logout 
+  não limpa a sessão do usuário
+
+Lendo issue #42...
+Localizando código relacionado a logout...
+Encontrado em auth/session.js, linha 34
+Problema identificado: token não é removido do localStorage
+
+Aplicando correção...
+Executando testes... ✓ passou
+Criando branch fix/logout-session-clear...
+Preparando pull request...
+
+Pronto. PR #43 aberto para revisão: "Fix: logout agora limpa 
+sessão do usuário corretamente"
+
+> /clear
+
+Sessão limpa. Contexto anterior removido.
+```
+
+Repare que `/clear` aparece como um comando direto, sem precisar de
+explicação — é um atalho, não um pedido em linguagem natural.
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+Em um projeto seu (ou um repositório de teste), peça ao Claude Code para
+corrigir um problema pequeno e real, e acompanhe o workflow completo até
+a criação do PR. Experimente também `/clear` entre uma tarefa e outra,
+para observar a diferença de contexto.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m3">
+  Completei o Bloco 2: sei os slash commands básicos, meu workflow
+  cotidiano e como uma tarefa termina em PR.
+</Checkpoint>

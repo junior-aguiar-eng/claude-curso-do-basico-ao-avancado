@@ -1,0 +1,84 @@
+---
+title: "M7 — Memória e Contexto"
+sidebar_position: 10
+modulo: "M7"
+---
+
+# M7 — Memória e Contexto
+
+*Bloco 4 — Configuração do Claude Code · Eixo A (usa Eixo B) · Nível 🟢 / 🔵 lab: escrever um CLAUDE.md real*
+
+## Abertura
+
+Você já sabe abrir sessões (M2) e usar Claude Code no dia a dia (M3).
+Esta lição resolve uma limitação que você provavelmente já sentiu: cada
+sessão nova começa do zero. Aqui você aprende como dar a ele memória
+persistente sobre o seu projeto.
+
+## Conceito central
+
+Dentro de uma única sessão, Claude Code mantém tudo o que aconteceu até
+aquele momento — cada arquivo lido, cada decisão tomada — dentro da
+<Termo id="janela-de-contexto" define>janela de contexto</Termo>: o
+espaço de informação que ele consegue "ter em mente" ao mesmo tempo. É
+como a memória de curto prazo de alguém: grande, mas finita, e limitada
+àquela conversa específica.
+
+O problema é que essa memória não sobrevive ao fim da sessão (M2). Toda
+vez que você abre uma sessão nova, Claude Code não sabe nada sobre as
+convenções do seu projeto, as decisões arquiteturais já tomadas, ou as
+instruções específicas que você deu ontem — a menos que você registre
+isso em algum lugar que ele leia automaticamente.
+
+Esse lugar é o <Termo id="claude-md" define>CLAUDE.md</Termo>: um
+arquivo de texto na raiz do projeto que Claude Code lê no início de cada
+sessão, funcionando como a
+<Termo id="memoria-do-agente" define>memória do agente</Termo> — não uma
+memória automática e implícita, mas uma que você escreve explicitamente.
+Nele, você registra o que ele precisa saber toda vez: convenções de
+código do projeto, regras de trabalho (como "sempre apresente um plano
+antes de tarefas de mais de um passo"), estrutura de pastas, decisões
+que não devem ser reabertas sem motivo forte.
+
+CLAUDE.md não substitui a janela de contexto — ele a alimenta logo no
+início, garantindo que informação essencial não se perca a cada sessão
+nova.
+
+## Na prática
+
+Um trecho típico de CLAUDE.md:
+
+```markdown
+# CLAUDE.md
+
+## Convenções do projeto
+- Testes sempre em `tests/`, espelhando a estrutura de `src/`
+- Commits em português, no imperativo ("adiciona", não "adicionado")
+
+## Regra de trabalho
+Para qualquer tarefa de mais de um passo: apresentar plano e 
+aguardar confirmação antes de executar.
+```
+
+Quando uma nova sessão começa, Claude Code lê esse arquivo
+automaticamente. Se você pedir "adicione um teste para a função de
+login", ele já sabe, sem perguntar, que o teste vai em `tests/` e que
+qualquer mudança maior precisa de um plano prévio — porque isso está na
+memória do agente, não na sua memória de curto prazo repetindo a mesma
+instrução toda vez.
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+Crie um `CLAUDE.md` simples na raiz de um projeto seu, com pelo menos
+uma convenção e uma regra de trabalho. Abra uma nova sessão e peça uma
+tarefa qualquer relacionada ao projeto — observe se Claude Code respeita
+o que está registrado, sem você precisar repetir a instrução.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m7">
+  Entendi o que é a janela de contexto e como o CLAUDE.md dá memória
+  persistente ao agente.
+</Checkpoint>

@@ -1,0 +1,416 @@
+{
+  "claude": {
+    "termo": "Claude",
+    "definicao": "Um modelo de linguagem que você acessa em modo conversa: você pergunta ou pede algo, e ele responde, dentro de uma janela de chat.",
+    "moduloOrigem": "M1",
+    "eixo": "A"
+  },
+  "claude-code": {
+    "termo": "Claude Code",
+    "definicao": "O mesmo Claude, operando em modo agente: em vez de só responder, ele age — lê arquivos, escreve código, executa comandos e corrige o que deu errado, repetindo esse processo sozinho até completar uma tarefa, dentro dos limites que você definiu.",
+    "moduloOrigem": "M1",
+    "eixo": "A"
+  },
+  "modelo-de-linguagem": {
+    "termo": "Modelo de linguagem",
+    "definicao": "Um sistema treinado para entender e gerar texto, capaz de responder perguntas, explicar conceitos, escrever e revisar textos e ajudar a pensar um problema.",
+    "moduloOrigem": "M1",
+    "eixo": "A"
+  },
+  "loop-agentico": {
+    "termo": "Loop agêntico",
+    "definicao": "O ciclo de perceber o estado atual, decidir a próxima ação, executá-la e observar o resultado, repetindo até a tarefa estar pronta ou até precisar de uma decisão sua. É o que separa um agente de um chatbot, que só responde uma vez.",
+    "moduloOrigem": "M1",
+    "eixo": "A"
+  },
+  "superficie": {
+    "termo": "Superfície",
+    "definicao": "A forma como você acessa e interage com o modelo — pelo navegador (Claude, em modo conversa) ou pelo terminal (Claude Code, em modo agente). O modelo por trás é o mesmo; o que muda é o que ele pode fazer e como você conversa com ele.",
+    "moduloOrigem": "M1",
+    "eixo": "A"
+  },
+  "terminal": {
+    "termo": "Terminal",
+    "definicao": "A interface de texto onde você digita comandos diretamente para o computador, sem cliques nem menus — escreve uma instrução, aperta Enter, e o computador responde também em texto. É onde o Claude Code roda.",
+    "moduloOrigem": "M2",
+    "eixo": "A"
+  },
+  "sessao": {
+    "termo": "Sessão",
+    "definicao": "Um período contínuo de trabalho com o Claude Code em que ele mantém o contexto do que está acontecendo — arquivos já lidos, decisões já tomadas, o que já foi feito. Termina quando você fecha o terminal ou encerra explicitamente.",
+    "moduloOrigem": "M2",
+    "eixo": "A"
+  },
+  "modo-de-permissao": {
+    "termo": "Modo de permissão",
+    "definicao": "A configuração que decide o quanto de autonomia o Claude Code tem antes de agir: do mais cauteloso (pede confirmação antes de cada ação) ao mais autônomo (executa e avisa depois, ou só confirma ações potencialmente destrutivas).",
+    "moduloOrigem": "M2",
+    "eixo": "A"
+  },
+  "slash-command": {
+    "termo": "Slash command",
+    "definicao": "Um comando que começa com \"/\", como /clear ou /help, reconhecido diretamente pelo Claude Code como um atalho para uma ação repetitiva — sem precisar de uma frase inteira explicando o que você quer.",
+    "moduloOrigem": "M3",
+    "eixo": "A"
+  },
+  "workflow": {
+    "termo": "Workflow",
+    "definicao": "A sequência típica de passos que uma tarefa percorre do pedido até a entrega — no uso cotidiano do Claude Code, geralmente pedir, receber uma proposta ou mudança, e revisar.",
+    "moduloOrigem": "M3",
+    "eixo": "A"
+  },
+  "pull-request": {
+    "termo": "Pull request (PR)",
+    "definicao": "Um pedido formal para que mudanças feitas em código sejam revisadas e incorporadas a um projeto principal. O Claude Code pode preparar um PR pronto para revisão humana depois de aplicar e testar uma mudança.",
+    "moduloOrigem": "M3",
+    "eixo": "A"
+  },
+  "valor": {
+    "termo": "Valor",
+    "definicao": "Um pedaço isolado de informação usado por um programa — um número, um texto, um resultado de verdadeiro ou falso. Sozinho, um valor não tem nome; ele só existe no momento em que é usado.",
+    "moduloOrigem": "M4",
+    "eixo": "B"
+  },
+  "variavel": {
+    "termo": "Variável",
+    "definicao": "Um nome que aponta para um valor guardado na memória do programa — como uma caixa com etiqueta. Quando o código pede o nome, ele está pedindo o conteúdo da caixa, não a palavra em si.",
+    "moduloOrigem": "M4",
+    "eixo": "B"
+  },
+  "tipo-de-dado": {
+    "termo": "Tipo de dado",
+    "definicao": "A categoria do que um valor representa (texto, número, verdadeiro/falso...), que determina o que pode ser feito com ele — um número pode ser somado, um texto pode ser concatenado, por exemplo.",
+    "moduloOrigem": "M4",
+    "eixo": "B"
+  },
+  "condicional": {
+    "termo": "Condicional",
+    "definicao": "Uma estrutura que testa se algo é verdadeiro ou falso e executa um bloco de código diferente conforme o resultado — o mecanismo que permite ao programa escolher um caminho.",
+    "moduloOrigem": "M5",
+    "eixo": "B"
+  },
+  "if": {
+    "termo": "If",
+    "definicao": "A forma mais comum de condicional: \"se esta condição for verdadeira, faça isto\", opcionalmente acompanhada de um \"senão\" (else) para o caso em que a condição é falsa.",
+    "moduloOrigem": "M5",
+    "eixo": "B"
+  },
+  "laco": {
+    "termo": "Laço",
+    "definicao": "Uma estrutura que repete um bloco de código várias vezes, seguindo uma regra que define quando parar — evita escrever a mesma instrução manualmente para cada repetição.",
+    "moduloOrigem": "M6",
+    "eixo": "B"
+  },
+  "for": {
+    "termo": "For",
+    "definicao": "Um laço que repete uma ação um número definido de vezes, ou uma vez para cada item de uma coleção — por exemplo, para cada nome de uma lista, imprimir o nome.",
+    "moduloOrigem": "M6",
+    "eixo": "B"
+  },
+  "while": {
+    "termo": "While",
+    "definicao": "Um laço que repete uma ação enquanto uma condição continuar verdadeira, parando assim que ela deixa de ser — a mesma lógica, estruturalmente, do loop agêntico visto em M1.",
+    "moduloOrigem": "M6",
+    "eixo": "B"
+  },
+  "claude-md": {
+    "termo": "CLAUDE.md",
+    "definicao": "Um arquivo de texto na raiz do projeto que Claude Code lê no início de cada sessão. Nele você registra o que ele precisa saber toda vez: convenções de código, regras de trabalho, estrutura de pastas, decisões que não devem ser reabertas sem motivo forte.",
+    "moduloOrigem": "M7",
+    "eixo": "A"
+  },
+  "janela-de-contexto": {
+    "termo": "Janela de contexto",
+    "definicao": "O espaço de informação que Claude Code consegue \"ter em mente\" ao mesmo tempo dentro de uma sessão — como uma memória de curto prazo, grande mas finita, e limitada àquela conversa específica.",
+    "moduloOrigem": "M7",
+    "eixo": "A"
+  },
+  "memoria-do-agente": {
+    "termo": "Memória do agente",
+    "definicao": "Informação que Claude Code lê automaticamente no início de cada sessão, vinda de um arquivo como o CLAUDE.md — não uma memória automática e implícita, mas uma que você escreve explicitamente.",
+    "moduloOrigem": "M7",
+    "eixo": "A"
+  },
+  "settings-json": {
+    "termo": "settings.json",
+    "definicao": "Arquivo de dado estruturado em .claude/settings.json que define permissões e comportamento técnico do Claude Code — por exemplo, quais comandos ele pode executar sem pedir confirmação e quais exigem aprovação explícita.",
+    "moduloOrigem": "M8",
+    "eixo": "A"
+  },
+  "permissao": {
+    "termo": "Permissão",
+    "definicao": "Uma decisão sobre o que Claude Code pode fazer, configurada de antemão no settings.json — em vez de aprovar cada ação individualmente durante a sessão, você declara o que é permitido com antecedência.",
+    "moduloOrigem": "M8",
+    "eixo": "A"
+  },
+  "allowlist": {
+    "termo": "Allowlist",
+    "definicao": "Uma lista explícita de comandos ou ações pré-aprovados, contra a qual cada nova ação é verificada: se está na lista, roda sem interrupção; se não está, Claude Code para e pede confirmação.",
+    "moduloOrigem": "M8",
+    "eixo": "A"
+  },
+  "lista": {
+    "termo": "Lista",
+    "definicao": "Uma sequência ordenada de valores, criada com colchetes ([]), acessada por posição (índice) e que pode crescer ou encolher com métodos como append e remove.",
+    "moduloOrigem": "M9",
+    "eixo": "B"
+  },
+  "indice": {
+    "termo": "Índice",
+    "definicao": "A posição de um valor dentro de uma lista, começando em 0 — a primeira posição de uma lista é o índice 0, não o índice 1.",
+    "moduloOrigem": "M9",
+    "eixo": "B"
+  },
+  "dicionario": {
+    "termo": "Dicionário",
+    "definicao": "Uma coleção de pares chave-valor, criada com chaves ({}), onde cada valor é acessado pela sua chave, não por posição — útil quando os dados têm nome, não ordem.",
+    "moduloOrigem": "M9",
+    "eixo": "B"
+  },
+  "funcao": {
+    "termo": "Função",
+    "definicao": "Um bloco de código nomeado, definido com def, que pode receber parâmetros e devolver um valor com return. Definir uma função não a executa — só a chamada faz isso.",
+    "moduloOrigem": "M10",
+    "eixo": "B"
+  },
+  "parametro": {
+    "termo": "Parâmetro",
+    "definicao": "Uma entrada que uma função recebe para trabalhar; pode ter um valor padrão, o que a torna opcional na hora de chamar a função.",
+    "moduloOrigem": "M10",
+    "eixo": "B"
+  },
+  "retorno": {
+    "termo": "Retorno",
+    "definicao": "O valor que uma função devolve com return, permitindo que o resultado seja usado por outra parte do código — sem ele, o que a função calculou fica preso ali dentro.",
+    "moduloOrigem": "M10",
+    "eixo": "B"
+  },
+  "skills": {
+    "termo": "Skills",
+    "definicao": "Instruções reutilizáveis que ensinam o Claude a fazer algo de um jeito específico — conceitualmente parecido com uma função, empacotando conhecimento reutilizável para o agente usar quando precisar.",
+    "moduloOrigem": "M11",
+    "eixo": "A"
+  },
+  "subagents": {
+    "termo": "Subagents",
+    "definicao": "Instâncias especializadas do Claude Code, disparadas para tratar uma parte específica de um trabalho maior (ver subagente, M13, para como isso funciona na prática).",
+    "moduloOrigem": "M11",
+    "eixo": "A"
+  },
+  "slash-commands": {
+    "termo": "Slash Commands",
+    "definicao": "Atalhos nomeados para tarefas recorrentes do Claude Code — a mesma ideia do slash command (M3), generalizada como uma das seis primitivas de extensão.",
+    "moduloOrigem": "M11",
+    "eixo": "A"
+  },
+  "hooks": {
+    "termo": "Hooks",
+    "definicao": "Código que roda automaticamente em resposta a eventos do Claude Code, como antes de um commit ou depois de uma edição — sem precisar ser disparado manualmente.",
+    "moduloOrigem": "M11",
+    "eixo": "A"
+  },
+  "plugins": {
+    "termo": "Plugins",
+    "definicao": "Pacotes que agrupam várias primitivas — Skills, Subagents, Slash Commands, Hooks, MCP — numa unidade instalável, o equivalente a uma biblioteca no mundo do Claude Code.",
+    "moduloOrigem": "M11",
+    "eixo": "A"
+  },
+  "mcp": {
+    "termo": "MCP",
+    "definicao": "O protocolo (Model Context Protocol) que conecta o Claude Code a ferramentas e serviços externos, permitindo que ele leia e aja sobre sistemas reais fora do seu computador (aprofundado em M12).",
+    "moduloOrigem": "M11",
+    "eixo": "A"
+  },
+  "servidor-mcp": {
+    "termo": "Servidor MCP",
+    "definicao": "Um programa que expõe as capacidades de um serviço externo (um quadro de tarefas, um banco de dados, um serviço na nuvem) na linguagem que o MCP entende, permitindo que Claude Code chame essas capacidades como se fossem ferramentas suas.",
+    "moduloOrigem": "M12",
+    "eixo": "A"
+  },
+  "integracao-externa": {
+    "termo": "Integração externa",
+    "definicao": "A capacidade de Claude Code agir sobre sistemas fora do seu computador — consultando um ticket, atualizando uma planilha, verificando um deploy — sem que você precise sair da sessão para fazer isso manualmente.",
+    "moduloOrigem": "M12",
+    "eixo": "A"
+  },
+  "subagente": {
+    "termo": "Subagente",
+    "definicao": "Uma instância separada de Claude Code, disparada para cuidar de uma parte específica de uma tarefa maior. Quando várias trabalham ao mesmo tempo em vez de uma de cada vez, isso dá origem ao paralelismo.",
+    "moduloOrigem": "M13",
+    "eixo": "A"
+  },
+  "worktree": {
+    "termo": "Worktree",
+    "definicao": "Uma cópia de trabalho isolada do repositório, onde uma instância de Claude Code pode fazer alterações sem afetar o que outra instância está fazendo em paralelo, até o momento de reunir os resultados.",
+    "moduloOrigem": "M13",
+    "eixo": "A"
+  },
+  "agent-view": {
+    "termo": "Agent view",
+    "definicao": "Uma visão que mostra o progresso de cada linha de trabalho paralela, permitindo acompanhar várias tarefas ao mesmo tempo sem perder o controle de nenhuma delas.",
+    "moduloOrigem": "M13",
+    "eixo": "A"
+  },
+  "agent-team": {
+    "termo": "Agent team",
+    "definicao": "Um conjunto de instâncias de Claude Code trabalhando juntas de forma coordenada, cada uma abordando uma parte diferente do mesmo objetivo maior.",
+    "moduloOrigem": "M13",
+    "eixo": "A"
+  },
+  "paralelismo": {
+    "termo": "Paralelismo",
+    "definicao": "Várias linhas de trabalho acontecendo simultaneamente, cada uma progredindo de forma independente, em vez de uma esperar a outra terminar.",
+    "moduloOrigem": "M13",
+    "eixo": "A"
+  },
+  "routine": {
+    "termo": "Routine",
+    "definicao": "Uma automação agendada ou recorrente — uma tarefa que roda em intervalos definidos (todo dia, a cada hora) sem depender de você iniciar a sessão.",
+    "moduloOrigem": "M14",
+    "eixo": "A"
+  },
+  "loop": {
+    "termo": "/loop",
+    "definicao": "Mantém Claude Code executando um ciclo de trabalho repetidamente até uma condição de parada ser satisfeita — o mesmo princípio do laço while (M6), aplicado ao comportamento do agente.",
+    "moduloOrigem": "M14",
+    "eixo": "A"
+  },
+  "goal": {
+    "termo": "/goal",
+    "definicao": "Permite declarar um objetivo final, em vez de especificar os passos — Claude Code decide o caminho, dentro dos limites configurados, avaliando o próprio progresso até alcançá-lo.",
+    "moduloOrigem": "M14",
+    "eixo": "A"
+  },
+  "sandboxing": {
+    "termo": "Sandboxing",
+    "definicao": "Executar o agente dentro de um ambiente isolado e limitado, onde mesmo que algo dê errado, o impacto fica contido àquele espaço, sem afetar o sistema real.",
+    "moduloOrigem": "M14",
+    "eixo": "A"
+  },
+  "automacao": {
+    "termo": "Automação",
+    "definicao": "Configurar Claude Code para executar um processo repetidamente, ou de forma contínua, sem que você precise disparar cada execução manualmente.",
+    "moduloOrigem": "M14",
+    "eixo": "A"
+  },
+  "modulo": {
+    "termo": "Módulo",
+    "definicao": "Um arquivo .py que agrupa código relacionado, pronto para ser reaproveitado em outro arquivo via import.",
+    "moduloOrigem": "M15",
+    "eixo": "B"
+  },
+  "pacote": {
+    "termo": "Pacote",
+    "definicao": "Um conjunto de módulos organizado em uma pasta — a próxima camada de organização depois de um único arquivo de módulo.",
+    "moduloOrigem": "M15",
+    "eixo": "B"
+  },
+  "biblioteca": {
+    "termo": "Biblioteca",
+    "definicao": "Um pacote publicado para uso por qualquer pessoa — a própria biblioteca padrão do Python ou uma biblioteca externa instalada com pip.",
+    "moduloOrigem": "M15",
+    "eixo": "B"
+  },
+  "biblioteca-padrao": {
+    "termo": "Biblioteca padrão",
+    "definicao": "O conjunto de módulos que já vem instalado junto com o Python, sem precisar de pip install — inclui módulos como datetime, math e random.",
+    "moduloOrigem": "M15",
+    "eixo": "B"
+  },
+  "pip": {
+    "termo": "pip",
+    "definicao": "O gerenciador de pacotes do Python, usado para instalar bibliotecas externas publicadas pela comunidade (pip install nome-da-biblioteca).",
+    "moduloOrigem": "M15",
+    "eixo": "B"
+  },
+  "import": {
+    "termo": "Import",
+    "definicao": "A instrução que traz o código de um módulo, pacote ou biblioteca para o arquivo atual, tornando suas funções e variáveis disponíveis para uso.",
+    "moduloOrigem": "M15",
+    "eixo": "B"
+  },
+  "json": {
+    "termo": "JSON",
+    "definicao": "Um formato de texto para representar dado estruturado, legível tanto por humanos quanto por máquinas — a estrutura mapeia quase diretamente para dicionários e listas em Python.",
+    "moduloOrigem": "M16",
+    "eixo": "B"
+  },
+  "dado-estruturado": {
+    "termo": "Dado estruturado",
+    "definicao": "Informação organizada em um formato previsível (como um dicionário ou uma lista), em vez de um texto solto sem estrutura — o que permite ao código acessar cada parte de forma confiável.",
+    "moduloOrigem": "M16",
+    "eixo": "B"
+  },
+  "sincrono": {
+    "termo": "Síncrono",
+    "definicao": "Um jeito de executar código em que cada instrução espera a anterior terminar antes de começar — se uma delas envolve espera (como uma resposta de rede), o programa fica parado até ela terminar.",
+    "moduloOrigem": "M17",
+    "eixo": "B"
+  },
+  "async": {
+    "termo": "Async",
+    "definicao": "A palavra-chave que declara uma função como uma corrotina (async def) — capaz de ser pausada num ponto de espera sem bloquear o resto do programa.",
+    "moduloOrigem": "M17",
+    "eixo": "B"
+  },
+  "await": {
+    "termo": "Await",
+    "definicao": "A palavra-chave que marca, dentro de uma corrotina, o ponto onde o programa pode ceder a vez enquanto espera algo terminar, em vez de ficar parado sem fazer nada.",
+    "moduloOrigem": "M17",
+    "eixo": "B"
+  },
+  "corrotina": {
+    "termo": "Corrotina",
+    "definicao": "Uma função declarada com async def, que pode ser pausada num ponto de espera (await) e retomada depois, sem bloquear o resto do programa enquanto espera.",
+    "moduloOrigem": "M17",
+    "eixo": "B"
+  },
+  "operacao-nao-bloqueante": {
+    "termo": "Operação não bloqueante",
+    "definicao": "Uma operação que, enquanto espera algo terminar (como uma resposta de rede), permite que o programa siga fazendo outras coisas em vez de ficar parado — o oposto de uma espera bloqueante.",
+    "moduloOrigem": "M17",
+    "eixo": "B"
+  },
+  "agent-sdk": {
+    "termo": "Agent SDK",
+    "definicao": "Uma biblioteca Python que expõe o mesmo loop agêntico que o Claude Code roda por trás da interface de terminal — em vez de operar por um terminal, o loop roda dentro do seu próprio script.",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  },
+  "agent-loop": {
+    "termo": "Agent loop",
+    "definicao": "O ciclo que um agente executa: enviar uma mensagem ao modelo, verificar se a resposta pede o uso de uma ferramenta, executar essa ferramenta se for o caso, devolver o resultado ao modelo, e repetir até a tarefa estar concluída.",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  },
+  "custom-tool": {
+    "termo": "Custom tool",
+    "definicao": "Uma função Python comum, descrita de um jeito que o modelo consegue entender que ela existe e decidir chamá-la dentro de um agent loop — o mesmo princípio de uma ferramenta MCP, mas sem intermediário.",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  },
+  "structured-output": {
+    "termo": "Structured output",
+    "definicao": "Uma resposta do modelo que segue um formato definido (normalmente JSON) em vez de texto livre, permitindo que o código leia o resultado com json.loads() sem precisar adivinhar onde cada informação está.",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  },
+  "api-key": {
+    "termo": "API key",
+    "definicao": "Uma credencial secreta que autentica suas chamadas à API da Anthropic — necessária para o Agent SDK rodar de verdade, fora do sandbox do navegador.",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  },
+  "hosting": {
+    "termo": "Hosting",
+    "definicao": "Onde o código do seu agente roda de fato depois de escrito — do seu próprio computador a um servidor na nuvem, dependendo de quão contínuo e acessível ele precisa ser.",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  },
+  "observabilidade": {
+    "termo": "Observabilidade",
+    "definicao": "A capacidade de acompanhar o que um agente está fazendo enquanto roda — quais ferramentas chamou, que decisões tomou — importante para depurar e confiar num agent loop que opera com autonomia.",
+    "moduloOrigem": "M18",
+    "eixo": "A"
+  }
+}

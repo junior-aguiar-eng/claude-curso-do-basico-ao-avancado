@@ -1,0 +1,177 @@
+---
+title: "M18 — Agent SDK"
+sidebar_position: 21
+modulo: "M18"
+---
+
+# M18 — Agent SDK
+
+*Bloco 9 — Agent SDK · Fusão dos dois eixos · Nível 🟢 + 🔵*
+
+## Abertura
+
+Último módulo do curso. Tudo que o Eixo A ensinou sobre usar e
+configurar o Claude Code, e tudo que o Eixo B ensinou sobre programar
+em Python (funções, módulos, JSON, async/await), se encontra aqui. O
+Agent SDK expõe em código o mesmo tipo de loop agêntico que o Claude
+Code executa por trás da interface de terminal.
+
+## Conceito central
+
+Volte a M1: a diferença entre Claude (o modelo) e Claude Code (um
+agente construído sobre o modelo, com um loop que decide, age, observa
+e repete). O <Termo id="agent-sdk" define>Agent SDK</Termo> expõe esse
+mesmo loop como uma biblioteca Python — em vez de rodar por trás da
+interface de terminal do Claude Code, o loop roda dentro do próprio
+script que você escreve.
+
+O núcleo desse <Termo id="agent-loop" define>agent loop</Termo> é
+sempre o mesmo ciclo: enviar uma mensagem ao modelo, verificar se a
+resposta pede o uso de uma ferramenta, executar essa ferramenta se for
+o caso, devolver o resultado ao modelo, e repetir até a tarefa estar
+concluída. Uma <Termo id="custom-tool" define>custom tool</Termo> é
+justamente isso: uma função Python comum — do mesmo tipo que você
+escreveu em M10 — descrita de um jeito que o modelo consegue entender
+que ela existe e decidir chamá-la.
+
+Esse loop espera respostas de rede a cada chamada ao modelo —
+exatamente o cenário para o qual `async`/`await` (M17) foram feitos. Um
+agent loop real é tipicamente assíncrono, para não travar o programa
+parado enquanto espera cada resposta.
+
+Vale conectar com M11-M12: uma custom tool segue o mesmo princípio de
+uma ferramenta MCP — dar ao modelo acesso a uma capacidade além de
+gerar texto — mas sem intermediário: você mesmo escreve e expõe a
+função, dentro do seu próprio código, em vez de conectar a um servidor
+externo.
+
+Por fim, a <Termo id="structured-output" define>structured output</Termo>
+resolve um problema prático: texto livre é difícil de processar de
+forma confiável em código. Pedir que a resposta do modelo siga um
+formato definido — retomando o JSON de M16 — permite que seu programa
+leia o resultado com `json.loads()` sem precisar adivinhar onde cada
+informação está.
+
+## Na prática
+
+Os dois exemplos abaixo dependem de chave de API e acesso à rede — não
+rodam no sandbox Pyodide desta página. A sintaxe exata pode variar
+conforme a versão do Agent SDK; o objetivo aqui é entender o formato do
+ciclo, não decorar a chamada. A execução real fica para o lab opcional,
+no dev container via Codespaces.
+
+Um agent loop mínimo com uma custom tool de consulta de prazo
+processual:
+
+```python
+import asyncio
+from anthropic import AsyncAnthropic
+
+client = AsyncAnthropic()
+
+async def consultar_prazo(numero_processo):
+    # Aqui entraria a consulta real a um sistema de processos.
+    return f"Prazo do processo {numero_processo}: 15 dias, vence em 20/08."
+
+ferramentas = [{
+    "name": "consultar_prazo",
+    "description": "Consulta o prazo de um processo pelo número.",
+    "input_schema": {
+        "type": "object",
+        "properties": {"numero_processo": {"type": "string"}},
+        "required": ["numero_processo"],
+    },
+}]
+
+async def agent_loop(pergunta):
+    mensagens = [{"role": "user", "content": pergunta}]
+    while True:
+        resposta = await client.messages.create(
+            model="claude-sonnet-5",
+            max_tokens=1024,
+            tools=ferramentas,
+            messages=mensagens,
+        )
+        if resposta.stop_reason != "tool_use":
+            return resposta.content[0].text
+
+        bloco = next(b for b in resposta.content if b.type == "tool_use")
+        resultado = await consultar_prazo(bloco.input["numero_processo"])
+
+        mensagens.append({"role": "assistant", "content": resposta.content})
+        mensagens.append({
+            "role": "user",
+            "content": [{"type": "tool_result", "tool_use_id": bloco.id, "content": resultado}],
+        })
+
+asyncio.run(agent_loop("Qual o prazo do processo 1234-56?"))
+```
+
+Repare no ciclo: enviar, verificar se pediu ferramenta, executar,
+devolver resultado, repetir — o mesmo agent loop descrito acima,
+escrito em código.
+
+O mesmo tipo de pedido, agora pedindo saída estruturada em vez de
+texto livre:
+
+```python
+import asyncio
+import json
+
+async def consultar_estruturado():
+    resposta = await client.messages.create(
+        model="claude-sonnet-5",
+        max_tokens=1024,
+        messages=[{
+            "role": "user",
+            "content": (
+                'Responda em JSON, com os campos "prazo_dias" (número) e '
+                '"vencimento" (texto), sobre o processo 1234-56.'
+            ),
+        }],
+    )
+    dados = json.loads(resposta.content[0].text)
+    print(dados["prazo_dias"])
+    print(dados["vencimento"])
+
+asyncio.run(consultar_estruturado())
+```
+
+Sem `structured output`, seu código precisaria tentar extrair "15 dias"
+e "20/08" de uma frase qualquer que o modelo decidisse escrever — frágil
+e imprevisível. Pedindo JSON, o `json.loads()` que você já conhece de
+M16 faz o resto.
+
+## Diagrama
+
+O agent loop como fluxo:
+
+<Diagrama
+  title="O agent loop: enviar, decidir, agir, repetir"
+  chart={`flowchart TD
+    A[Enviar mensagem ao modelo] --> B{Pediu uma ferramenta?}
+    B -->|Sim| C[Executar a função]
+    C --> D[Devolver resultado ao modelo]
+    D --> A
+    B -->|Não| E[Resposta final]`}
+/>
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+No dev container (Codespaces), com uma chave de API válida, implemente
+uma ferramenta customizada própria e um agent loop mínimo que a utiliza
+até completar uma tarefa de duas ou três etapas. Depois, adapte o mesmo
+agente para retornar saída estruturada em JSON, validando o resultado
+com `json.loads()`.
+:::
+
+## Checkpoint
+
+Este é o último checkpoint do curso — completá-lo fecha M1 a M18.
+
+<Checkpoint id="m18">
+  Completei o curso inteiro: entendi o que é um agent loop, uma custom
+  tool e uma structured output, e como o Agent SDK conecta tudo que
+  aprendi nos dois eixos.
+</Checkpoint>

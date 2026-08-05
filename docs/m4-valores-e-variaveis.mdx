@@ -1,0 +1,64 @@
+---
+title: "M4 — Valores e Variáveis"
+sidebar_position: 7
+modulo: "M4"
+---
+
+# M4 — Valores e Variáveis
+
+*Bloco 3 — Programação, fundamentos · Eixo B · Nível 🟢*
+
+## Abertura
+
+Esta lição inicia o outro lado do curso: os fundamentos de programação.
+Não é um desvio — é o que vai permitir que você leia com entendimento
+real o que o Claude Code faz quando escreve ou modifica código, em vez
+de apenas confiar cegamente no resultado. Aqui você aprende a primeira
+peça: como um programa guarda informação.
+
+## Conceito central
+
+Todo programa, por mais complexo que pareça, lida com informação — um
+nome, um preço, uma contagem, uma resposta de sim ou não. Cada pedaço
+isolado dessa informação é um <Termo id="valor" define>valor</Termo>: o
+número `42`, o texto `"Maria"`, o resultado `verdadeiro`. Um valor,
+sozinho, não tem nome — ele só existe no momento em que é usado.
+
+Para guardar um valor e poder usá-lo de novo mais tarde, sem repeti-lo,
+o código usa uma <Termo id="variavel" define>variável</Termo>: um nome
+que aponta para um valor guardado na memória do programa. Pense numa
+variável como uma caixa com etiqueta — você escreve `idade`, e dentro
+daquela caixa está o valor `30`. Quando o código pede `idade`, ele está
+pedindo o conteúdo daquela caixa, não a palavra "idade" em si.
+
+Todo valor tem um <Termo id="tipo-de-dado" define>tipo de dado</Termo> —
+a categoria do que ele representa, que determina o que pode ser feito
+com ele. Um número (`30`) pode ser somado; um texto (`"Maria"`) pode ser
+concatenado com outro texto, mas não somado da mesma forma; um valor de
+verdadeiro/falso decide caminhos no código, como você verá na próxima
+lição. Saber o tipo de um valor é saber o que esperar dele — é por isso
+que, quando o Claude Code lê seu código, ele presta atenção não só ao
+valor, mas ao tipo.
+
+## Na prática
+
+No sandbox abaixo, três variáveis guardando três tipos de dado
+diferentes:
+
+<SandboxPython code={`nome = "Maria"      # tipo texto (string)
+idade = 30           # tipo número inteiro
+ativo = True          # tipo verdadeiro/falso (booleano)
+
+print(nome)
+print(idade)
+print(ativo)`} />
+
+Ao executar, o programa imprime o conteúdo de cada caixa: `Maria`, `30`,
+`True`. Repare que os nomes (`nome`, `idade`, `ativo`) não aparecem no
+resultado — eles são só o rótulo usado para acessar o valor guardado.
+
+## Checkpoint
+
+<Checkpoint id="m4">
+  Entendi o que é um valor, uma variável e um tipo de dado.
+</Checkpoint>

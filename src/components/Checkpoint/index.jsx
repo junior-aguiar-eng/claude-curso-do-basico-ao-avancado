@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import clsx from 'clsx';
+import {marcarConcluido, estaConcluido} from '../_shared/progresso';
 import styles from './styles.module.css';
-
-const storageKey = (id) => `curso:checkpoint:${id}`;
 
 /**
  * Checkpoint de progresso da lição.
  *
- * O estado é salvo no próprio navegador do aluno (localStorage), então
- * a marcação persiste entre visitas sem precisar de login ou servidor.
+ * O estado é salvo no próprio navegador do aluno via `_shared/progresso.js`
+ * (localStorage), então a marcação persiste entre visitas sem precisar de
+ * login ou servidor — mas não sincroniza entre dispositivos.
  *
  * Uso em uma lição (.mdx):
  *
@@ -17,8 +17,12 @@ const storageKey = (id) => `curso:checkpoint:${id}`;
  *   </Checkpoint>
  *
  * `id` é obrigatório e deve ser único no curso.
+ *
+ * `onChange(concluido)` é opcional: dispara depois de marcar/desmarcar,
+ * para outros componentes na mesma página (ex. sidebar, mapa da trilha)
+ * saberem que devem reconsultar `obterProgresso()`.
  */
-export default function Checkpoint({id, children, label}) {
+export default function Checkpoint({id, children, label, onChange}) {
   const [done, setDone] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -30,26 +34,15 @@ export default function Checkpoint({id, children, label}) {
       console.warn('<Checkpoint> precisa de uma prop "id" única.');
       return;
     }
-    try {
-      setDone(localStorage.getItem(storageKey(id)) === '1');
-    } catch (e) {
-      /* localStorage indisponível (ex. modo privado): segue sem persistir. */
-    }
+    setDone(estaConcluido(id));
     setReady(true);
   }, [id]);
 
   const toggle = () => {
     const next = !done;
     setDone(next);
-    try {
-      if (next) {
-        localStorage.setItem(storageKey(id), '1');
-      } else {
-        localStorage.removeItem(storageKey(id));
-      }
-    } catch (e) {
-      /* sem persistência: o estado ainda vale para esta sessão. */
-    }
+    marcarConcluido(id, next);
+    onChange?.(next);
   };
 
   return (
