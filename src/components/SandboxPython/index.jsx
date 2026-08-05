@@ -41,17 +41,20 @@ export default function SandboxPython({code: initialCode, height}) {
     if (!pyodideRef.current) {
       setStatus('carregando');
       try {
-        const py = await getPyodide();
-        const escrever = (msg) =>
-          setOutput((o) => (o ? `${o}\n${msg}` : msg));
-        py.setStdout({batched: escrever});
-        py.setStderr({batched: escrever});
-        pyodideRef.current = py;
+        pyodideRef.current = await getPyodide();
       } catch {
         setStatus('erro-carregamento');
         return;
       }
     }
+
+    // O runtime Pyodide é compartilhado entre todos os sandboxes da
+    // página (ver loadPyodide.js) — sempre reapontamos stdout/stderr
+    // para este sandbox antes de rodar, para não vazar saída de um
+    // sandbox para o painel de outro quando há mais de um na mesma lição.
+    const escrever = (msg) => setOutput((o) => (o ? `${o}\n${msg}` : msg));
+    pyodideRef.current.setStdout({batched: escrever});
+    pyodideRef.current.setStderr({batched: escrever});
 
     try {
       setStatus('rodando');
