@@ -71,3 +71,16 @@ Depois de configurado, o painel fica disponível em
 Decisões de arquitetura, convenções de conteúdo e o fluxo de trabalho
 esperado (etapas verificáveis, plano antes de mudanças maiores) estão
 documentados em [`CLAUDE.md`](./CLAUDE.md).
+
+## Autoria
+
+Criado e mantido por [Nerdola Programador Jurídico](https://github.com/junior-aguiar-eng).
+
+## Licença
+
+Este projeto está licenciado sob **Creative Commons Atribuição-NãoComercial
+4.0 (CC BY-NC 4.0)**: qualquer pessoa pode usar, estudar e adaptar o
+conteúdo e o código, desde que dê crédito ao autor e não faça uso
+comercial sem autorização. Texto completo em
+[`LICENSE.md`](./LICENSE.md) e na
+[página oficial da licença](https://creativecommons.org/licenses/by-nc/4.0/).
