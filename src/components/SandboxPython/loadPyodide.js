@@ -4,15 +4,7 @@
 // Versão fixada intencionalmente para evitar quebras silenciosas quando
 // o Pyodide lançar uma versão nova. Para atualizar, conferir o changelog
 // em https://pyodide.org/en/stable/project/changelog.html antes de trocar.
-//
-// ATENÇÃO: o valor anterior aqui ('314.0.3') não corresponde a nenhuma
-// versão real do Pyodide (o projeto nunca saiu do esquema 0.x.y) — muito
-// provavelmente um placeholder que nunca chegou a ser testado com rede
-// de verdade. Troquei para 0.26.4 (versão estável conhecida), mas isso
-// precisa ser confirmado num ambiente com internet normal antes do
-// merge: abra o site, rode um sandbox, e confira no changelog do
-// Pyodide se já existe uma versão mais recente para usar no lugar.
-const PYODIDE_VERSION = '0.26.4';
+const PYODIDE_VERSION = '314.0.3';
 const INDEX_URL = `https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/full/`;
 
 let pyodidePromise = null;
