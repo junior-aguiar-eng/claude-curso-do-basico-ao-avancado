@@ -20,9 +20,8 @@ const TOTAL_BLOCOS = 10;
  * prop: ele mesmo consulta `_shared/progresso.js` (a mesma fonte de
  * verdade em localStorage) e decide se todos os checkpoints de
  * `modulosCurso` já foram marcados. Ele se atualiza sozinho, no mesmo
- * carregamento de página,
- * ouvindo o evento `curso:progresso` disparado por
- * `marcarConcluido()` — assim, marcar o checkpoint de M18 na mesma
+ * carregamento de página, ouvindo o evento `curso:progresso` disparado
+ * por `marcarConcluido()` — assim, marcar o checkpoint de M18 na mesma
  * página já revela esta tela, sem precisar recarregar.
  *
  * Uso: uma única vez, na última lição (m18-agent-sdk.mdx), depois do
