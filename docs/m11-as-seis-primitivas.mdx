@@ -19,32 +19,76 @@ conceitos de programação que você acabou de aprender.
 
 ## Conceito central
 
-As seis primitivas de extensão do Claude Code são:
+As seis primitivas de extensão do Claude Code não são seis variações da
+mesma ideia — cada uma resolve um tipo diferente de repetição ou de
+limite, e é essa pergunta por trás de cada uma, mais do que o nome, que
+as separa de verdade.
 
-- <Termo id="skills" define>Skills</Termo>: instruções reutilizáveis que
-  ensinam o Claude a fazer algo de um jeito específico — conceitualmente
-  parecido com uma função (M10), empacotando conhecimento reutilizável.
-- <Termo id="subagents" define>Subagents</Termo>: instâncias
-  especializadas que tratam uma parte do trabalho (você vai ver isso a
-  fundo em M13, sob o nome de subagente).
-- <Termo id="slash-commands" define>Slash Commands</Termo>: atalhos
-  nomeados para tarefas recorrentes — a versão mais geral do slash
-  command que você já usa desde M3.
-- <Termo id="hooks" define>Hooks</Termo>: código que roda
-  automaticamente em resposta a eventos do Claude Code.
-- <Termo id="mcp" define>MCP</Termo> (Model Context Protocol): o
-  mecanismo que conecta o Claude Code a ferramentas e serviços
-  externos, permitindo que ele leia e aja sobre sistemas reais (você
-  vai aprofundar isso em M12).
-- <Termo id="plugins" define>Plugins</Termo>: pacotes que agrupam
-  várias dessas primitivas — Skills, Subagents, Slash Commands, Hooks,
-  MCP — numa unidade instalável, o equivalente a uma biblioteca no
-  mundo do Claude Code.
+<Termo id="skills" define>Skills</Termo> resolvem um problema de
+repetição de conhecimento: toda vez que uma tarefa exige um jeito
+específico de fazer algo — um checklist de revisão, um padrão de commit,
+uma convenção do seu time —, você teria que reexplicar isso do zero a
+cada sessão. Uma Skill empacota esse conhecimento uma única vez, e o
+Claude Code passa a consultá-la sozinho, sempre que perceber que ela é
+relevante para a tarefa em andamento — você não precisa chamá-la pelo
+nome. É conceitualmente parecido com uma função (M10): conhecimento
+reutilizável e encapsulado, chamado quando necessário — só que quem
+decide chamar é o próprio agente, não você.
 
-Vale nomear essa última analogia explicitamente: assim como M9 e M10
-ensinaram a empacotar dados e lógica reutilizável em estruturas e
-funções, essas seis primitivas são formas de empacotar comportamento e
-conhecimento reutilizável para o próprio Claude Code.
+<Termo id="subagents" define>Subagents</Termo> resolvem um problema
+diferente: o de sobrecarregar a janela de contexto (M7) de uma única
+sessão com detalhes que só importam para uma parte específica do
+trabalho. Em vez de a mesma instância investigar um bug, escrever testes
+e revisar documentação tudo misturado na mesma conversa, um Subagent é
+disparado como uma instância separada, com sua própria janela de
+contexto, para tratar só aquela parte — e devolve o resultado, sem
+carregar de volta para a sessão principal todo o histórico da
+investigação. Aqui você já entende o que é um Subagent e por que ele
+existe — isolar e focar; em M13 você vai ver como coordenar vários
+Subagents ao mesmo tempo, em paralelo.
+
+<Termo id="slash-commands" define>Slash Commands</Termo> resolvem a
+mesma repetição que as Skills, mas do lado oposto: em vez de o agente
+decidir sozinho quando aplicar algo, é você quem dispara explicitamente,
+digitando `/nome-do-comando`. É a versão geral do slash command que você
+já usa desde M3 (`/clear`, `/help`) — só que aqui, qualquer atalho
+recorrente do seu próprio fluxo de trabalho pode virar um comando
+próprio, não só os que já vêm prontos.
+
+<Termo id="hooks" define>Hooks</Termo> resolvem um terceiro tipo de
+repetição: nem uma que você pede (Slash Command), nem uma que o agente
+decide aplicar (Skill), mas uma que deveria acontecer sempre,
+automaticamente, amarrada a um evento — rodar os testes antes de todo
+commit, por exemplo. Um Hook é código disparado pelo próprio Claude Code
+em resposta a esse evento, sem que ninguém precise lembrar de pedir a
+cada vez — é a primitiva mais parecida com uma regra fixa do sistema do
+que com uma instrução pontual.
+
+O <Termo id="mcp" define>MCP</Termo> (Model Context Protocol) resolve um
+problema de alcance: tudo que as outras primitivas fazem acontece dentro
+do seu computador, mas boa parte do trabalho real depende de sistemas
+externos — um quadro de tarefas, um banco de dados, um serviço na
+nuvem. Em vez de cada integração ser construída do zero, de um jeito
+diferente para cada serviço, o MCP é um protocolo comum — uma linguagem
+compartilhada — que qualquer serviço pode falar para se conectar ao
+Claude Code de forma padronizada. Aqui você já entende o que o MCP é e
+por que ele existe — conectividade padronizada; em M12 você vai ver como
+conectar e usar um servidor MCP de verdade.
+
+Por fim, <Termo id="plugins" define>Plugins</Termo> resolvem um problema
+de distribuição: depois de montar uma Skill, um Hook e um Slash Command
+que funcionam bem juntos, reconfigurar cada peça manualmente em todo
+projeto novo — ou compartilhar com outra pessoa — seria repetitivo. Um
+Plugin empacota várias primitivas — Skills, Subagents, Slash Commands,
+Hooks, MCP — numa unidade instalável de uma vez só: o equivalente a uma
+biblioteca (M15) no mundo do Claude Code, só que de comportamento do
+agente, não de código Python.
+
+Vale nomear essa analogia explicitamente: assim como M9 e M10 ensinaram
+a empacotar dados e lógica reutilizável em estruturas e funções, essas
+seis primitivas empacotam seis tipos diferentes de comportamento
+reutilizável para o próprio Claude Code — cada uma respondendo a uma
+pergunta distinta sobre extensão, não a variações da mesma ideia.
 
 ## Na prática
 
@@ -85,24 +129,36 @@ e um Hook próprios)...
 Plugin instalado — "/revisar-pr" já disponível.
 ```
 
-Não é necessário aprofundar em nenhuma primitiva aqui — elas voltam com
-mais profundidade em M12-M14, mais à frente. O objetivo deste módulo é
-dar um mapa claro do que existe e para que serve cada uma.
+Repare que cada linha responde a uma pergunta diferente das que abriram
+o Conceito central: a Skill foi consultada pelo próprio agente, o
+Subagent isolou uma sub-tarefa, `/testes` foi um pedido seu, o Hook
+disparou sozinho no commit, o servidor MCP alcançou um sistema externo, e
+o Plugin instalou várias dessas peças de uma vez. Não é necessário
+esgotar nenhuma primitiva aqui — Subagents voltam com mais profundidade
+em M13, e MCP em M12 — mas cada uma já tem uma representação própria e
+reconhecível neste módulo.
 
 ## Diagrama
 
-As seis primitivas ao redor do núcleo do Claude Code — extensões
-independentes, não uma sequência:
+As seis primitivas agrupadas pela pergunta que cada uma resolve — não é
+só uma lista do que existe, é o que diferencia uma da outra:
 
 <Diagrama
-  title="As seis primitivas de extensão do Claude Code"
+  title="As seis primitivas de extensão do Claude Code, por tipo de problema"
   chart={`flowchart TD
-    Core((Claude Code)) --> Skills
-    Core --> Subagents
-    Core --> Slash[Slash Commands]
-    Core --> Hooks
-    Core --> MCP
-    Core --> Plugins`}
+    Core((Claude Code))
+    Core --> Conhecimento[Conhecimento reutilizável]
+    Conhecimento --> Skills
+    Core --> Delegacao[Delegação isolada]
+    Delegacao --> Subagents
+    Core --> AtalhoManual[Atalho manual]
+    AtalhoManual --> SlashCommands[Slash Commands]
+    Core --> ReacaoEvento[Reação automática a evento]
+    ReacaoEvento --> Hooks
+    Core --> Conectividade[Conectividade externa]
+    Conectividade --> MCP
+    Core --> Empacotamento[Empacotamento e distribuição]
+    Empacotamento --> Plugins`}
 />
 
 ## Lab opcional 🔵

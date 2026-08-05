@@ -277,37 +277,37 @@
   },
   "skills": {
     "termo": "Skills",
-    "definicao": "Instruções reutilizáveis que ensinam o Claude a fazer algo de um jeito específico — conceitualmente parecido com uma função, empacotando conhecimento reutilizável para o agente usar quando precisar.",
+    "definicao": "Conhecimento reutilizável — um checklist, um padrão, uma convenção — empacotado uma vez para não ser reexplicado a cada sessão. Conceitualmente parecido com uma função (M10), mas é o próprio agente quem decide quando consultar, não você.",
     "moduloOrigem": "M11",
     "eixo": "A"
   },
   "subagents": {
     "termo": "Subagents",
-    "definicao": "Instâncias especializadas do Claude Code, disparadas para tratar uma parte específica de um trabalho maior (ver subagente, M13, para como isso funciona na prática).",
+    "definicao": "Instâncias separadas do Claude Code, com sua própria janela de contexto (M7), disparadas para isolar uma parte específica de um trabalho maior sem sobrecarregar a sessão principal (M13 aprofunda como coordenar vários ao mesmo tempo).",
     "moduloOrigem": "M11",
     "eixo": "A"
   },
   "slash-commands": {
     "termo": "Slash Commands",
-    "definicao": "Atalhos nomeados para tarefas recorrentes do Claude Code — a mesma ideia do slash command (M3), generalizada como uma das seis primitivas de extensão.",
+    "definicao": "Atalhos nomeados que você dispara manualmente digitando `/nome` — a mesma ideia do slash command (M3), generalizada como uma das seis primitivas de extensão. Ao contrário de uma Skill, quem decide usar é você, não o agente.",
     "moduloOrigem": "M11",
     "eixo": "A"
   },
   "hooks": {
     "termo": "Hooks",
-    "definicao": "Código que roda automaticamente em resposta a eventos do Claude Code, como antes de um commit ou depois de uma edição — sem precisar ser disparado manualmente.",
+    "definicao": "Código que roda sozinho, amarrado a um evento do Claude Code — como antes de um commit —, sem que ninguém precise pedir a cada vez. Diferente de Skill e Slash Command, não é uma decisão em tempo real, é uma regra fixa.",
     "moduloOrigem": "M11",
     "eixo": "A"
   },
   "plugins": {
     "termo": "Plugins",
-    "definicao": "Pacotes que agrupam várias primitivas — Skills, Subagents, Slash Commands, Hooks, MCP — numa unidade instalável, o equivalente a uma biblioteca no mundo do Claude Code.",
+    "definicao": "Pacotes que agrupam e distribuem várias primitivas — Skills, Subagents, Slash Commands, Hooks, MCP — numa unidade instalável de uma vez, o equivalente a uma biblioteca (M15) no mundo do Claude Code.",
     "moduloOrigem": "M11",
     "eixo": "A"
   },
   "mcp": {
     "termo": "MCP",
-    "definicao": "O protocolo (Model Context Protocol) que conecta o Claude Code a ferramentas e serviços externos, permitindo que ele leia e aja sobre sistemas reais fora do seu computador (aprofundado em M12).",
+    "definicao": "O protocolo (Model Context Protocol) que conecta o Claude Code a sistemas fora do seu computador de forma padronizada, sem exigir uma integração bespoke por serviço (M12 aprofunda como conectar e usar um servidor MCP real).",
     "moduloOrigem": "M11",
     "eixo": "A"
   },
