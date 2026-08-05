@@ -19,12 +19,16 @@ estruturada, o que Claude Code tem permissão de fazer no seu ambiente.
 Enquanto o CLAUDE.md registra convenções e contexto em linguagem
 natural, existe um segundo arquivo de configuração que trata
 especificamente de permissões e comportamento técnico: o
-<Termo id="settings-json" define>settings.json</Termo>. É um arquivo de
-dado estruturado — na prática, um <Termo id="dicionario">dicionário</Termo>
+<Termo id="settings-json" define>settings.json</Termo>, guardado em
+`.claude/settings.json` na raiz do projeto. É um arquivo de dado
+estruturado — na prática, um <Termo id="dicionario">dicionário</Termo>
 salvo em disco, o mesmo tipo de estrutura de dados que você vai
 formalizar em M9 — que define, entre outras coisas, quais comandos
 Claude Code pode executar sem pedir confirmação e quais exigem aprovação
-explícita.
+explícita. Por ficar dentro de `.claude/`, junto com outras configurações
+do projeto, esse arquivo costuma ser compartilhado com o time (versionado
+no controle de versão); preferências só suas, que não deveriam valer
+para todo mundo, vão num `.claude/settings.local.json` separado.
 
 Essa granularidade importa porque nem toda ação tem o mesmo risco. Ler
 um arquivo é seguro; apagar um arquivo, não necessariamente. A
@@ -42,7 +46,7 @@ por padrão e bloquear exceções.
 
 ## Na prática
 
-Um `settings.json` simples, com uma allowlist:
+Um `.claude/settings.json` simples, com uma allowlist:
 
 ```json
 {
@@ -50,7 +54,7 @@ Um `settings.json` simples, com uma allowlist:
     "allow": [
       "Bash(npm test)",
       "Bash(git status)",
-      "Read(*)"
+      "Read"
     ]
   }
 }
@@ -64,10 +68,10 @@ ainda vai parar e perguntar, porque não está na lista.
 ## Lab opcional 🔵
 
 :::info Opcional — para assinantes
-Crie um `settings.json` com uma allowlist de dois ou três comandos
-seguros em um projeto seu. Peça ao Claude Code para executar um comando
-que está na lista e observe que ele não pede confirmação; peça um que
-não está, e observe que ele para e pergunta.
+Crie um `.claude/settings.json` com uma allowlist de dois ou três
+comandos seguros em um projeto seu. Peça ao Claude Code para executar um
+comando que está na lista e observe que ele não pede confirmação; peça
+um que não está, e observe que ele para e pergunta.
 :::
 
 ## Checkpoint

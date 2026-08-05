@@ -133,7 +133,7 @@
   },
   "settings-json": {
     "termo": "settings.json",
-    "definicao": "Um arquivo de dado estruturado que define permissões e comportamento técnico do Claude Code — por exemplo, quais comandos ele pode executar sem pedir confirmação e quais exigem aprovação explícita.",
+    "definicao": "Arquivo de dado estruturado em .claude/settings.json que define permissões e comportamento técnico do Claude Code — por exemplo, quais comandos ele pode executar sem pedir confirmação e quais exigem aprovação explícita.",
     "moduloOrigem": "M8",
     "eixo": "A"
   },
