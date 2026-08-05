@@ -373,43 +373,43 @@
   },
   "agent-sdk": {
     "termo": "Agent SDK",
-    "definicao": "TODO: definir",
+    "definicao": "Uma biblioteca Python que expõe o mesmo loop agêntico que o Claude Code roda por trás da interface de terminal — em vez de operar por um terminal, o loop roda dentro do seu próprio script.",
     "moduloOrigem": "M18",
     "eixo": "A"
   },
   "agent-loop": {
     "termo": "Agent loop",
-    "definicao": "TODO: definir",
+    "definicao": "O ciclo que um agente executa: enviar uma mensagem ao modelo, verificar se a resposta pede o uso de uma ferramenta, executar essa ferramenta se for o caso, devolver o resultado ao modelo, e repetir até a tarefa estar concluída.",
     "moduloOrigem": "M18",
     "eixo": "A"
   },
   "custom-tool": {
     "termo": "Custom tool",
-    "definicao": "TODO: definir",
+    "definicao": "Uma função Python comum, descrita de um jeito que o modelo consegue entender que ela existe e decidir chamá-la dentro de um agent loop — o mesmo princípio de uma ferramenta MCP, mas sem intermediário.",
     "moduloOrigem": "M18",
     "eixo": "A"
   },
   "structured-output": {
     "termo": "Structured output",
-    "definicao": "TODO: definir",
+    "definicao": "Uma resposta do modelo que segue um formato definido (normalmente JSON) em vez de texto livre, permitindo que o código leia o resultado com json.loads() sem precisar adivinhar onde cada informação está.",
     "moduloOrigem": "M18",
     "eixo": "A"
   },
   "api-key": {
     "termo": "API key",
-    "definicao": "TODO: definir",
+    "definicao": "Uma credencial secreta que autentica suas chamadas à API da Anthropic — necessária para o Agent SDK rodar de verdade, fora do sandbox do navegador.",
     "moduloOrigem": "M18",
     "eixo": "A"
   },
   "hosting": {
     "termo": "Hosting",
-    "definicao": "TODO: definir",
+    "definicao": "Onde o código do seu agente roda de fato depois de escrito — do seu próprio computador a um servidor na nuvem, dependendo de quão contínuo e acessível ele precisa ser.",
     "moduloOrigem": "M18",
     "eixo": "A"
   },
   "observabilidade": {
     "termo": "Observabilidade",
-    "definicao": "TODO: definir",
+    "definicao": "A capacidade de acompanhar o que um agente está fazendo enquanto roda — quais ferramentas chamou, que decisões tomou — importante para depurar e confiar num agent loop que opera com autonomia.",
     "moduloOrigem": "M18",
     "eixo": "A"
   }
