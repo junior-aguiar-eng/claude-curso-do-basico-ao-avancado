@@ -14,7 +14,11 @@ Com paralelismo permitindo várias linhas de trabalho simultâneas (M13),
 esta lição fecha o Bloco 7 explorando o outro eixo da autonomia: não
 quantas instâncias trabalham ao mesmo tempo, mas por quanto tempo e com
 que grau de independência uma única instância pode operar sem
-intervenção sua.
+intervenção sua. Esse grau varia num espectro: de uma autonomia
+supervisionada, em que você confirma cada ação antes dela acontecer, até
+uma autonomia não supervisionada, em que o agente decide e executa
+sozinho dentro de limites já configurados, sem esperar sua aprovação a
+cada passo.
 
 ## Conceito central
 
@@ -75,6 +79,31 @@ Repare que Claude Code não seguiu um roteiro fixo — ele tentou
 abordagens diferentes até atingir o objetivo declarado, e tudo isso
 aconteceu dentro do sandbox, sem risco ao projeto real até a revisão
 final.
+
+Um segundo cenário, agora com `/loop`, repetindo um ciclo definido até
+uma condição de parada — também contido por sandboxing:
+
+```
+> Configure sandboxing para este projeto de teste
+
+Sandboxing ativado.
+
+> /loop "rodar os testes até todos passarem"
+
+Ambiente isolado iniciado.
+Iteração 1: 2 testes falhando — corrigindo importação quebrada...
+Iteração 2: 1 teste falhando — corrigindo asserção incorreta...
+Iteração 3: 4 testes passando — condição de parada atingida.
+
+Loop encerrado após 3 iterações. Mudanças aplicadas apenas no
+ambiente sandbox — revise antes de aplicar ao projeto real.
+```
+
+Repare a diferença para o exemplo anterior: `/goal` recebeu só o
+objetivo final e decidiu sozinho o caminho até lá — autonomia não
+supervisionada mais ampla; `/loop` repete um ciclo já definido por você
+(rodar os testes) até a condição de parada — menos aberto na escolha da
+estratégia, mas igualmente automatizado e contido pelo sandboxing.
 
 ## Lab opcional 🔵
 

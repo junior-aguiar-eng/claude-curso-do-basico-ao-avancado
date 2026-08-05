@@ -32,13 +32,23 @@ isolada do repositório, onde uma instância pode fazer alterações sem
 afetar o que outra instância está fazendo em paralelo, até o momento de
 reunir os resultados.
 
+Uma forma concreta de visualizar isso, sem pensar em código: imagine uma
+pesquisa grande dividida entre vários assistentes. Cada assistente (um
+subagent) recebe sua própria fotocópia dos documentos — não o original,
+uma cópia de trabalho (a worktree) — para poder grifar, anotar e
+reorganizar do seu jeito, sem estragar o original nem esbarrar no colega
+que está mexendo na própria cópia ao mesmo tempo. Só quando cada
+assistente termina sua parte é que as anotações voltam a ser reunidas
+numa versão final única — exatamente o que acontece quando as worktrees
+são integradas de volta ao final.
+
 Para acompanhar o que várias instâncias estão fazendo simultaneamente,
-existe o <Termo id="agent-view" define>agent view</Termo> — uma visão
-que mostra o progresso de cada linha de trabalho paralela, permitindo
-que você monitore várias tarefas ao mesmo tempo sem perder o controle de
-nenhuma delas. Quando esse conjunto de instâncias trabalhando juntas é
-organizado com um propósito coordenado — várias abordando partes
-diferentes do mesmo objetivo maior — chama-se
+existe o <Termo id="agent-view" define>agent view</Termo> — seguindo a
+mesma imagem, o quadro do coordenador mostrando o progresso de cada
+assistente ao mesmo tempo, permitindo que você monitore várias tarefas
+sem perder o controle de nenhuma delas. Quando esse conjunto de
+instâncias trabalhando juntas é organizado com um propósito coordenado —
+várias abordando partes diferentes do mesmo objetivo maior — chama-se
 <Termo id="agent-team" define>agent team</Termo>.
 
 O ganho do paralelismo é velocidade: tarefas independentes entre si
@@ -73,15 +83,22 @@ encontrando no momento final de revisão.
 
 ## Diagrama
 
-Duas worktrees avançando em paralelo, convergindo na integração final:
+Sem paralelismo, uma worktree espera a outra terminar; com paralelismo,
+as duas avançam ao mesmo tempo e só se encontram na integração final:
 
 <Diagrama
-  title="Worktrees paralelas convergindo na integração"
-  chart={`flowchart LR
-    T[Tarefa maior] --> A[Worktree A]
-    T --> B[Worktree B]
-    A --> I[Integração]
-    B --> I`}
+  title="Sem paralelismo vs. com paralelismo: worktrees simultâneas"
+  chart={`flowchart TD
+    Tarefa[Tarefa maior] --> Seq[Sem paralelismo]
+    Seq --> SeqA["Worktree A roda e termina"]
+    SeqA --> SeqB["só então Worktree B começa e termina"]
+    SeqB --> SeqFim[Integração — depois das duas, em sequência]
+
+    Tarefa --> Par[Com paralelismo]
+    Par --> ParA["Worktree A"]
+    Par --> ParB["Worktree B"]
+    ParA --> ParFim[Integração — assim que as duas terminam, ao mesmo tempo]
+    ParB --> ParFim`}
 />
 
 ## Lab opcional 🔵

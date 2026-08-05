@@ -4,6 +4,8 @@ sidebar_position: 21
 modulo: "M18"
 ---
 
+import ConclusaoCurso from '@site/src/components/ConclusaoCurso';
+
 # M18 — Agent SDK
 
 *Bloco 9 — Agent SDK · Fusão dos dois eixos · Nível 🟢 + 🔵*
@@ -54,7 +56,7 @@ informação está.
 
 ## Na prática
 
-Os dois exemplos abaixo dependem de chave de API e acesso à rede — não
+Os três exemplos abaixo dependem de chave de API e acesso à rede — não
 rodam no sandbox Pyodide desta página. A sintaxe exata pode variar
 conforme a versão do Agent SDK; o objetivo aqui é entender o formato do
 ciclo, não decorar a chamada. A execução real fica para o lab opcional,
@@ -142,6 +144,45 @@ e "20/08" de uma frase qualquer que o modelo decidisse escrever — frágil
 e imprevisível. Pedindo JSON, o `json.loads()` que você já conhece de
 M16 faz o resto.
 
+O exemplo anterior parou no `json.loads()` — na prática, o motivo de
+pedir dados estruturados é *usar* esses dados para decidir algo em
+código. Uma chamada minimamente integrada, combinando a custom tool do
+primeiro exemplo com structured output:
+
+```python
+import asyncio
+import json
+
+async def gerar_alerta_de_prazo(numero_processo):
+    resultado = await consultar_prazo(numero_processo)
+    resposta = await client.messages.create(
+        model="claude-sonnet-5",
+        max_tokens=1024,
+        messages=[{
+            "role": "user",
+            "content": (
+                f'A partir desta informação: "{resultado}", responda em '
+                'JSON com os campos "dias_restantes" (número) e '
+                '"urgente" (true se dias_restantes <= 5, senão false).'
+            ),
+        }],
+    )
+    dados = json.loads(resposta.content[0].text)
+    if dados["urgente"]:
+        print(f"Prazo urgente: {dados['dias_restantes']} dias restantes")
+    else:
+        print(f"Prazo tranquilo: {dados['dias_restantes']} dias restantes")
+
+asyncio.run(gerar_alerta_de_prazo("1234-56"))
+```
+
+Repare a diferença: a saída estruturada aqui não termina num `print` de
+cada campo — ela alimenta um `if` que decide o que fazer a seguir. É
+esse encadeamento — custom tool trazendo dado real, structured output
+formatando de um jeito que o código consegue interpretar, e o código
+decidindo a próxima ação — que caracteriza um agente de verdade, não só
+uma conversa.
+
 ## Diagrama
 
 O agent loop como fluxo:
@@ -175,3 +216,5 @@ Este é o último checkpoint do curso — completá-lo fecha M1 a M18.
   tool e uma structured output, e como o Agent SDK conecta tudo que
   aprendi nos dois eixos.
 </Checkpoint>
+
+<ConclusaoCurso />

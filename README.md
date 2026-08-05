@@ -47,6 +47,25 @@ npm run verificar-glossario   # valida os termos do glossário
 npm run typecheck     # checagem de tipos (tsc --noEmit)
 ```
 
+## Analytics
+
+O site usa [GoatCounter](https://www.goatcounter.com/) para saber quantas
+pessoas abrem o curso e em que módulo tendem a parar — escolhido por ser
+gratuito sem limite de tempo, sem cookies, sem backend, e por ser só um
+`<script>` (configurado em `scripts` no `docusaurus.config.js`). Cada
+lição já é uma URL própria (ex. `/m11-as-seis-primitivas`), então a
+visualização por módulo é automática, sem evento customizado.
+
+**Passo pendente (só o dono do site consegue fazer):** criar uma conta
+gratuita em [goatcounter.com](https://www.goatcounter.com/), pegar o "site
+code" gerado, e substituir o placeholder `SEU-CODIGO` em
+`data-goatcounter` (dentro de `scripts` em `docusaurus.config.js`) pelo
+código real. Enquanto isso não for feito, o script carrega mas não
+registra nada.
+
+Depois de configurado, o painel fica disponível em
+`https://SEU-CODIGO.goatcounter.com` (login com a conta criada).
+
 ## Convenções do projeto
 
 Decisões de arquitetura, convenções de conteúdo e o fluxo de trabalho

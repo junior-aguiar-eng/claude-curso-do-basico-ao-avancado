@@ -57,6 +57,12 @@ Invocando Skill "revisao-de-codigo"...
 Analisando mudanças do PR #58...
 Sugestão: extrair validação repetida para uma função.
 
+> Enquanto isso, use um Subagent para escrever os testes que faltam
+  no módulo de autenticação
+
+Disparando Subagent "escritor-de-testes"...
+Subagent concluído: 4 testes novos escritos, 4 passando.
+
 > /testes
 
 Rodando Slash Command "/testes"...
@@ -71,6 +77,12 @@ Commit realizado.
 
 Chamando servidor MCP (deploy-tracker)...
 Deploy #212: concluído há 12 minutos, sem erros.
+
+> /plugin instalar revisor-pr
+
+Instalando Plugin "revisor-pr" (empacota uma Skill, um Slash Command
+e um Hook próprios)...
+Plugin instalado — "/revisar-pr" já disponível.
 ```
 
 Não é necessário aprofundar em nenhuma primitiva aqui — elas voltam com
