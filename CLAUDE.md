@@ -36,10 +36,12 @@ interativos, os labs e o ambiente.
 - **Publicação**: site estático, build automático por GitHub Actions,
   hospedagem gratuita (GitHub Pages ou Cloudflare Pages). Distribuição
   por link + git clone opcional.
-- **Componentes interativos**: biblioteca pequena e reutilizável. Começar
-  com **sandbox de código Python (Pyodide), quiz, checkpoint de progresso
-  e diagrama (Mermaid)**. Só adicionar um novo tipo mediante instrução
-  explícita.
+- **Componentes interativos**: biblioteca pequena e reutilizável.
+  Conjunto aprovado: **sandbox de código Python (Pyodide), quiz,
+  checkpoint de progresso, diagrama (Mermaid) e termo de glossário**
+  (`<Termo>`, ligado a `src/data/glossario.json`, validado no build por
+  `scripts/verificar-glossario.mjs`). Só adicionar um novo tipo mediante
+  instrução explícita.
 
 ## Como construir
 - Construção **por etapas verificáveis**, não em bloco. Para qualquer

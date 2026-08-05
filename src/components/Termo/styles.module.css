@@ -1,0 +1,7 @@
+.definindo {
+  border-bottom: 1px dotted var(--ifm-color-primary);
+}
+
+.termo {
+  text-decoration-style: dotted;
+}

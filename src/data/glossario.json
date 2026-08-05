@@ -1,0 +1,18 @@
+{
+  "codigo": {
+    "termo": "Código",
+    "moduloOrigem": "licao-exemplo"
+  },
+  "variavel": {
+    "termo": "Variável",
+    "moduloOrigem": "licao-exemplo"
+  },
+  "sandbox": {
+    "termo": "Sandbox",
+    "moduloOrigem": "licao-exemplo"
+  },
+  "claude-code": {
+    "termo": "Claude Code",
+    "moduloOrigem": "licao-exemplo"
+  }
+}

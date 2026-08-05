@@ -5,10 +5,11 @@
   "description": "Curso interativo de Claude e Claude Code para não-programadores",
   "scripts": {
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "npm run verificar-glossario && docusaurus build",
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "verificar-glossario": "node scripts/verificar-glossario.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "^3.7.0",
