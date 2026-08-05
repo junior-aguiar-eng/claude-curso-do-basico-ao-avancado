@@ -10,9 +10,11 @@ const config = {
   tagline: 'Do básico ao avançado — para quem nunca programou',
   favicon: 'img/favicon.ico',
 
-  // URL de produção do site e caminho base (GitHub Pages).
-  url: 'https://junior-aguiar-eng.github.io',
-  baseUrl: '/claude-curso-do-basico-ao-avancado/',
+  // URL de produção do site e caminho base — domínio próprio via CNAME
+  // (ver static/CNAME), servido na raiz em vez do subcaminho do GitHub
+  // Pages (github.io/nome-do-repo).
+  url: 'https://www.nerdolajuridico.com',
+  baseUrl: '/',
 
   // Configuração do GitHub Pages para deploy.
   organizationName: 'junior-aguiar-eng',

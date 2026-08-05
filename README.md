@@ -6,7 +6,7 @@ aluno lê a teoria e executa Python de verdade num sandbox (Pyodide), sem
 instalar nada e sem depender de assinatura. O Claude Code é uma camada
 opcional de prática aprofundada, para quem quiser ir além.
 
-**Site publicado:** https://junior-aguiar-eng.github.io/claude-curso-do-basico-ao-avancado/
+**Site publicado:** https://www.nerdolajuridico.com
 
 ## Stack
 
