@@ -1,0 +1,96 @@
+---
+title: "M10 — Funções"
+sidebar_position: 13
+modulo: "M10"
+---
+
+# M10 — Funções
+
+*Bloco 5 — Estruturas de dados e funções · Eixo B · Nível 🟢 + 🔵*
+
+## Abertura
+
+Com M9, você já sabe estruturar dados em listas e dicionários. Mas
+conforme o código cresce, blocos de lógica se repetem. Este módulo
+ensina a empacotar lógica reutilizável em funções — a base de qualquer
+programa organizado, e pré-requisito direto para M11, onde skills e
+ferramentas do Claude Code são, na prática, funções expostas ao agente.
+
+## Conceito central
+
+Uma <Termo id="funcao" define>função</Termo> é um bloco de código
+nomeado, definido com `def`, que pode receber entradas — os
+<Termo id="parametro" define>parâmetros</Termo> — e devolver uma saída
+com <Termo id="retorno" define>retorno</Termo> (`return`). Definir uma
+função não a executa — só a chamada (`nome_da_funcao(...)`) executa o
+que está dentro dela.
+
+Um parâmetro pode ter um valor padrão, o que o torna opcional na
+chamada: se você não informar aquele argumento, a função usa o valor
+padrão em vez disso. O retorno é o que permite que o resultado de uma
+função seja usado por outra parte do código, inclusive por outra
+função — sem retorno, o resultado calculado dentro da função fica preso
+ali, inacessível para o resto do programa.
+
+Vale marcar uma diferença importante: uma função que `return`a um valor
+pode ter seu resultado reaproveitado; uma função que só executa uma
+ação, como imprimir algo com `print`, não devolve nada útil para reuso
+— ela produz um efeito (o texto aparece na tela), mas não um valor que
+outra parte do código possa usar.
+
+## Na prática
+
+Um cálculo repetido duas vezes no código, virando uma função com
+parâmetro e retorno:
+
+<SandboxPython code={`def calcular_total(preco, quantidade):
+    return preco * quantidade
+
+total_1 = calcular_total(10, 3)
+total_2 = calcular_total(25, 2)
+
+print(total_1)
+print(total_2)`} />
+
+Um parâmetro com valor padrão, tornando-o opcional na chamada:
+
+<SandboxPython code={`def saudacao(nome, saudacao_inicial="Olá"):
+    return f"{saudacao_inicial}, {nome}!"
+
+print(saudacao("Ana"))
+print(saudacao("Bruno", "Bom dia"))`} />
+
+Uma função chamando outra, conectando com as listas de dicionários de
+M9 — recebe uma lista e devolve um subconjunto filtrado:
+
+<SandboxPython code={`def eh_maior_de_idade(pessoa):
+    return pessoa["idade"] >= 18
+
+def filtrar_maiores(pessoas):
+    maiores = []
+    for pessoa in pessoas:
+        if eh_maior_de_idade(pessoa):
+            maiores.append(pessoa)
+    return maiores
+
+pessoas = [
+    {"nome": "Ana", "idade": 30},
+    {"nome": "Bruno", "idade": 15},
+]
+
+for pessoa in filtrar_maiores(pessoas):
+    print(pessoa["nome"])`} />
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+Transforme a lógica de filtro que você escreveu no lab de M9 em uma
+função reutilizável, com um parâmetro para a condição de filtro.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m10">
+  Entendi o que é uma função, um parâmetro e um retorno, e a diferença
+  entre definir e chamar.
+</Checkpoint>

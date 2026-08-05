@@ -1,0 +1,108 @@
+---
+title: "M11 — As Seis Primitivas"
+sidebar_position: 14
+modulo: "M11"
+---
+
+# M11 — As Seis Primitivas
+
+*Bloco 6 — Extensão do Claude Code · Eixo A (usa Eixo B) · Nível 🟢 + 🔵*
+
+## Abertura
+
+Com M7 (Memória e Contexto) e M8 (Configuração e Governança Local),
+você já sabe operar o Claude Code no dia a dia. Este módulo dá um passo
+além: apresenta os seis mecanismos através dos quais o Claude Code pode
+ser estendido além do que vem de fábrica. Com M9 e M10 recém-vistos,
+várias dessas primitivas vão ter paralelos diretos com conceitos de
+programação que você acabou de aprender.
+
+## Conceito central
+
+As seis primitivas de extensão do Claude Code são:
+
+- <Termo id="skills" define>Skills</Termo>: instruções reutilizáveis que
+  ensinam o Claude a fazer algo de um jeito específico — conceitualmente
+  parecido com uma função (M10), empacotando conhecimento reutilizável.
+- <Termo id="subagents" define>Subagents</Termo>: instâncias
+  especializadas que tratam uma parte do trabalho (você viu isso a
+  fundo em M13, sob o nome de subagente).
+- <Termo id="slash-commands" define>Slash Commands</Termo>: atalhos
+  nomeados para tarefas recorrentes — a versão mais geral do slash
+  command que você já usa desde M3.
+- <Termo id="hooks" define>Hooks</Termo>: código que roda
+  automaticamente em resposta a eventos do Claude Code.
+- <Termo id="mcp" define>MCP</Termo> (Model Context Protocol): o
+  mecanismo que conecta o Claude Code a ferramentas e serviços
+  externos, permitindo que ele leia e aja sobre sistemas reais (você
+  aprofundou isso em M12).
+- <Termo id="plugins" define>Plugins</Termo>: pacotes que agrupam
+  várias dessas primitivas — Skills, Subagents, Slash Commands, Hooks,
+  MCP — numa unidade instalável, o equivalente a uma biblioteca no
+  mundo do Claude Code.
+
+Vale nomear essa última analogia explicitamente: assim como M9 e M10
+ensinaram a empacotar dados e lógica reutilizável em estruturas e
+funções, essas seis primitivas são formas de empacotar comportamento e
+conhecimento reutilizável para o próprio Claude Code.
+
+## Na prática
+
+Uma transcrição mínima mostrando cada primitiva em uso:
+
+```
+> Revise este PR usando nossas convenções de commit
+
+Invocando Skill "revisao-de-codigo"...
+Analisando mudanças do PR #58...
+Sugestão: extrair validação repetida para uma função.
+
+> /testes
+
+Rodando Slash Command "/testes"...
+4 testes passando.
+
+> git commit -m "corrige bug de timeout"
+
+Hook pre-commit disparado: rodando testes antes do commit...
+Commit realizado.
+
+> Busque o status do deploy mais recente
+
+Chamando servidor MCP (deploy-tracker)...
+Deploy #212: concluído há 12 minutos, sem erros.
+```
+
+Não é necessário aprofundar em nenhuma primitiva aqui — elas retornam
+com mais profundidade em M12-M14, já vistos. O objetivo deste módulo é
+dar um mapa claro do que existe e para que serve cada uma.
+
+## Diagrama
+
+As seis primitivas ao redor do núcleo do Claude Code — extensões
+independentes, não uma sequência:
+
+<Diagrama
+  title="As seis primitivas de extensão do Claude Code"
+  chart={`flowchart TD
+    Core((Claude Code)) --> Skills
+    Core --> Subagents
+    Core --> Slash[Slash Commands]
+    Core --> Hooks
+    Core --> MCP
+    Core --> Plugins`}
+/>
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+Crie uma Skill simples e um Slash Command simples no seu próprio
+ambiente, e invoque os dois.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m11">
+  Completei o Bloco 6: conheço as seis primitivas de extensão do Claude
+  Code — Skills, Subagents, Slash Commands, Hooks, MCP e Plugins.
+</Checkpoint>

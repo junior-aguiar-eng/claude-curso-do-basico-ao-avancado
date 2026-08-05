@@ -151,67 +151,73 @@
   },
   "lista": {
     "termo": "Lista",
-    "definicao": "TODO: definir",
+    "definicao": "Uma sequência ordenada de valores, criada com colchetes ([]), acessada por posição (índice) e que pode crescer ou encolher com métodos como append e remove.",
+    "moduloOrigem": "M9",
+    "eixo": "B"
+  },
+  "indice": {
+    "termo": "Índice",
+    "definicao": "A posição de um valor dentro de uma lista, começando em 0 — a primeira posição de uma lista é o índice 0, não o índice 1.",
     "moduloOrigem": "M9",
     "eixo": "B"
   },
   "dicionario": {
     "termo": "Dicionário",
-    "definicao": "TODO: definir",
+    "definicao": "Uma coleção de pares chave-valor, criada com chaves ({}), onde cada valor é acessado pela sua chave, não por posição — útil quando os dados têm nome, não ordem.",
     "moduloOrigem": "M9",
     "eixo": "B"
   },
   "funcao": {
     "termo": "Função",
-    "definicao": "TODO: definir",
+    "definicao": "Um bloco de código nomeado, definido com def, que pode receber parâmetros e devolver um valor com return. Definir uma função não a executa — só a chamada faz isso.",
     "moduloOrigem": "M10",
     "eixo": "B"
   },
   "parametro": {
     "termo": "Parâmetro",
-    "definicao": "TODO: definir",
+    "definicao": "Uma entrada que uma função recebe para trabalhar; pode ter um valor padrão, o que a torna opcional na hora de chamar a função.",
     "moduloOrigem": "M10",
     "eixo": "B"
   },
   "retorno": {
     "termo": "Retorno",
-    "definicao": "TODO: definir",
+    "definicao": "O valor que uma função devolve com return, permitindo que o resultado seja usado por outra parte do código — sem ele, o que a função calculou fica preso ali dentro.",
     "moduloOrigem": "M10",
     "eixo": "B"
   },
   "skills": {
     "termo": "Skills",
-    "definicao": "TODO: definir",
+    "definicao": "Instruções reutilizáveis que ensinam o Claude a fazer algo de um jeito específico — conceitualmente parecido com uma função, empacotando conhecimento reutilizável para o agente usar quando precisar.",
     "moduloOrigem": "M11",
     "eixo": "A"
   },
   "subagents": {
     "termo": "Subagents",
-    "definicao": "TODO: definir",
+    "definicao": "Instâncias especializadas do Claude Code, disparadas para tratar uma parte específica de um trabalho maior (ver subagente, M13, para como isso funciona na prática).",
     "moduloOrigem": "M11",
     "eixo": "A"
   },
   "slash-commands": {
     "termo": "Slash Commands",
-    "definicao": "TODO: definir",
+    "definicao": "Atalhos nomeados para tarefas recorrentes do Claude Code — a mesma ideia do slash command (M3), generalizada como uma das seis primitivas de extensão.",
     "moduloOrigem": "M11",
     "eixo": "A"
   },
   "hooks": {
     "termo": "Hooks",
-    "definicao": "TODO: definir",
+    "definicao": "Código que roda automaticamente em resposta a eventos do Claude Code, como antes de um commit ou depois de uma edição — sem precisar ser disparado manualmente.",
     "moduloOrigem": "M11",
     "eixo": "A"
   },
   "plugins": {
     "termo": "Plugins",
-    "definicao": "TODO: definir",
+    "definicao": "Pacotes que agrupam várias primitivas — Skills, Subagents, Slash Commands, Hooks, MCP — numa unidade instalável, o equivalente a uma biblioteca no mundo do Claude Code.",
     "moduloOrigem": "M11",
     "eixo": "A"
   },
   "mcp": {
     "termo": "MCP",
-    "definicao": "TODO: definir",
+    "definicao": "O protocolo (Model Context Protocol) que conecta o Claude Code a ferramentas e serviços externos, permitindo que ele leia e aja sobre sistemas reais fora do seu computador (aprofundado em M12).",
     "moduloOrigem": "M11",
     "eixo": "A"
   },
