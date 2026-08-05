@@ -8,6 +8,20 @@ nome = "mundo"
 print(f"Olá, {nome}!")
 `;
 
+// Todos os sandboxes da página compartilham uma única instância Pyodide
+// (ver loadPyodide.js), que só tem um stdout/stderr global. Se dois
+// sandboxes rodassem ao mesmo tempo, o segundo reapontaria o stdout
+// antes do primeiro terminar, e a saída do primeiro vazaria para o
+// painel do segundo. Esta fila serializa as execuções de qualquer
+// sandbox da página, na ordem em que "Rodar" foi clicado.
+let filaDeExecucao = Promise.resolve();
+
+function executarComExclusividade(tarefa) {
+  const execucao = filaDeExecucao.then(tarefa, tarefa);
+  filaDeExecucao = execucao.catch(() => {});
+  return execucao;
+}
+
 /**
  * Sandbox de Python que roda direto no navegador do aluno via Pyodide —
  * sem servidor, sem instalação, sem depender de assinatura.
@@ -22,6 +36,11 @@ print(f"Olá, {nome}!")
  * é tratada à parte — não é um erro de código, então não passa pela
  * tradução de exceções Python.
  *
+ * Quando há mais de um sandbox na mesma lição, rodar um enquanto outro
+ * ainda está em execução entra na fila em vez de rodar em paralelo —
+ * ambos compartilham a mesma instância Pyodide, então rodar ao mesmo
+ * tempo faria a saída de um vazar para o painel do outro.
+ *
  * O runtime Pyodide é compartilhado entre todos os sandboxes da página
  * (ver loadPyodide.js), mas cada execução roda num namespace Python
  * novo — variáveis de um sandbox (ou de uma execução anterior do mesmo
@@ -35,7 +54,7 @@ export default function SandboxPython({code: initialCode, height}) {
   const [code, setCode] = useState(initialCode ?? CODIGO_PADRAO);
   const [output, setOutput] = useState('');
   const [erro, setErro] = useState(null);
-  const [status, setStatus] = useState('ocioso'); // ocioso | carregando | rodando | sucesso | erro | erro-carregamento
+  const [status, setStatus] = useState('ocioso'); // ocioso | carregando | esperando | rodando | sucesso | erro | erro-carregamento
   const pyodideRef = useRef(null);
   const editorRef = useRef(null);
 
@@ -53,28 +72,32 @@ export default function SandboxPython({code: initialCode, height}) {
       }
     }
 
-    // O runtime Pyodide é compartilhado entre todos os sandboxes da
-    // página (ver loadPyodide.js) — sempre reapontamos stdout/stderr
-    // para este sandbox antes de rodar, para não vazar saída de um
-    // sandbox para o painel de outro quando há mais de um na mesma lição.
-    const escrever = (msg) => setOutput((o) => (o ? `${o}\n${msg}` : msg));
-    pyodideRef.current.setStdout({batched: escrever});
-    pyodideRef.current.setStderr({batched: escrever});
-
+    setStatus('esperando');
     try {
-      setStatus('rodando');
-      // Namespace novo a cada execução: sem isso, todos os sandboxes da
-      // página rodariam nas mesmas variáveis globais do interpretador
-      // compartilhado, e uma variável de um exemplo vazaria para outro
-      // (ou para uma reexecução do mesmo código já editado).
-      const dictPy = pyodideRef.current.globals.get('dict');
-      const namespace = dictPy();
-      try {
-        await pyodideRef.current.runPythonAsync(code, {globals: namespace});
-      } finally {
-        namespace.destroy();
-        dictPy.destroy();
-      }
+      await executarComExclusividade(async () => {
+        setStatus('rodando');
+        // O runtime Pyodide é compartilhado entre todos os sandboxes da
+        // página (ver loadPyodide.js) — sempre reapontamos stdout/stderr
+        // para este sandbox antes de rodar. A fila acima garante que só
+        // uma execução acontece por vez, então esse reapontamento nunca
+        // é roubado por outro sandbox no meio do caminho.
+        const escrever = (msg) => setOutput((o) => (o ? `${o}\n${msg}` : msg));
+        pyodideRef.current.setStdout({batched: escrever});
+        pyodideRef.current.setStderr({batched: escrever});
+
+        // Namespace novo a cada execução: sem isso, todos os sandboxes da
+        // página rodariam nas mesmas variáveis globais do interpretador
+        // compartilhado, e uma variável de um exemplo vazaria para outro
+        // (ou para uma reexecução do mesmo código já editado).
+        const dictPy = pyodideRef.current.globals.get('dict');
+        const namespace = dictPy();
+        try {
+          await pyodideRef.current.runPythonAsync(code, {globals: namespace});
+        } finally {
+          namespace.destroy();
+          dictPy.destroy();
+        }
+      });
       setStatus('sucesso');
     } catch (err) {
       setErro(traduzirErro(err?.message ?? String(err), code));
@@ -86,7 +109,7 @@ export default function SandboxPython({code: initialCode, height}) {
     editorRef.current?.focus();
   };
 
-  const ocupado = status === 'carregando' || status === 'rodando';
+  const ocupado = status === 'carregando' || status === 'esperando' || status === 'rodando';
 
   return (
     <div className={styles.sandbox}>
@@ -108,6 +131,8 @@ export default function SandboxPython({code: initialCode, height}) {
         >
           {status === 'carregando'
             ? 'Carregando Python...'
+            : status === 'esperando'
+            ? 'Aguardando...'
             : status === 'rodando'
             ? 'Rodando...'
             : 'Rodar'}

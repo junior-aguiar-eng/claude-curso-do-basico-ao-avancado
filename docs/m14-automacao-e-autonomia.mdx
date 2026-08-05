@@ -46,11 +46,18 @@ a automação segura o suficiente para rodar sem supervisão constante.
 
 ## Na prática
 
-Uma execução com `/goal`, contida por sandboxing:
+Uma execução com `/goal`, contida por sandboxing configurado antes —
+sandboxing é uma configuração do ambiente, não algo que `/goal` liga
+por conta própria:
 
 ```
+> Configure esta sessão para rodar em modo sandbox, sem afetar 
+  os arquivos reais do projeto
+
+Sandboxing ativado — mudanças ficam isoladas até você revisar 
+e aplicar.
+
 > /goal "Reduzir o tempo de build do projeto para menos de 2 minutos"
-  --sandbox
 
 Ambiente isolado iniciado.
 Analisando pipeline de build atual... 4m32s
