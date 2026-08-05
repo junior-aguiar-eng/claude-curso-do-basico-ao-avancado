@@ -65,9 +65,9 @@ processual:
 
 ```python
 import asyncio
-from anthropic import Anthropic
+from anthropic import AsyncAnthropic
 
-client = Anthropic()
+client = AsyncAnthropic()
 
 async def consultar_prazo(numero_processo):
     # Aqui entraria a consulta real a um sistema de processos.
@@ -115,23 +115,26 @@ O mesmo tipo de pedido, agora pedindo saída estruturada em vez de
 texto livre:
 
 ```python
+import asyncio
 import json
 
-resposta = await client.messages.create(
-    model="claude-sonnet-5",
-    max_tokens=1024,
-    messages=[{
-        "role": "user",
-        "content": (
-            'Responda em JSON, com os campos "prazo_dias" (número) e '
-            '"vencimento" (texto), sobre o processo 1234-56.'
-        ),
-    }],
-)
+async def consultar_estruturado():
+    resposta = await client.messages.create(
+        model="claude-sonnet-5",
+        max_tokens=1024,
+        messages=[{
+            "role": "user",
+            "content": (
+                'Responda em JSON, com os campos "prazo_dias" (número) e '
+                '"vencimento" (texto), sobre o processo 1234-56.'
+            ),
+        }],
+    )
+    dados = json.loads(resposta.content[0].text)
+    print(dados["prazo_dias"])
+    print(dados["vencimento"])
 
-dados = json.loads(resposta.content[0].text)
-print(dados["prazo_dias"])
-print(dados["vencimento"])
+asyncio.run(consultar_estruturado())
 ```
 
 Sem `structured output`, seu código precisaria tentar extrair "15 dias"
