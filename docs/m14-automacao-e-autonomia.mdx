@@ -1,0 +1,86 @@
+---
+title: "M14 — Automação e Autonomia"
+sidebar_position: 14
+modulo: "M14"
+---
+
+# M14 — Automação e Autonomia
+
+*Bloco 7 — Orquestração · Eixo A · Nível 🟢 / 🔵 lab*
+
+## Abertura
+
+Com paralelismo permitindo várias linhas de trabalho simultâneas (M13),
+esta lição fecha o Bloco 7 explorando o outro eixo da autonomia: não
+quantas instâncias trabalham ao mesmo tempo, mas por quanto tempo e com
+que grau de independência uma única instância pode operar sem
+intervenção sua.
+
+## Conceito central
+
+Até aqui, cada tarefa que Claude Code executou teve começo, meio e fim
+dentro de uma única interação — você pediu, ele agiu, terminou. A
+<Termo id="automacao" define>automação</Termo> estende isso: configurar
+Claude Code para executar um processo repetidamente, ou de forma
+contínua, sem que você precise disparar cada execução manualmente.
+
+Uma <Termo id="routine" define>routine</Termo> é uma automação agendada
+ou recorrente — uma tarefa que roda em intervalos definidos (todo dia, a
+cada hora) sem depender de você iniciar a sessão. Já o
+<Termo id="loop" define>/loop</Termo> mantém Claude Code executando um
+ciclo de trabalho repetidamente até uma condição de parada ser
+satisfeita — o mesmo princípio do laço `while` que você viu em M6,
+aplicado ao comportamento do agente, não a uma variável numérica.
+
+O <Termo id="goal" define>/goal</Termo> leva a autonomia um passo além:
+em vez de especificar os passos, você declara um objetivo final, e
+Claude Code decide o caminho — dentro dos limites configurados — para
+chegar até lá, avaliando o próprio progresso ao longo do processo.
+
+Quanto maior a autonomia, maior a necessidade de conter o raio de ação.
+É para isso que existe o <Termo id="sandboxing" define>sandboxing</Termo>:
+executar o agente dentro de um ambiente isolado e limitado, onde mesmo
+que algo dê errado, o impacto fica contido àquele espaço, sem afetar o
+sistema real. Autonomia sem contenção é risco; sandboxing é o que torna
+a automação segura o suficiente para rodar sem supervisão constante.
+
+## Na prática
+
+Uma execução com `/goal`, contida por sandboxing:
+
+```
+> /goal "Reduzir o tempo de build do projeto para menos de 2 minutos"
+  --sandbox
+
+Ambiente isolado iniciado.
+Analisando pipeline de build atual... 4m32s
+
+Tentativa 1: paralelizar etapas de teste — 3m48s
+Tentativa 2: adicionar cache de dependências — 2m15s
+Tentativa 3: remover etapa de lint redundante — 1m52s
+
+Objetivo alcançado: 1m52s (abaixo dos 2 minutos).
+Mudanças aplicadas apenas no ambiente sandbox — revise antes 
+de aplicar ao projeto real.
+```
+
+Repare que Claude Code não seguiu um roteiro fixo — ele tentou
+abordagens diferentes até atingir o objetivo declarado, e tudo isso
+aconteceu dentro do sandbox, sem risco ao projeto real até a revisão
+final.
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+Configure uma automação simples com `/loop` para uma tarefa repetitiva
+pequena (como rodar os testes até todos passarem), sempre dentro de um
+ambiente com sandboxing ativado, e observe quantas iterações o agente
+precisa até atingir a condição de parada.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m14">
+  Completei o Bloco 7: sei o que é automação, routine, /loop, /goal e
+  sandboxing.
+</Checkpoint>

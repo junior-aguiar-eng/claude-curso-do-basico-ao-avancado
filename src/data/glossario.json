@@ -212,18 +212,18 @@
   "mcp": {
     "termo": "MCP",
     "definicao": "TODO: definir",
-    "moduloOrigem": "M12",
+    "moduloOrigem": "M11",
     "eixo": "A"
   },
   "servidor-mcp": {
     "termo": "Servidor MCP",
-    "definicao": "TODO: definir",
+    "definicao": "Um programa que expõe as capacidades de um serviço externo (um quadro de tarefas, um banco de dados, um serviço na nuvem) na linguagem que o MCP entende, permitindo que Claude Code chame essas capacidades como se fossem ferramentas suas.",
     "moduloOrigem": "M12",
     "eixo": "A"
   },
   "integracao-externa": {
     "termo": "Integração externa",
-    "definicao": "TODO: definir",
+    "definicao": "A capacidade de Claude Code agir sobre sistemas fora do seu computador — consultando um ticket, atualizando uma planilha, verificando um deploy — sem que você precise sair da sessão para fazer isso manualmente.",
     "moduloOrigem": "M12",
     "eixo": "A"
   },
@@ -235,55 +235,55 @@
   },
   "worktree": {
     "termo": "Worktree",
-    "definicao": "TODO: definir",
+    "definicao": "Uma cópia de trabalho isolada do repositório, onde uma instância de Claude Code pode fazer alterações sem afetar o que outra instância está fazendo em paralelo, até o momento de reunir os resultados.",
     "moduloOrigem": "M13",
     "eixo": "A"
   },
   "agent-view": {
     "termo": "Agent view",
-    "definicao": "TODO: definir",
+    "definicao": "Uma visão que mostra o progresso de cada linha de trabalho paralela, permitindo acompanhar várias tarefas ao mesmo tempo sem perder o controle de nenhuma delas.",
     "moduloOrigem": "M13",
     "eixo": "A"
   },
   "agent-team": {
     "termo": "Agent team",
-    "definicao": "TODO: definir",
+    "definicao": "Um conjunto de instâncias de Claude Code trabalhando juntas de forma coordenada, cada uma abordando uma parte diferente do mesmo objetivo maior.",
     "moduloOrigem": "M13",
     "eixo": "A"
   },
   "paralelismo": {
     "termo": "Paralelismo",
-    "definicao": "TODO: definir",
+    "definicao": "Várias linhas de trabalho acontecendo simultaneamente, cada uma progredindo de forma independente, em vez de uma esperar a outra terminar.",
     "moduloOrigem": "M13",
     "eixo": "A"
   },
   "routine": {
     "termo": "Routine",
-    "definicao": "TODO: definir",
+    "definicao": "Uma automação agendada ou recorrente — uma tarefa que roda em intervalos definidos (todo dia, a cada hora) sem depender de você iniciar a sessão.",
     "moduloOrigem": "M14",
     "eixo": "A"
   },
   "loop": {
     "termo": "/loop",
-    "definicao": "TODO: definir",
+    "definicao": "Mantém Claude Code executando um ciclo de trabalho repetidamente até uma condição de parada ser satisfeita — o mesmo princípio do laço while (M6), aplicado ao comportamento do agente.",
     "moduloOrigem": "M14",
     "eixo": "A"
   },
   "goal": {
     "termo": "/goal",
-    "definicao": "TODO: definir",
+    "definicao": "Permite declarar um objetivo final, em vez de especificar os passos — Claude Code decide o caminho, dentro dos limites configurados, avaliando o próprio progresso até alcançá-lo.",
     "moduloOrigem": "M14",
     "eixo": "A"
   },
   "sandboxing": {
     "termo": "Sandboxing",
-    "definicao": "TODO: definir",
+    "definicao": "Executar o agente dentro de um ambiente isolado e limitado, onde mesmo que algo dê errado, o impacto fica contido àquele espaço, sem afetar o sistema real.",
     "moduloOrigem": "M14",
     "eixo": "A"
   },
   "automacao": {
     "termo": "Automação",
-    "definicao": "TODO: definir",
+    "definicao": "Configurar Claude Code para executar um processo repetidamente, ou de forma contínua, sem que você precise disparar cada execução manualmente.",
     "moduloOrigem": "M14",
     "eixo": "A"
   },

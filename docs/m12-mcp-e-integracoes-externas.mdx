@@ -1,0 +1,82 @@
+---
+title: "M12 — MCP e Integrações Externas"
+sidebar_position: 12
+modulo: "M12"
+---
+
+# M12 — MCP e Integrações Externas
+
+*Bloco 7 — Orquestração · Eixo A · Nível 🟢 / 🔵 lab*
+
+## Abertura
+
+Você conheceu o MCP de relance em M11, como uma das seis primitivas.
+Esta lição aprofunda: como Claude Code se conecta de fato a ferramentas
+fora do seu computador, e o que muda quando ele passa a ler e agir sobre
+sistemas externos, não só arquivos locais.
+
+## Conceito central
+
+Tudo que você viu até agora — ler arquivos, rodar comandos, escrever
+código — acontece dentro do seu computador. Mas boa parte do trabalho
+real envolve sistemas externos: um banco de dados, uma ferramenta de
+gestão de tarefas, um serviço na nuvem. O <Termo id="mcp">MCP</Termo>
+(Model Context Protocol) é o protocolo — a linguagem comum — que permite
+Claude Code se conectar a esses sistemas de forma padronizada, sem que
+cada integração precise ser construída do zero, de um jeito diferente
+para cada serviço.
+
+Cada conexão concreta usando esse protocolo é um
+<Termo id="servidor-mcp" define>servidor MCP</Termo>: um programa que
+expõe as capacidades de um serviço específico (ler tarefas de um quadro
+Kanban, consultar um banco de dados, enviar uma mensagem) na linguagem
+que o MCP entende. Claude Code, ao se conectar a um servidor MCP, passa
+a poder chamar essas capacidades como se fossem ferramentas suas — na
+prática, o mesmo tipo de ação que ele já faz localmente (M1), só que
+agora alcançando algo fora do seu computador.
+
+Essa capacidade de agir sobre sistemas fora do ambiente local chama-se
+<Termo id="integracao-externa" define>integração externa</Termo>. É o
+que transforma Claude Code de um assistente que só entende o seu código
+em um agente que participa do seu fluxo de trabalho real — consultando
+um ticket, atualizando uma planilha, verificando o status de um deploy —
+sem que você precise sair da sessão para fazer isso manualmente.
+
+## Na prática
+
+Uma sessão usando um servidor MCP conectado a uma ferramenta de tarefas:
+
+```
+> Verifique se há tarefas pendentes atribuídas a mim no board 
+  e resuma o que falta fazer
+
+Conectando ao servidor MCP (task-tracker)...
+Consultando tarefas atribuídas...
+
+Encontradas 3 tarefas pendentes:
+1. Revisar PR #58 — aguardando desde ontem
+2. Atualizar documentação da API — sem prazo definido
+3. Corrigir bug de timeout — marcado como urgente
+
+A tarefa com maior prioridade é a #3, marcada como urgente.
+```
+
+Claude Code não "sabe" nativamente o que é um board de tarefas — ele
+chamou uma capacidade exposta pelo servidor MCP conectado, recebeu a
+informação de volta, e a apresentou. A integração externa é o que
+tornou essa consulta possível sem você abrir outra ferramenta.
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+Conecte um servidor MCP disponível ao seu ambiente Claude Code (por
+exemplo, um de leitura de arquivos em um serviço de armazenamento na
+nuvem) e peça uma tarefa simples que dependa dessa conexão — como
+listar o conteúdo de uma pasta remota.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m12">
+  Entendi o que é o MCP, um servidor MCP e uma integração externa.
+</Checkpoint>
