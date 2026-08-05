@@ -229,7 +229,7 @@
   },
   "subagente": {
     "termo": "Subagente",
-    "definicao": "TODO: definir",
+    "definicao": "Uma instância separada de Claude Code, disparada para cuidar de uma parte específica de uma tarefa maior. Quando várias trabalham ao mesmo tempo em vez de uma de cada vez, isso dá origem ao paralelismo.",
     "moduloOrigem": "M13",
     "eixo": "A"
   },
