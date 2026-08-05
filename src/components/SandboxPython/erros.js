@@ -57,7 +57,10 @@ const REGRAS = [
   },
 ];
 
-const MENSAGEM_GENERICA = 'Algo não está certo nesta linha, revise a sintaxe';
+// Cobre tanto erro de sintaxe não listado acima quanto erro de execução
+// (ex. ValueError, FileNotFoundError) — por isso não menciona "sintaxe"
+// especificamente, já que o código pode ter rodado até essa linha.
+const MENSAGEM_GENERICA = 'Algo não deu certo ao rodar esse código — dê uma olhada nesta linha';
 
 /**
  * Traduz o erro cru lançado pelo Pyodide (`err.message`, com o traceback

@@ -126,17 +126,22 @@ export default function SandboxPython({code: initialCode, height}) {
       )}
 
       {status === 'erro' && erro && (
-        <div className={styles.painelErro}>
-          <p className={styles.mensagemErro}>{erro.mensagem}</p>
-          {erro.trechoLinha != null && (
-            <pre className={styles.linhaDestacada}>
-              Linha {erro.numeroLinha}: {erro.trechoLinha}
-            </pre>
+        <>
+          {output && (
+            <pre className={styles.saidaParcial}>{output}</pre>
           )}
-          <button type="button" className={styles.botaoCorrigir} onClick={corrigir}>
-            Corrigir e tentar de novo
-          </button>
-        </div>
+          <div className={styles.painelErro}>
+            <p className={styles.mensagemErro}>{erro.mensagem}</p>
+            {erro.trechoLinha != null && (
+              <pre className={styles.linhaDestacada}>
+                Linha {erro.numeroLinha}: {erro.trechoLinha}
+              </pre>
+            )}
+            <button type="button" className={styles.botaoCorrigir} onClick={corrigir}>
+              Corrigir e tentar de novo
+            </button>
+          </div>
+        </>
       )}
 
       {status === 'erro-carregamento' && (

@@ -79,6 +79,17 @@
   word-break: break-word;
 }
 
+.saidaParcial {
+  margin-top: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 6px;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 .painelErro {
   margin-top: 0.9rem;
   padding: 0.7rem 0.9rem;
