@@ -6,9 +6,9 @@
   max-width: 420px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
-  border: 0.5px solid var(--ifm-color-emphasis-300);
-  border-radius: 8px;
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--curso-borda);
+  border-radius: calc(var(--ifm-global-radius) * 1.75);
+  background: var(--curso-bg-card);
 }
 
 .selo {
@@ -90,14 +90,14 @@
 }
 
 .botaoPrimario {
-  border: 0.5px solid var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
   background: var(--ifm-color-primary);
-  color: white;
+  color: #14100d;
 }
 
 .botaoPrimario:hover {
   background: var(--ifm-color-primary-dark);
   border-color: var(--ifm-color-primary-dark);
-  color: white;
+  color: #14100d;
   text-decoration: none;
 }

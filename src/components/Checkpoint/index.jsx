@@ -46,7 +46,7 @@ export default function Checkpoint({id, children, label, onChange}) {
   };
 
   return (
-    <label className={clsx(styles.checkpoint, done && styles.concluido)}>
+    <label className={clsx(styles.checkpoint, 'curso-glow-card', done && styles.concluido)}>
       <input
         type="checkbox"
         className={styles.caixa}

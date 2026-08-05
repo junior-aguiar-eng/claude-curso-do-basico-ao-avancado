@@ -1,9 +1,9 @@
 .diagrama {
   margin: 1.5rem 0;
   padding: 1rem;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 8px;
-  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--curso-borda);
+  border-radius: calc(var(--ifm-global-radius) * 1.75);
+  background: var(--curso-bg-card);
   text-align: center;
 }
 

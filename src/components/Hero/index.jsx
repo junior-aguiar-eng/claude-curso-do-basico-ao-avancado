@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
 const LINHAS_TERMINAL = [
@@ -17,19 +18,21 @@ const LINHAS_TERMINAL = [
 ];
 
 /**
- * Painel de abertura do curso: sempre escuro (independente do tema claro/
- * escuro do site), com brilho coral e um mockup de terminal mostrando o
- * Claude Code em ação. Usado uma única vez, em docs/intro.mdx — conteúdo
- * (título, texto, links) vem de fora; o mockup de terminal é decorativo e
- * fixo.
+ * Painel de abertura do curso: coluna única centralizada (mockup
+ * aprovado), com um mockup de terminal mostrando o Claude Code em
+ * ação. Usado uma única vez, em docs/intro.mdx — conteúdo (título,
+ * texto, links) vem de fora; o mockup de terminal é decorativo e fixo.
+ *
+ * Links internos usam <Link> do Docusaurus (não <a> cru) para respeitar
+ * o baseUrl do site em produção.
  *
  * Uso:
  *
  *   <Hero
- *     eyebrow="Curso completo, do zero ao Agent SDK"
- *     title="Bem-vindo ao curso de Claude e Claude Code"
+ *     eyebrow="18 módulos · grátis · direto no navegador"
+ *     title={['Aprenda Claude e', 'Claude Code']} tituloSufixo="do zero"
  *     subtitle="..."
- *     primaryHref="/m1-fundamentos-e-mentalidade" primaryLabel="Começar a primeira lição"
+ *     primaryHref="/m1-fundamentos-e-mentalidade" primaryLabel="Começar a primeira lição →"
  *     secondaryHref="/glossario" secondaryLabel="Ver o glossário"
  *   />
  */
@@ -44,67 +47,71 @@ export default function Hero({
 }) {
   return (
     <div className={styles.hero}>
-      <div className={styles.coluna}>
-        {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
-        <h1 className={styles.titulo}>
-          {Array.isArray(title) ? (
-            title.map((linha, i) => (
-              <span key={i} className={i === title.length - 1 ? styles.tituloDestaque : undefined}>
-                {linha}
-                <br />
-              </span>
-            ))
-          ) : (
-            title
-          )}
-        </h1>
-        {subtitle && <p className={styles.subtitulo}>{subtitle}</p>}
-        <div className={styles.acoes}>
-          {primaryHref && (
-            <a className={styles.botaoPrimario} href={primaryHref}>
-              {primaryLabel}
-            </a>
-          )}
-          {secondaryHref && (
-            <a className={styles.botaoSecundario} href={secondaryHref}>
-              {secondaryLabel}
-            </a>
-          )}
-        </div>
+      {eyebrow && (
+        <p className={styles.eyebrow}>
+          <span className={styles.eyebrowDot} aria-hidden="true" />
+          {eyebrow}
+        </p>
+      )}
+
+      <h1 className={styles.titulo}>
+        {Array.isArray(title) ? (
+          title.map((linha, i) => (
+            <span key={i} className={i === title.length - 1 ? styles.tituloDestaque : undefined}>
+              {linha}
+              {i < title.length - 1 && <br />}
+            </span>
+          ))
+        ) : (
+          title
+        )}
+      </h1>
+
+      {subtitle && <p className={styles.subtitulo}>{subtitle}</p>}
+
+      <div className={styles.acoes}>
+        {primaryHref && (
+          <Link className={styles.botaoPrimario} to={primaryHref}>
+            {primaryLabel}
+          </Link>
+        )}
+        {secondaryHref && (
+          <Link className={styles.botaoSecundario} to={secondaryHref}>
+            {secondaryLabel}
+          </Link>
+        )}
       </div>
 
-      <div className={styles.coluna}>
-        <div className={styles.terminal} aria-hidden="true">
-          <div className={styles.terminalBarra}>
-            <span className={styles.bolinha} />
-            <span className={styles.bolinha} />
-            <span className={styles.bolinha} />
-          </div>
-          <pre className={styles.terminalCorpo}>
-            {LINHAS_TERMINAL.map((linha, i) => {
-              if (linha.tipo === 'vazio') return <div key={i}>&nbsp;</div>;
-              if (linha.tipo === 'cursor') {
-                return (
-                  <div key={i}>
-                    <span className={styles.prompt}>~ $</span> <span className={styles.piscar}>_</span>
-                  </div>
-                );
-              }
-              if (linha.tipo === 'prompt') {
-                return (
-                  <div key={i}>
-                    <span className={styles.prompt}>~ $</span> {linha.texto}
-                  </div>
-                );
-              }
+      <div className={styles.terminal} aria-hidden="true">
+        <div className={styles.terminalBarra}>
+          <span className={`${styles.bolinha} ${styles.bolinhaVermelha}`} />
+          <span className={`${styles.bolinha} ${styles.bolinhaAmarela}`} />
+          <span className={`${styles.bolinha} ${styles.bolinhaVerde}`} />
+        </div>
+        <pre className={styles.terminalCorpo}>
+          {LINHAS_TERMINAL.map((linha, i) => {
+            if (linha.tipo === 'vazio') return <div key={i}>&nbsp;</div>;
+            if (linha.tipo === 'cursor') {
               return (
-                <div key={i} className={styles[linha.tipo]}>
-                  {linha.texto}
+                <div key={i}>
+                  <span className={styles.prompt}>~ $</span> <span className={styles.piscar}>_</span>
                 </div>
               );
-            })}
-          </pre>
-        </div>
+            }
+            if (linha.tipo === 'prompt') {
+              return (
+                <div key={i}>
+                  <span className={styles.prompt}>~ $</span> {linha.texto}
+                </div>
+              );
+            }
+            return (
+              <div key={i} className={styles[linha.tipo]}>
+                {linha.texto}
+              </div>
+            );
+          })}
+        </pre>
       </div>
     </div>
   );

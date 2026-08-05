@@ -41,7 +41,7 @@ export default function Quiz({question, options = [], children}) {
             <li key={i}>
               <button
                 type="button"
-                className={clsx(styles.opcao, estado && styles[estado])}
+                className={clsx(styles.opcao, 'curso-glow-card', estado && styles[estado])}
                 disabled={answered}
                 onClick={() => setSelected(i)}
               >

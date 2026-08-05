@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 import {IconeEstado, textoClasseEstado, ESTADOS} from '@site/src/components/_shared/EstadoModulo';
 import styles from './styles.module.css';
 
@@ -25,9 +26,10 @@ export default function MapaTrilha({blocos = [], hrefContinuar, onContinuar}) {
   }, 0);
   const totalModulos = blocos.reduce((soma, bloco) => soma + bloco.modulos.length, 0);
 
-  const BotaoContinuar = hrefContinuar ? 'a' : 'button';
+  // <Link> (não <a> cru) para respeitar o baseUrl do site em produção.
+  const BotaoContinuar = hrefContinuar ? Link : 'button';
   const propsBotao = hrefContinuar
-    ? {href: hrefContinuar}
+    ? {to: hrefContinuar}
     : {type: 'button', onClick: onContinuar};
 
   return (
