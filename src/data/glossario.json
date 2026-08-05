@@ -1,8 +1,14 @@
 {
+  "anthropic": {
+    "termo": "Anthropic",
+    "definicao": "Empresa de pesquisa e produtos em inteligência artificial, fundada em 2021 por ex-pesquisadores da OpenAI, que trata segurança em IA como parte central da própria estratégia — inclusive comercial —, não como um adendo. É a empresa por trás de Claude.",
+    "moduloOrigem": "M0.1",
+    "eixo": "A"
+  },
   "claude": {
     "termo": "Claude",
     "definicao": "Um modelo de linguagem que você acessa em modo conversa: você pergunta ou pede algo, e ele responde, dentro de uma janela de chat.",
-    "moduloOrigem": "M1",
+    "moduloOrigem": "M0.2",
     "eixo": "A"
   },
   "claude-code": {
@@ -13,8 +19,92 @@
   },
   "modelo-de-linguagem": {
     "termo": "Modelo de linguagem",
-    "definicao": "Um sistema treinado para entender e gerar texto, capaz de responder perguntas, explicar conceitos, escrever e revisar textos e ajudar a pensar um problema.",
-    "moduloOrigem": "M1",
+    "definicao": "Um sistema treinado para entender e gerar texto, capaz de responder perguntas, explicar conceitos, escrever e revisar textos e ajudar a pensar um problema. Também chamado de LLM (large language model).",
+    "moduloOrigem": "M0.2",
+    "eixo": "A"
+  },
+  "alucinacao": {
+    "termo": "Alucinação",
+    "definicao": "Quando Claude gera uma resposta que soa confiante e coerente, mas não corresponde à realidade — erra um fato em vez de admitir que não sabe.",
+    "moduloOrigem": "M0.2",
+    "eixo": "A"
+  },
+  "opus": {
+    "termo": "Opus",
+    "definicao": "A linha de modelos Claude mais capaz — tende a lidar melhor com tarefas complexas, ambíguas ou que exigem raciocínio em várias etapas, ao custo de mais tempo e recursos.",
+    "moduloOrigem": "M0.3",
+    "eixo": "A"
+  },
+  "sonnet": {
+    "termo": "Sonnet",
+    "definicao": "A linha de modelos Claude que equilibra qualidade e velocidade — a escolha padrão para a maioria das tarefas do dia a dia.",
+    "moduloOrigem": "M0.3",
+    "eixo": "A"
+  },
+  "haiku": {
+    "termo": "Haiku",
+    "definicao": "A linha de modelos Claude mais rápida e barata — prioriza velocidade e custo, ideal para tarefas simples e de alto volume.",
+    "moduloOrigem": "M0.3",
+    "eixo": "A"
+  },
+  "busca-web": {
+    "termo": "Busca web",
+    "definicao": "Ferramenta que permite a Claude buscar informação atual na internet quando necessário, superando o corte de conhecimento do treinamento.",
+    "moduloOrigem": "M0.4",
+    "eixo": "A"
+  },
+  "projects": {
+    "termo": "Projects",
+    "definicao": "Ferramenta que organiza várias conversas e arquivos dentro de um mesmo projeto ou tema, com contexto compartilhado entre elas.",
+    "moduloOrigem": "M0.4",
+    "eixo": "A"
+  },
+  "anexacao-de-arquivo": {
+    "termo": "Anexação de arquivo",
+    "definicao": "Enviar documentos, planilhas ou imagens para Claude ler, analisar e comentar dentro da conversa.",
+    "moduloOrigem": "M0.4",
+    "eixo": "A"
+  },
+  "artifacts": {
+    "termo": "Artifacts",
+    "definicao": "Conteúdo gerado por Claude (código, documento, visualização) que aparece num painel separado da conversa, editável e reutilizável.",
+    "moduloOrigem": "M0.4",
+    "eixo": "A"
+  },
+  "cowork": {
+    "termo": "Cowork",
+    "definicao": "Ambiente de trabalho do Claude para tarefas mais longas e autônomas, além de uma troca curta de mensagens.",
+    "moduloOrigem": "M0.4",
+    "eixo": "A"
+  },
+  "conector": {
+    "termo": "Conector",
+    "definicao": "Mecanismo que permite a Claude acessar e trabalhar com serviços externos que você já usa — Google Drive, Gmail, Slack, entre outros — sem sair da conversa.",
+    "moduloOrigem": "M0.5",
+    "eixo": "A"
+  },
+  "claude-em-chrome": {
+    "termo": "Claude em Chrome",
+    "definicao": "Superfície do ecossistema Claude que opera dentro do navegador, vendo e agindo sobre a página aberta.",
+    "moduloOrigem": "M0.5",
+    "eixo": "A"
+  },
+  "claude-em-excel": {
+    "termo": "Claude em Excel",
+    "definicao": "Superfície do ecossistema Claude que trabalha direto dentro da planilha, sem trocar de app.",
+    "moduloOrigem": "M0.5",
+    "eixo": "A"
+  },
+  "claude-em-powerpoint": {
+    "termo": "Claude em PowerPoint",
+    "definicao": "Superfície do ecossistema Claude que trabalha direto dentro da apresentação, sem trocar de app.",
+    "moduloOrigem": "M0.5",
+    "eixo": "A"
+  },
+  "claude-tag": {
+    "termo": "Claude Tag",
+    "definicao": "Uso de Claude via menção direta dentro do Slack, para equipes pedirem ajuda sem sair do canal.",
+    "moduloOrigem": "M0.5",
     "eixo": "A"
   },
   "loop-agentico": {

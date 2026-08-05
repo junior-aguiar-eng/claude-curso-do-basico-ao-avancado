@@ -1,0 +1,92 @@
+---
+title: "M0.3 — Modelos e Escolha"
+sidebar_position: 3.3
+modulo: "M0.3"
+---
+
+import Cards from '@site/src/components/Cards';
+
+# M0.3 — Modelos e Escolha
+
+*Bloco 0 — Panorama · Eixo A · Nível <NivelBadge nivel={1} /> puramente conceitual, sem lab*
+
+## Abertura
+
+Claude não é um produto único — é uma família de modelos. Este módulo
+explica a diferença prática entre eles, para que você saiba escolher com
+intenção, não só usar o que aparece primeiro.
+
+## Conceito central
+
+Existe um trade-off central entre capacidade e velocidade/custo: quanto
+mais um modelo consegue lidar com tarefas complexas e ambíguas, mais
+tempo e recursos ele tende a consumir para responder. As características
+exatas de cada linha mudam com o tempo, mas o espectro entre elas se
+mantém:
+
+<Cards
+  itens={[
+    {
+      tag: 'MODELO',
+      titulo: <Termo id="opus" define>Opus</Termo>,
+      texto: 'A linha mais capaz: tende a lidar melhor com tarefas complexas, ambíguas ou que exigem raciocínio em várias etapas.',
+    },
+    {
+      tag: 'MODELO',
+      titulo: <Termo id="sonnet" define>Sonnet</Termo>,
+      texto: 'Equilíbrio entre qualidade e velocidade — a escolha padrão para a maioria das tarefas do dia a dia.',
+    },
+    {
+      tag: 'MODELO',
+      titulo: <Termo id="haiku" define>Haiku</Termo>,
+      texto: 'Prioriza velocidade e custo — ideal para tarefas simples e de alto volume, onde rapidez importa mais que profundidade.',
+    },
+  ]}
+/>
+
+Não existe "o melhor modelo" em abstrato — a escolha certa depende da
+tarefa: velocidade e custo baixo para algo simples e repetitivo,
+capacidade máxima para algo complexo e único.
+
+## Na prática
+
+Três cenários reais, mapeados ao modelo mais adequado para cada um:
+
+<Cards
+  itens={[
+    {
+      tag: 'CENÁRIO',
+      titulo: 'Resumir um e-mail rápido',
+      texto: 'Tarefa simples, resposta imediata importa mais que profundidade → Haiku.',
+    },
+    {
+      tag: 'CENÁRIO',
+      titulo: 'Analisar um contrato longo e complexo',
+      texto: 'Exige atenção a detalhes, ambiguidade e raciocínio cuidadoso → Opus.',
+    },
+    {
+      tag: 'CENÁRIO',
+      titulo: 'Responder perguntas simples em alto volume',
+      texto: 'Muitas respostas rápidas, cada uma de baixa complexidade → Haiku.',
+    },
+  ]}
+/>
+
+## Diagrama
+
+Os três modelos posicionados no mesmo espectro:
+
+<Diagrama
+  title="O espectro entre velocidade/custo e capacidade"
+  chart={`flowchart LR
+    Haiku[Haiku — mais rápido e barato] --> Sonnet[Sonnet — equilíbrio]
+    Sonnet --> Opus[Opus — mais capaz]`}
+/>
+
+## Checkpoint
+
+<Checkpoint id="m0-3">
+  Entendi que Claude é uma família de modelos (Opus, Sonnet, Haiku), o
+  trade-off entre capacidade e velocidade/custo, e que a escolha certa
+  depende da tarefa.
+</Checkpoint>

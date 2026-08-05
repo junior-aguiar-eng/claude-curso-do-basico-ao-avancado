@@ -1,0 +1,89 @@
+---
+title: "M0.4 — Ferramentas do Dia a Dia"
+sidebar_position: 3.4
+modulo: "M0.4"
+---
+
+import Cards from '@site/src/components/Cards';
+
+# M0.4 — Ferramentas do Dia a Dia
+
+*Bloco 0 — Panorama · Eixo A · Nível <NivelBadge nivel={1} /> puramente conceitual, sem lab*
+
+## Abertura
+
+Até aqui você entende o que é Claude e como escolher um modelo. Este
+módulo apresenta o que dá para fazer além de só conversar em texto puro
+— as ferramentas que tornam Claude útil para tarefas reais do dia a dia.
+
+## Conceito central
+
+Cinco ferramentas cobrem a maior parte do que você vai usar no dia a
+dia. O foco aqui é o que cada uma faz e quando usar — como configurar
+cada uma não é escopo deste módulo:
+
+<Cards
+  itens={[
+    {
+      tag: 'FERRAMENTA',
+      titulo: <Termo id="busca-web" define>Busca web</Termo>,
+      texto: 'Claude busca informação atual na internet quando necessário, superando o corte de conhecimento visto em M0.2.',
+    },
+    {
+      tag: 'FERRAMENTA',
+      titulo: <Termo id="projects" define>Projects</Termo>,
+      texto: 'Organiza várias conversas e arquivos dentro de um mesmo projeto ou tema, com contexto compartilhado entre elas.',
+    },
+    {
+      tag: 'FERRAMENTA',
+      titulo: <Termo id="anexacao-de-arquivo" define>Anexação de arquivo</Termo>,
+      texto: 'Envie documentos, planilhas ou imagens para Claude ler, analisar e comentar dentro da conversa.',
+    },
+    {
+      tag: 'FERRAMENTA',
+      titulo: <Termo id="artifacts" define>Artifacts</Termo>,
+      texto: 'Conteúdo gerado (código, documento, visualização) aparece num painel separado, editável e reutilizável — não só texto na conversa.',
+    },
+    {
+      tag: 'FERRAMENTA',
+      titulo: <Termo id="cowork" define>Cowork</Termo>,
+      texto: 'Ambiente de trabalho para tarefas mais longas e autônomas, além de uma troca curta de mensagens.',
+    },
+  ]}
+/>
+
+## Na prática
+
+Um exemplo curto de uso real de cada ferramenta:
+
+<Cards
+  itens={[
+    {tag: 'EXEMPLO', titulo: 'Busca web', texto: 'Perguntar sobre uma notícia publicada hoje.'},
+    {tag: 'EXEMPLO', titulo: 'Projects', texto: 'Reunir todas as conversas de um trabalho da faculdade num único projeto.'},
+    {tag: 'EXEMPLO', titulo: 'Anexação de arquivo', texto: 'Enviar uma planilha de gastos e pedir um resumo por categoria.'},
+    {tag: 'EXEMPLO', titulo: 'Artifacts', texto: 'Pedir um gráfico a partir de uns dados e depois editá-lo sem refazer a conversa inteira.'},
+    {tag: 'EXEMPLO', titulo: 'Cowork', texto: 'Pedir uma pesquisa que leva vários passos e volta pronta, sem acompanhar cada etapa.'},
+  ]}
+/>
+
+## Diagrama
+
+Não é uma sequência — são ferramentas independentes, todas ao redor do
+mesmo núcleo:
+
+<Diagrama
+  title="As ferramentas do dia a dia, ao redor de Claude"
+  chart={`flowchart TD
+    Core((Claude)) --> Busca[Busca web]
+    Core --> Projects
+    Core --> Anexo[Anexação de arquivo]
+    Core --> Artifacts
+    Core --> Cowork`}
+/>
+
+## Checkpoint
+
+<Checkpoint id="m0-4">
+  Conheço as cinco ferramentas do dia a dia — busca web, Projects,
+  anexação de arquivo, Artifacts e Cowork — e sei quando usar cada uma.
+</Checkpoint>

@@ -30,8 +30,12 @@ function escaparRegex(texto) {
   return texto.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// parseFloat (não parseInt+replace \D) porque o Bloco 0 usa módulos
+// fracionários ("M0.1"..."M0.5", antes de M1) — remover só o "M" preserva
+// o ponto, então "M0.1" vira 0.1 (< 1) em vez de colidir com "M1" (ambos
+// virariam 1 se a gente removesse o ponto também).
 function numeroModulo(moduloOrigem) {
-  return parseInt(String(moduloOrigem).replace(/\D/g, ''), 10);
+  return parseFloat(String(moduloOrigem).replace(/^M/, ''));
 }
 
 function listarArquivosMdx(pasta) {
@@ -50,7 +54,7 @@ function listarArquivosMdx(pasta) {
 function extrairModuloFrontmatter(conteudo) {
   const frontmatter = conteudo.match(/^---\n([\s\S]*?)\n---/);
   if (!frontmatter) return null;
-  const linha = frontmatter[1].match(/^modulo:\s*["']?(M\d+)["']?\s*$/m);
+  const linha = frontmatter[1].match(/^modulo:\s*["']?(M\d+(?:\.\d+)?)["']?\s*$/m);
   return linha ? linha[1] : null;
 }
 

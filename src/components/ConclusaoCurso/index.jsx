@@ -6,16 +6,21 @@ import {estaConcluido} from '@site/src/components/_shared/progresso';
 import {modulosCurso} from '@site/src/data/modulosCurso';
 import styles from './styles.module.css';
 
+// Número de blocos da trilha (Bloco 0 a Bloco 9) — não dá pra derivar de
+// modulosCurso.length / 2 porque o Bloco 0 tem 5 módulos, não 2.
+const TOTAL_BLOCOS = 10;
+
 /**
  * Marco de conclusão do curso inteiro — não um certificado, uma tela de
- * fechamento: resumo dos 18 módulos percorridos e o mascote no estágio
+ * fechamento: resumo dos módulos percorridos e o mascote no estágio
  * mais evoluído. Sem geração de PDF, sem qualquer elemento que pareça
  * certificação formal.
  *
  * Diferente de <Checkpoint>, este componente não recebe estado por
  * prop: ele mesmo consulta `_shared/progresso.js` (a mesma fonte de
- * verdade em localStorage) e decide se todos os 18 checkpoints já foram
- * marcados. Ele se atualiza sozinho, no mesmo carregamento de página,
+ * verdade em localStorage) e decide se todos os checkpoints de
+ * `modulosCurso` já foram marcados. Ele se atualiza sozinho, no mesmo
+ * carregamento de página,
  * ouvindo o evento `curso:progresso` disparado por
  * `marcarConcluido()` — assim, marcar o checkpoint de M18 na mesma
  * página já revela esta tela, sem precisar recarregar.
@@ -47,10 +52,11 @@ export default function ConclusaoCurso() {
 
       <h2 className={styles.titulo}>Você concluiu o curso inteiro</h2>
       <p className={styles.mensagem}>
-        Dos primeiros passos com o Claude até o Agent SDK, você percorreu
-        os 18 módulos e programou Python no caminho. O que vem a seguir é
-        seu: revisitar qualquer lição, aprofundar no lab opcional do
-        Claude Code, ou simplesmente usar o que aprendeu.
+        Do panorama sobre a Anthropic e Claude até o Agent SDK, você
+        percorreu todos os módulos do curso e programou Python no
+        caminho. O que vem a seguir é seu: revisitar qualquer lição,
+        aprofundar no lab opcional do Claude Code, ou simplesmente usar o
+        que aprendeu.
       </p>
 
       <dl className={styles.resumo}>
@@ -60,7 +66,7 @@ export default function ConclusaoCurso() {
         </div>
         <div className={styles.resumoItem}>
           <dt>Blocos</dt>
-          <dd>{Math.ceil(modulosCurso.length / 2)}</dd>
+          <dd>{TOTAL_BLOCOS}</dd>
         </div>
       </dl>
 

@@ -9,8 +9,10 @@ const rotuloEixo = {
   B: 'Eixo B — Fundamentos de Python',
 };
 
+// Mesmo parse de scripts/verificar-glossario.js: "M0.1" precisa ordenar
+// antes de "M1" (Bloco 0), então preserva o ponto em vez de removê-lo.
 function numeroModulo(moduloOrigem) {
-  return parseInt(moduloOrigem.replace(/\D/g, ''), 10);
+  return parseFloat(moduloOrigem.replace(/^M/, ''));
 }
 
 function agruparPorModulo(dados) {
