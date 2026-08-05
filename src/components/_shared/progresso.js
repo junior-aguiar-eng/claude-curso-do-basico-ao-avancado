@@ -24,6 +24,13 @@ export function marcarConcluido(id, concluido = true) {
   } catch (e) {
     /* localStorage indisponível (ex. modo privado): segue sem persistir. */
   }
+  // Evento próprio (sem payload) para outros componentes na mesma página
+  // saberem que devem reconsultar obterProgresso(), sem precisar de
+  // prop-drilling entre componentes MDX irmãos (ex. Checkpoint e
+  // ConclusaoCurso).
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new Event('curso:progresso'));
+  }
 }
 
 /** Consulta se um módulo/checkpoint específico está concluído. */

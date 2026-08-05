@@ -6,7 +6,7 @@ modulo: "M17"
 
 # M17 — Async/await
 
-*Bloco 8 — Reuso e integração · Eixo B · Nível 🟢 + 🔵*
+*Bloco 8 — Reuso e integração · Eixo B · Nível <NivelBadge nivel={1} /> + <NivelBadge nivel={2} />*
 
 ## Abertura
 
@@ -51,7 +51,12 @@ começar a próxima.
 > próprio sandbox já roda dentro do equivalente a um loop assíncrono.
 > Por isso, os exemplos abaixo usam `await` diretamente, sem
 > `asyncio.run()`. No seu computador, ou no Claude Code, os dois
-> estilos funcionam.
+> estilos funcionam. Vale notar também que este sandbox roda numa única
+> thread do navegador — então os exemplos abaixo mostram bem a diferença
+> entre não bloquear (o que `asyncio` faz de verdade) e rodar em núcleos
+> de processador diferentes ao mesmo tempo (o que `asyncio` não faz):
+> aqui não existe a menor chance de duas tarefas rodarem literalmente
+> ao mesmo tempo, só de alternar entre elas de forma eficiente.
 
 Duas esperas rodando uma depois da outra — o tempo total é a soma das
 duas:
@@ -86,6 +91,28 @@ Repare no resultado: a primeira versão leva cerca de 2 segundos (1 + 1,
 em sequência); a segunda leva cerca de 1 segundo (as duas esperas
 acontecem ao mesmo tempo). O código de cada consulta não mudou — o que
 mudou foi como elas foram organizadas para rodar.
+
+O exemplo anterior mostra o ganho de tempo, mas não prova que as duas
+tarefas rodam "ao mesmo tempo" de verdade. Este aqui mostra a
+<Termo id="concorrencia" define>concorrência</Termo> por dentro,
+imprimindo o início e o fim de cada tarefa:
+
+<SandboxPython code={`import asyncio
+
+async def tarefa(nome, segundos):
+    print(f"{nome}: comecei")
+    await asyncio.sleep(segundos)
+    print(f"{nome}: terminei")
+
+await asyncio.gather(tarefa("Tarefa A", 2), tarefa("Tarefa B", 1))`} />
+
+Repare na ordem dos prints: as duas tarefas "começam" quase juntas, mas
+"terminam" na ordem do próprio tempo de espera de cada uma — Tarefa B
+(1s) antes de Tarefa A (2s). Isso só é possível porque existe uma única
+linha de execução alternando entre as duas nos pontos marcados por
+`await`: nunca duas rodando ao mesmo tempo em núcleos diferentes do
+processador (isso seria paralelismo, M13), e sim uma cedendo a vez para
+a outra enquanto espera — concorrência.
 
 ## Diagrama
 

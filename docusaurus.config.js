@@ -28,6 +28,19 @@ const config = {
 
   clientModules: ['./src/clientModules/fonts.js', './src/clientModules/cardGlow.js'],
 
+  // Analytics mínimo, sem backend: GoatCounter (gratuito, sem cookies,
+  // script único). Rastreia visualização de página automaticamente — cada
+  // lição já é uma URL própria, então dá para ver em qual módulo o
+  // aluno tende a parar. Ver "Analytics" no README para configurar o
+  // site code e acessar o painel.
+  scripts: [
+    {
+      src: '//gc.zgo.at/count.js',
+      async: true,
+      'data-goatcounter': 'https://SEU-CODIGO.goatcounter.com/count',
+    },
+  ],
+
   // Habilita diagramas Mermaid nas lições (```mermaid).
   markdown: {
     mermaid: true,

@@ -6,16 +6,16 @@ modulo: "M11"
 
 # M11 — As Seis Primitivas
 
-*Bloco 6 — Extensão do Claude Code · Eixo A (usa Eixo B) · Nível 🟢 + 🔵*
+*Bloco 6 — Extensão do Claude Code · Eixo A (usa Eixo B) · Nível <NivelBadge nivel={1} /> + <NivelBadge nivel={2} />*
 
 ## Abertura
 
-Com M7 (Memória e Contexto) e M8 (Configuração e Governança Local),
-você já sabe operar o Claude Code no dia a dia. Este módulo dá um passo
-além: apresenta os seis mecanismos através dos quais o Claude Code pode
-ser estendido além do que vem de fábrica. Com M9 e M10 recém-vistos,
-várias dessas primitivas vão ter paralelos diretos com conceitos de
-programação que você acabou de aprender.
+Claude Code não vem só com o que aparece na tela: existem seis
+mecanismos para estendê-lo além de fábrica, e é isso que este módulo
+apresenta. Com M7 (Memória e Contexto) e M8 (Configuração e Governança
+Local), você já sabe operar o Claude Code no dia a dia. Com M9 e M10
+recém-vistos, várias dessas primitivas vão ter paralelos diretos com
+conceitos de programação que você acabou de aprender.
 
 ## Conceito central
 
@@ -57,6 +57,12 @@ Invocando Skill "revisao-de-codigo"...
 Analisando mudanças do PR #58...
 Sugestão: extrair validação repetida para uma função.
 
+> Enquanto isso, use um Subagent para escrever os testes que faltam
+  no módulo de autenticação
+
+Disparando Subagent "escritor-de-testes"...
+Subagent concluído: 4 testes novos escritos, 4 passando.
+
 > /testes
 
 Rodando Slash Command "/testes"...
@@ -71,6 +77,12 @@ Commit realizado.
 
 Chamando servidor MCP (deploy-tracker)...
 Deploy #212: concluído há 12 minutos, sem erros.
+
+> /plugin instalar revisor-pr
+
+Instalando Plugin "revisor-pr" (empacota uma Skill, um Slash Command
+e um Hook próprios)...
+Plugin instalado — "/revisar-pr" já disponível.
 ```
 
 Não é necessário aprofundar em nenhuma primitiva aqui — elas voltam com

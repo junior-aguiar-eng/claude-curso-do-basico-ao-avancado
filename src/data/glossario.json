@@ -371,6 +371,12 @@
     "moduloOrigem": "M17",
     "eixo": "B"
   },
+  "concorrencia": {
+    "termo": "Concorrência",
+    "definicao": "Várias tarefas avançando juntas por meio de alternância — cada uma cede a vez enquanto espera, numa única linha de execução — sem que isso signifique rodar ao mesmo tempo em núcleos de processador diferentes. Diferente de paralelismo (M13), que é simultaneidade real.",
+    "moduloOrigem": "M17",
+    "eixo": "B"
+  },
   "agent-sdk": {
     "termo": "Agent SDK",
     "definicao": "Uma biblioteca Python que expõe o mesmo loop agêntico que o Claude Code roda por trás da interface de terminal — em vez de operar por um terminal, o loop roda dentro do seu próprio script.",
