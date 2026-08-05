@@ -1,0 +1,117 @@
+---
+title: "M17 — Async/await"
+sidebar_position: 20
+modulo: "M17"
+---
+
+# M17 — Async/await
+
+*Bloco 8 — Reuso e integração · Eixo B · Nível 🟢 + 🔵*
+
+## Abertura
+
+Até agora, todo código do curso roda de forma sequencial: uma linha
+termina antes da próxima começar. Isso é simples, mas ineficiente
+quando o programa precisa esperar por algo externo — como uma resposta
+de rede. Este é o último módulo do Eixo B antes do Agent SDK (M18), e o
+conceito que ele introduz é essencial para entender como um agente pode
+fazer várias coisas "ao mesmo tempo" sem travar.
+
+## Conceito central
+
+Código <Termo id="sincrono" define>síncrono</Termo> executa uma
+instrução de cada vez, esperando cada uma terminar. Quando uma operação
+envolve espera — uma requisição de rede, a leitura de um arquivo grande
+— o programa fica parado sem fazer nada útil enquanto espera.
+
+Código assíncrono permite que o programa inicie uma operação de espera
+e, enquanto ela não termina, siga fazendo outras coisas — é uma
+<Termo id="operacao-nao-bloqueante" define>operação não bloqueante</Termo>.
+Em Python, isso é expresso com as palavras-chave
+<Termo id="async" define>async</Termo> e
+<Termo id="await" define>await</Termo>: uma função declarada com
+`async def` é uma <Termo id="corrotina" define>corrotina</Termo>;
+dentro dela, `await` marca o ponto onde o programa pode "ceder a vez"
+enquanto espera algo terminar.
+
+É importante deixar claro: assíncrono não significa paralelo (rodando
+ao mesmo tempo em núcleos diferentes de processador) — significa não
+bloquear enquanto espera, o que é diferente e mais sutil. Conectando
+com o Eixo A: quando o Claude Code executa múltiplas ferramentas ou
+subagents em paralelo (M13), o mecanismo por trás é conceitualmente
+aparentado a isso — não ficar parado esperando uma coisa terminar para
+começar a próxima.
+
+## Na prática
+
+> O sandbox desta página roda um interpretador Python simplificado
+> (Pyodide) dentro do navegador. Ele suporta `async`/`await` e
+> `asyncio.sleep`/`asyncio.gather`, mas não suporta `asyncio.run()` do
+> mesmo jeito que o Python instalado no seu computador — porque o
+> próprio sandbox já roda dentro do equivalente a um loop assíncrono.
+> Por isso, os exemplos abaixo usam `await` diretamente, sem
+> `asyncio.run()`. No seu computador, ou no Claude Code, os dois
+> estilos funcionam.
+
+Duas esperas rodando uma depois da outra — o tempo total é a soma das
+duas:
+
+<SandboxPython code={`import asyncio
+import time
+
+async def consultar(nome, segundos):
+    await asyncio.sleep(segundos)
+    print(f"{nome} concluída")
+
+inicio = time.time()
+await consultar("Consulta A", 1)
+await consultar("Consulta B", 1)
+print(f"Tempo total: {time.time() - inicio:.1f}s")`} />
+
+As mesmas duas esperas, agora rodando ao mesmo tempo com
+`asyncio.gather()` — o tempo total é o da mais demorada, não a soma:
+
+<SandboxPython code={`import asyncio
+import time
+
+async def consultar(nome, segundos):
+    await asyncio.sleep(segundos)
+    print(f"{nome} concluída")
+
+inicio = time.time()
+await asyncio.gather(consultar("Consulta A", 1), consultar("Consulta B", 1))
+print(f"Tempo total: {time.time() - inicio:.1f}s")`} />
+
+Repare no resultado: a primeira versão leva cerca de 2 segundos (1 + 1,
+em sequência); a segunda leva cerca de 1 segundo (as duas esperas
+acontecem ao mesmo tempo). O código de cada consulta não mudou — o que
+mudou foi como elas foram organizadas para rodar.
+
+## Diagrama
+
+Para onde vai o tempo de espera, em cada versão:
+
+<Diagrama
+  title="Sequencial vs. concorrente: para onde vai o tempo de espera"
+  chart={`flowchart TD
+    Inicio[Início] --> SeqA[Sequencial: espera A, 1s]
+    SeqA --> SeqB[espera B, 1s]
+    SeqB --> SeqTotal[Tempo total: 2s]
+    Inicio --> Conc[Concorrente: espera A e espera B ao mesmo tempo]
+    Conc --> ConcTotal[Tempo total: 1s]`}
+/>
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+Escreva duas corrotinas que simulam chamadas demoradas (com
+`asyncio.sleep`) e execute-as concorrentemente com `asyncio.gather()`,
+comparando o tempo total com a versão sequencial.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m17">
+  Completei o Bloco 8: entendi a diferença entre código síncrono e
+  assíncrono, e o que são async, await e uma corrotina.
+</Checkpoint>

@@ -295,43 +295,79 @@
   },
   "modulo": {
     "termo": "Módulo",
-    "definicao": "TODO: definir",
+    "definicao": "Um arquivo .py que agrupa código relacionado, pronto para ser reaproveitado em outro arquivo via import.",
+    "moduloOrigem": "M15",
+    "eixo": "B"
+  },
+  "pacote": {
+    "termo": "Pacote",
+    "definicao": "Um conjunto de módulos organizado em uma pasta — a próxima camada de organização depois de um único arquivo de módulo.",
     "moduloOrigem": "M15",
     "eixo": "B"
   },
   "biblioteca": {
     "termo": "Biblioteca",
-    "definicao": "TODO: definir",
+    "definicao": "Um pacote publicado para uso por qualquer pessoa — a própria biblioteca padrão do Python ou uma biblioteca externa instalada com pip.",
+    "moduloOrigem": "M15",
+    "eixo": "B"
+  },
+  "biblioteca-padrao": {
+    "termo": "Biblioteca padrão",
+    "definicao": "O conjunto de módulos que já vem instalado junto com o Python, sem precisar de pip install — inclui módulos como datetime, math e random.",
+    "moduloOrigem": "M15",
+    "eixo": "B"
+  },
+  "pip": {
+    "termo": "pip",
+    "definicao": "O gerenciador de pacotes do Python, usado para instalar bibliotecas externas publicadas pela comunidade (pip install nome-da-biblioteca).",
     "moduloOrigem": "M15",
     "eixo": "B"
   },
   "import": {
     "termo": "Import",
-    "definicao": "TODO: definir",
+    "definicao": "A instrução que traz o código de um módulo, pacote ou biblioteca para o arquivo atual, tornando suas funções e variáveis disponíveis para uso.",
     "moduloOrigem": "M15",
     "eixo": "B"
   },
   "json": {
     "termo": "JSON",
-    "definicao": "TODO: definir",
+    "definicao": "Um formato de texto para representar dado estruturado, legível tanto por humanos quanto por máquinas — a estrutura mapeia quase diretamente para dicionários e listas em Python.",
     "moduloOrigem": "M16",
     "eixo": "B"
   },
   "dado-estruturado": {
     "termo": "Dado estruturado",
-    "definicao": "TODO: definir",
+    "definicao": "Informação organizada em um formato previsível (como um dicionário ou uma lista), em vez de um texto solto sem estrutura — o que permite ao código acessar cada parte de forma confiável.",
     "moduloOrigem": "M16",
+    "eixo": "B"
+  },
+  "sincrono": {
+    "termo": "Síncrono",
+    "definicao": "Um jeito de executar código em que cada instrução espera a anterior terminar antes de começar — se uma delas envolve espera (como uma resposta de rede), o programa fica parado até ela terminar.",
+    "moduloOrigem": "M17",
     "eixo": "B"
   },
   "async": {
     "termo": "Async",
-    "definicao": "TODO: definir",
+    "definicao": "A palavra-chave que declara uma função como uma corrotina (async def) — capaz de ser pausada num ponto de espera sem bloquear o resto do programa.",
+    "moduloOrigem": "M17",
+    "eixo": "B"
+  },
+  "await": {
+    "termo": "Await",
+    "definicao": "A palavra-chave que marca, dentro de uma corrotina, o ponto onde o programa pode ceder a vez enquanto espera algo terminar, em vez de ficar parado sem fazer nada.",
+    "moduloOrigem": "M17",
+    "eixo": "B"
+  },
+  "corrotina": {
+    "termo": "Corrotina",
+    "definicao": "Uma função declarada com async def, que pode ser pausada num ponto de espera (await) e retomada depois, sem bloquear o resto do programa enquanto espera.",
     "moduloOrigem": "M17",
     "eixo": "B"
   },
   "operacao-nao-bloqueante": {
     "termo": "Operação não bloqueante",
-    "definicao": "TODO: definir",
+    "definicao": "Uma operação que, enquanto espera algo terminar (como uma resposta de rede), permite que o programa siga fazendo outras coisas em vez de ficar parado — o oposto de uma espera bloqueante.",
     "moduloOrigem": "M17",
     "eixo": "B"
   },

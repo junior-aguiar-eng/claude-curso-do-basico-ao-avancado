@@ -1,0 +1,132 @@
+---
+title: "M15 — Módulos e Bibliotecas"
+sidebar_position: 18
+modulo: "M15"
+---
+
+# M15 — Módulos e Bibliotecas
+
+*Bloco 8 — Reuso e integração · Eixo B · Nível 🟢 + 🔵*
+
+## Abertura
+
+Até aqui, todo código do Eixo B viveu sozinho, num único arquivo. Neste
+módulo você aprende a reaproveitar código — tanto o seu próprio,
+organizado em outros arquivos, quanto o de bibliotecas prontas
+publicadas pela comunidade Python. É a ponte entre escrever scripts
+avulsos e escrever programas organizados.
+
+## Conceito central
+
+Um <Termo id="modulo" define>módulo</Termo> é um arquivo `.py` que
+agrupa código relacionado para reuso via `import`. Um
+<Termo id="pacote" define>pacote</Termo> é um conjunto de módulos
+organizado em uma pasta — a próxima camada de organização depois de um
+único arquivo. Uma <Termo id="biblioteca" define>biblioteca</Termo> é
+um pacote publicado para uso por qualquer pessoa.
+
+Python já vem com uma
+<Termo id="biblioteca-padrao" define>biblioteca padrão</Termo> —
+módulos como `datetime`, `math` e `random`, prontos para usar sem
+nenhuma instalação. Para bibliotecas externas, publicadas pela
+comunidade, usa-se o <Termo id="pip" define>pip</Termo>: `pip install
+nome-da-biblioteca` baixa e instala o pacote no seu ambiente antes de
+você poder importá-lo.
+
+O <Termo id="import" define>import</Termo> é a instrução que
+efetivamente traz o código de um módulo, pacote ou biblioteca para o
+arquivo atual — depois de importar, as funções e variáveis daquele
+módulo ficam disponíveis para uso, como se tivessem sido escritas ali.
+
+Vale conectar isso ao Eixo A: usar uma ferramenta MCP ou um Plugin no
+Claude Code (M11-M12) é conceitualmente parecido com importar uma
+biblioteca — em vez de reimplementar uma capacidade do zero, você
+reaproveita algo construído em outro lugar.
+
+## Na prática
+
+Um módulo local, `conversor.py`, com funções de conversão de
+temperatura:
+
+```python
+# conversor.py
+def celsius_para_fahrenheit(celsius):
+    return celsius * 9 / 5 + 32
+
+def fahrenheit_para_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5 / 9
+```
+
+E um `main.py` que importa esse módulo, de duas formas diferentes:
+
+```python
+# main.py
+import conversor
+
+print(conversor.celsius_para_fahrenheit(25))
+
+# ou importando só a função que interessa:
+from conversor import fahrenheit_para_celsius
+
+print(fahrenheit_para_celsius(98.6))
+```
+
+Esse exemplo é ilustrativo — depende de dois arquivos separados no
+mesmo projeto, o que o sandbox desta página (de arquivo único) não
+reproduz. No seu projeto real, ou numa sessão do Claude Code, é
+exatamente assim que ficaria.
+
+Já a biblioteca padrão você pode usar agora mesmo, sem nenhuma
+instalação:
+
+<SandboxPython code={`import random
+
+numero = random.randint(1, 10)
+print(numero)`} />
+
+Para uma biblioteca externa, o processo tem um passo a mais — instalar
+antes de importar:
+
+```
+$ pip install requests
+```
+
+```python
+import requests
+
+resposta = requests.get("https://api.exemplo.com/dados")
+print(resposta.json())
+```
+
+Essa chamada de rede real não roda no sandbox Pyodide do navegador —
+ela depende de acesso à internet e de uma biblioteca instalada no seu
+ambiente. No lab opcional desta lição você faz essa chamada de
+verdade, fora do sandbox.
+
+## Diagrama
+
+`main.py` importando de três origens diferentes:
+
+<Diagrama
+  title="De onde vem o código que você importa"
+  chart={`flowchart LR
+    M[main.py] --> L[Módulo local]
+    M --> P[Biblioteca padrão]
+    M --> E[Biblioteca externa via pip]`}
+/>
+
+## Lab opcional 🔵
+
+:::info Opcional — para assinantes
+Crie um módulo `utilidades.py` com duas funções à sua escolha, importe
+e use em um `main.py`. Depois, instale `requests` (`pip install
+requests`) e faça uma chamada real a uma API pública gratuita,
+imprimindo o resultado.
+:::
+
+## Checkpoint
+
+<Checkpoint id="m15">
+  Entendi o que é um módulo, um pacote, uma biblioteca e a diferença
+  entre a biblioteca padrão e uma biblioteca externa instalada com pip.
+</Checkpoint>
