@@ -1,10 +1,10 @@
 # Curso de Claude e Claude Code
 
 Curso completo, do zero ao Agent SDK, para quem **nunca programou**. Os
-18 módulos rodam direto no navegador — o aluno lê a teoria e executa
-Python de verdade num sandbox (Pyodide), sem instalar nada e sem
-depender de assinatura. O Claude Code é uma camada opcional de prática
-aprofundada, para quem quiser ir além.
+23 módulos (Bloco 0 de panorama + M1–M18) rodam direto no navegador — o
+aluno lê a teoria e executa Python de verdade num sandbox (Pyodide), sem
+instalar nada e sem depender de assinatura. O Claude Code é uma camada
+opcional de prática aprofundada, para quem quiser ir além.
 
 **Site publicado:** https://junior-aguiar-eng.github.io/claude-curso-do-basico-ao-avancado/
 
@@ -20,7 +20,7 @@ aprofundada, para quem quiser ir além.
 ## Estrutura
 
 ```
-docs/                   lições do curso (M1–M18), glossário, home
+docs/                   lições do curso (Bloco 0: M0.1–M0.5, M1–M18), glossário, home
 src/components/          biblioteca de componentes interativos
   SandboxPython/          sandbox de código Python (Pyodide)
   Quiz/                    pergunta de revisão

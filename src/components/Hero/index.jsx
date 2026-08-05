@@ -29,7 +29,7 @@ const LINHAS_TERMINAL = [
  * Uso:
  *
  *   <Hero
- *     eyebrow="18 módulos · grátis · direto no navegador"
+ *     eyebrow="23 módulos · grátis · direto no navegador"
  *     title={['Aprenda Claude e', 'Claude Code']} tituloSufixo="do zero"
  *     subtitle="..."
  *     primaryHref="/m1-fundamentos-e-mentalidade" primaryLabel="Começar a primeira lição →"
