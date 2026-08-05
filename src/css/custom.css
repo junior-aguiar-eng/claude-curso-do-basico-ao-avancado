@@ -53,19 +53,44 @@
   --curso-eixo-a-azul-claro: #6b95c4;
 }
 
+/* Rede de segurança: nenhum elemento decorativo (glow, cards, etc.)
+   deveria conseguir criar rolagem horizontal — mas caso algum futuro
+   ajuste reintroduza isso, este é o cinto de segurança global que
+   faltava (auditoria não achou nenhum overflow-x guard em lugar
+   nenhum do site). */
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* Brilho coral sutil no topo da página — a assinatura visual do tema,
-   réplica do body::before do mockup. Fixo e atrás do conteúdo. */
+   réplica do body::before do mockup. Fixo e atrás do conteúdo.
+   Dimensionado com clamp() em vez de px fixo: em telas estreitas
+   (< ~640px) esse elemento de 900px chegava a ultrapassar o dobro da
+   largura do viewport e criava rolagem horizontal real (o overflow-x
+   acima é rede de segurança; isto aqui é o conserto de verdade, pra o
+   glow não ficar cortado de forma assimétrica nas bordas do celular). */
 body::before {
   content: '';
   position: fixed;
   top: -20%;
   left: 50%;
   transform: translateX(-50%);
-  width: 900px;
-  height: 900px;
+  width: clamp(420px, 140vw, 900px);
+  height: clamp(420px, 140vw, 900px);
   z-index: -1;
   pointer-events: none;
   background: radial-gradient(circle, var(--curso-accent-soft) 0%, transparent 65%);
+}
+
+/* Largura de leitura confortável para o corpo das lições em telas
+   largas — os defaults do Infima não limitam isso, então em
+   1440-1920px a linha de texto ficava comprida demais para leitura
+   confortável (medida recomendada: ~70-75 caracteres por linha). Só
+   afeta o texto corrido da lição, não a largura da página inteira
+   (sidebar, navbar, TOC continuam no layout padrão). */
+.markdown {
+  max-width: 76ch;
 }
 
 /* Navbar semi-transparente com blur, como no mockup. */
@@ -118,6 +143,82 @@ body::before {
   .pagination-nav__link:hover::before {
     opacity: 1;
   }
+}
+
+/* Diferenciação visual das 6 seções fixas de toda lição (Abertura,
+   Conceito central, Na prática, Diagrama, Lab opcional 🔵,
+   Checkpoint) — hoje H2 padrão, indistinguíveis entre si. O texto de
+   cada `## Título` é idêntico, literal, em toda lição (confirmado por
+   grep nas 23 lições), então o `id` que o Docusaurus gera pro heading
+   também é idêntico — dá pra mirar direto no id, sem editar nenhum
+   .mdx. Ids confirmados no HTML gerado (build):
+   abertura, conceito-central, na-prática, diagrama, lab-opcional-
+   (o emoji 🔵 vira um hífen solto na slugificação), checkpoint.
+
+   Borda lateral terracota (--ifm-color-primary) em todas — mesma cor
+   em toda seção, só dá ritmo visual à página. Não reusa
+   --curso-verde/--curso-eixo-a-azul aqui: essas duas já têm
+   significado fixo (Eixo B / Eixo A) nos componentes de trilha, e
+   usá-las pra "tipo de seção" criaria uma segunda leitura pro mesmo
+   verde/azul, confusa. O ícone (não a cor) é o que diferencia cada
+   seção. */
+.markdown h2[id] {
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+.markdown h2[id]::before {
+  content: '';
+  display: inline-block;
+  width: 1.05em;
+  height: 1.05em;
+  margin-right: 0.5em;
+  vertical-align: -0.15em;
+  background-color: var(--ifm-color-primary);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.markdown h2#abertura::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolyline points='8,4 16,12 8,20' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolyline points='8,4 16,12 8,20' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.markdown h2#conceito-central::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='9' r='6' fill='black'/%3E%3Crect x='9' y='17' width='6' height='3' rx='1' fill='black'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='9' r='6' fill='black'/%3E%3Crect x='9' y='17' width='6' height='3' rx='1' fill='black'/%3E%3C/svg%3E");
+}
+
+.markdown h2#na-prática::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon points='7,4 20,12 7,20' fill='black'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon points='7,4 20,12 7,20' fill='black'/%3E%3C/svg%3E");
+}
+
+.markdown h2#diagrama::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='5' cy='18' r='2.3' fill='black'/%3E%3Ccircle cx='12' cy='6' r='2.3' fill='black'/%3E%3Ccircle cx='19' cy='18' r='2.3' fill='black'/%3E%3Cline x1='12' y1='6' x2='5' y2='18' stroke='black' stroke-width='1.8'/%3E%3Cline x1='12' y1='6' x2='19' y2='18' stroke='black' stroke-width='1.8'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='5' cy='18' r='2.3' fill='black'/%3E%3Ccircle cx='12' cy='6' r='2.3' fill='black'/%3E%3Ccircle cx='19' cy='18' r='2.3' fill='black'/%3E%3Cline x1='12' y1='6' x2='5' y2='18' stroke='black' stroke-width='1.8'/%3E%3Cline x1='12' y1='6' x2='19' y2='18' stroke='black' stroke-width='1.8'/%3E%3C/svg%3E");
+}
+
+/* Lab opcional 🔵: borda tracejada em vez de sólida, sinalizando
+   "opcional" sem inventar uma cor nova — o emoji já existente no
+   título e a caixa `:::info Opcional — para assinantes` continuam
+   sendo o sinal principal; isto só reforça na borda. */
+.markdown h2#lab-opcional-::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon points='10,3 14,3 14,9 19,19 5,19 10,9' fill='black'/%3E%3Crect x='9' y='2' width='6' height='2' fill='black'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon points='10,3 14,3 14,9 19,19 5,19 10,9' fill='black'/%3E%3Crect x='9' y='2' width='6' height='2' fill='black'/%3E%3C/svg%3E");
+}
+
+.markdown h2#lab-opcional- {
+  border-left-style: dashed;
+}
+
+.markdown h2#checkpoint::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolyline points='4,13 9,18 20,5' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolyline points='4,13 9,18 20,5' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
 @media (prefers-reduced-motion: reduce) {

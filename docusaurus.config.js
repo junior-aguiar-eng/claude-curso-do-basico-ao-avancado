@@ -88,6 +88,11 @@ const config = {
             label: 'Lições',
           },
           {
+            to: '/trilha',
+            label: 'Trilha',
+            position: 'left',
+          },
+          {
             href: 'https://github.com/junior-aguiar-eng/claude-curso-do-basico-ao-avancado',
             label: 'GitHub',
             position: 'right',
