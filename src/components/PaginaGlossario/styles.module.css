@@ -61,3 +61,7 @@
   margin: 0.3rem 0 0;
   color: var(--ifm-color-emphasis-700);
 }
+
+.pendente {
+  font-style: italic;
+}

@@ -16,8 +16,11 @@ print(f"Olá, {nome}!")
  * de API ou rede (ex. os módulos de Agent SDK) não roda aqui — essa
  * prática fica na camada opcional do Claude Code (ver CLAUDE.md).
  *
- * Erros nunca aparecem crus para o aluno: são traduzidos para mensagens
- * didáticas por `erros.js`, com a linha do código destacada quando possível.
+ * Erros de código nunca aparecem crus para o aluno: são traduzidos para
+ * mensagens didáticas por `erros.js`, com a linha destacada quando
+ * possível. Falha ao carregar o próprio Python (ex. rede indisponível)
+ * é tratada à parte — não é um erro de código, então não passa pela
+ * tradução de exceções Python.
  *
  * Uso em uma lição (.mdx):
  *
@@ -27,23 +30,30 @@ export default function SandboxPython({code: initialCode, height}) {
   const [code, setCode] = useState(initialCode ?? CODIGO_PADRAO);
   const [output, setOutput] = useState('');
   const [erro, setErro] = useState(null);
-  const [status, setStatus] = useState('ocioso'); // ocioso | carregando | rodando | sucesso | erro
+  const [status, setStatus] = useState('ocioso'); // ocioso | carregando | rodando | sucesso | erro | erro-carregamento
   const pyodideRef = useRef(null);
   const editorRef = useRef(null);
 
   const rodar = async () => {
     setOutput('');
     setErro(null);
-    try {
-      if (!pyodideRef.current) {
-        setStatus('carregando');
+
+    if (!pyodideRef.current) {
+      setStatus('carregando');
+      try {
         const py = await getPyodide();
         const escrever = (msg) =>
           setOutput((o) => (o ? `${o}\n${msg}` : msg));
         py.setStdout({batched: escrever});
         py.setStderr({batched: escrever});
         pyodideRef.current = py;
+      } catch {
+        setStatus('erro-carregamento');
+        return;
       }
+    }
+
+    try {
       setStatus('rodando');
       await pyodideRef.current.runPythonAsync(code);
       setStatus('sucesso');
@@ -122,6 +132,18 @@ export default function SandboxPython({code: initialCode, height}) {
           )}
           <button type="button" className={styles.botaoCorrigir} onClick={corrigir}>
             Corrigir e tentar de novo
+          </button>
+        </div>
+      )}
+
+      {status === 'erro-carregamento' && (
+        <div className={styles.painelErro}>
+          <p className={styles.mensagemErro}>
+            Não foi possível carregar o Python agora — pode ser a conexão
+            com a internet. Isso não tem relação com o seu código.
+          </p>
+          <button type="button" className={styles.botaoCorrigir} onClick={rodar}>
+            Tentar carregar de novo
           </button>
         </div>
       )}

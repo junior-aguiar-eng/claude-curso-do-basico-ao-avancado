@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import glossario from '@site/src/data/glossario.json';
+import {definicaoExibivel} from '../_shared/glossario';
 import styles from './styles.module.css';
 
 /**
@@ -47,7 +48,7 @@ export default function Termo({id, children, define = false}) {
   }
 
   return (
-    <Link to={`/glossario#${id}`} className={styles.termo} title={entrada.definicao}>
+    <Link to={`/glossario#${id}`} className={styles.termo} title={definicaoExibivel(entrada)}>
       {children}
     </Link>
   );

@@ -1,6 +1,7 @@
 import React, {useMemo} from 'react';
 import Heading from '@theme/Heading';
 import glossario from '@site/src/data/glossario.json';
+import {definicaoExibivel, DEFINICAO_PENDENTE} from '../_shared/glossario';
 import styles from './styles.module.css';
 
 const rotuloEixo = {
@@ -27,6 +28,10 @@ function agruparPorModulo(dados) {
 /**
  * Lista todos os termos de `src/data/glossario.json`, agrupados por
  * módulo de origem. Usada pela página `/glossario` (`docs/glossario.mdx`).
+ *
+ * Termos de módulos ainda não escritos ficam com o placeholder interno
+ * ("TODO: definir") no JSON — aqui exibimos uma mensagem de "em breve"
+ * no lugar, nunca o placeholder cru.
  */
 export default function PaginaGlossario() {
   const grupos = useMemo(() => agruparPorModulo(glossario), []);
@@ -45,7 +50,15 @@ export default function PaginaGlossario() {
                     {rotuloEixo[termo.eixo] ?? termo.eixo}
                   </span>
                 </Heading>
-                <p className={styles.definicao}>{termo.definicao}</p>
+                <p
+                  className={
+                    termo.definicao === DEFINICAO_PENDENTE
+                      ? `${styles.definicao} ${styles.pendente}`
+                      : styles.definicao
+                  }
+                >
+                  {definicaoExibivel(termo)}
+                </p>
               </div>
             ))}
           </div>
