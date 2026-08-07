@@ -55,25 +55,25 @@
   },
   "projects": {
     "termo": "Projects",
-    "definicao": "Ferramenta que organiza várias conversas e arquivos dentro de um mesmo projeto ou tema, com contexto compartilhado entre elas.",
+    "definicao": "Ferramenta que organiza várias conversas e arquivos dentro de um mesmo projeto ou tema, com contexto compartilhado entre elas — sem ela, cada conversa nova começa do zero.",
     "moduloOrigem": "M0.4",
     "eixo": "A"
   },
   "anexacao-de-arquivo": {
     "termo": "Anexação de arquivo",
-    "definicao": "Enviar documentos, planilhas ou imagens para Claude ler, analisar e comentar dentro da conversa.",
+    "definicao": "Enviar documentos, planilhas ou imagens para Claude ler, analisar e comentar dentro da conversa — para formatos que não dá pra colar como texto simples.",
     "moduloOrigem": "M0.4",
     "eixo": "A"
   },
   "artifacts": {
     "termo": "Artifacts",
-    "definicao": "Conteúdo gerado por Claude (código, documento, visualização) que aparece num painel separado da conversa, editável e reutilizável.",
+    "definicao": "Conteúdo gerado por Claude (código, documento, visualização) que aparece num painel separado da conversa, editável e reutilizável — organiza o que é criado dentro de uma conversa, diferente de Projects, que organiza várias conversas entre si.",
     "moduloOrigem": "M0.4",
     "eixo": "A"
   },
   "cowork": {
     "termo": "Cowork",
-    "definicao": "Ambiente de trabalho do Claude para tarefas mais longas e autônomas, além de uma troca curta de mensagens.",
+    "definicao": "Ambiente de trabalho do Claude para tarefas mais longas e autônomas: você delega e volta depois pra ver o resultado, em vez de acompanhar uma troca de mensagens em tempo real.",
     "moduloOrigem": "M0.4",
     "eixo": "A"
   },
@@ -355,19 +355,19 @@
   },
   "routine": {
     "termo": "Routine",
-    "definicao": "Uma automação agendada ou recorrente — uma tarefa que roda em intervalos definidos (todo dia, a cada hora) sem depender de você iniciar a sessão.",
+    "definicao": "Uma automação agendada ou recorrente — responde a quando ela começa, não a quanta liberdade tem: dispara no horário certo (todo dia, a cada hora) o que já está configurado, sem decidir nada sobre como a tarefa é feita.",
     "moduloOrigem": "M14",
     "eixo": "A"
   },
   "loop": {
     "termo": "/loop",
-    "definicao": "Mantém Claude Code executando um ciclo de trabalho repetidamente até uma condição de parada ser satisfeita — o mesmo princípio do laço while (M6), aplicado ao comportamento do agente.",
+    "definicao": "Mantém Claude Code executando um ciclo de trabalho que você já definiu, repetidamente, até uma condição de parada ser satisfeita — o mesmo princípio do laço while (M6). Sabe o roteiro, repete.",
     "moduloOrigem": "M14",
     "eixo": "A"
   },
   "goal": {
     "termo": "/goal",
-    "definicao": "Permite declarar um objetivo final, em vez de especificar os passos — Claude Code decide o caminho, dentro dos limites configurados, avaliando o próprio progresso até alcançá-lo.",
+    "definicao": "Permite declarar só o objetivo final, sem ciclo definido — Claude Code decide o caminho, dentro dos limites configurados, avaliando o próprio progresso até alcançá-lo. Sabe o destino, não o roteiro.",
     "moduloOrigem": "M14",
     "eixo": "A"
   },

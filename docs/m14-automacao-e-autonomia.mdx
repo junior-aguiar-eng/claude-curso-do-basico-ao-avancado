@@ -30,18 +30,29 @@ dentro de uma única interação — você pediu, ele agiu, terminou. A
 Claude Code para executar um processo repetidamente, ou de forma
 contínua, sem que você precise disparar cada execução manualmente.
 
-Uma <Termo id="routine" define>routine</Termo> é uma automação agendada
-ou recorrente — uma tarefa que roda em intervalos definidos (todo dia, a
-cada hora) sem depender de você iniciar a sessão. Já o
-<Termo id="loop" define>/loop</Termo> mantém Claude Code executando um
-ciclo de trabalho repetidamente até uma condição de parada ser
-satisfeita — o mesmo princípio do laço `while` que você viu em M6,
-aplicado ao comportamento do agente, não a uma variável numérica.
+Routine, `/loop` e `/goal` respondem a duas perguntas diferentes sobre
+automação, e é fácil confundir as três porque todas soam como "deixar
+rodando sozinho": uma responde *quando* a automação começa; as outras
+duas respondem *quanto de liberdade* ela tem, uma vez rodando.
 
-O <Termo id="goal" define>/goal</Termo> leva a autonomia um passo além:
-em vez de especificar os passos, você declara um objetivo final, e
-Claude Code decide o caminho — dentro dos limites configurados — para
-chegar até lá, avaliando o próprio progresso ao longo do processo.
+Uma <Termo id="routine" define>routine</Termo> resolve o "quando": é uma
+automação agendada ou recorrente — uma tarefa que roda em intervalos
+definidos (todo dia, a cada hora) sem depender de você iniciar a sessão.
+A routine não decide nada sobre *como* a tarefa é feita — só dispara,
+no horário certo, o que já está configurado para rodar.
+
+Já <Termo id="loop" define>/loop</Termo> e <Termo id="goal" define>/goal</Termo>
+resolvem o "quanto de liberdade", dentro de uma execução já em
+andamento — e se diferenciam entre si por quanto do caminho você
+especifica de antemão. `/loop` mantém Claude Code executando um ciclo
+de trabalho que *você já definiu*, repetidamente, até uma condição de
+parada ser satisfeita — o mesmo princípio do laço `while` que você viu
+em M6, aplicado ao comportamento do agente, não a uma variável
+numérica. `/goal` vai um passo além: em vez de um ciclo definido, você
+declara só o objetivo final, e Claude Code decide o caminho — dentro
+dos limites configurados — para chegar até lá, avaliando o próprio
+progresso ao longo do processo. Em resumo: `/loop` sabe o roteiro e
+repete; `/goal` só sabe o destino.
 
 Quanto maior a autonomia, maior a necessidade de conter o raio de ação.
 É para isso que existe o <Termo id="sandboxing" define>sandboxing</Termo>:
