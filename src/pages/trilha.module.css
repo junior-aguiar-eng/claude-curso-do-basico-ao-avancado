@@ -1,0 +1,22 @@
+.pagina {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Cresce progressivamente em telas maiores em vez de travar em 760px —
+   mantém coluna única (nomes de bloco são longos o bastante pra
+   quebrar feio em 2 colunas), só dá mais respiro em telas largas. */
+@media (min-width: 900px) {
+  .pagina {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .pagina {
+    max-width: 1100px;
+  }
+}

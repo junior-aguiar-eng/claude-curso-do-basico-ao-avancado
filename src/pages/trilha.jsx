@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import MapaTrilha from '@site/src/components/MapaTrilha';
 import {useEstadoTrilha} from '@site/src/components/_shared/trilha';
 import {modulosCurso} from '@site/src/data/modulosCurso';
+import styles from './trilha.module.css';
 
 // Página real da trilha: mapa dos 10 blocos do curso com progresso real
 // do aluno (localStorage), substituindo o papel de dev-preview-trilha.jsx
@@ -22,7 +23,7 @@ export default function Trilha() {
 
   return (
     <Layout title="Trilha" description="Seu progresso pelos 10 blocos do curso.">
-      <main style={{maxWidth: '760px', margin: '0 auto', padding: '3rem 1.5rem'}}>
+      <main className={styles.pagina}>
         <h1>Trilha</h1>
         <p>Os 10 blocos do curso — Bloco 0 ao Bloco 9 — e o quanto você já percorreu.</p>
         <MapaTrilha
