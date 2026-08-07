@@ -12,8 +12,9 @@ const config = {
 
   // URL de produção do site e caminho base — domínio próprio via CNAME
   // (ver static/CNAME), servido na raiz em vez do subcaminho do GitHub
-  // Pages (github.io/nome-do-repo).
-  url: 'https://www.nerdolajuridico.com',
+  // Pages (github.io/nome-do-repo). Domínio raiz, sem www — ver DNS no
+  // registro.br (registros A pros IPs do GitHub Pages).
+  url: 'https://nerdolajuridico.com.br',
   baseUrl: '/',
 
   // Configuração do GitHub Pages para deploy.
