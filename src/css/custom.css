@@ -113,6 +113,37 @@ body::before {
   outline-offset: 2px;
 }
 
+/* Sidebar de lições: mais respiro entre itens e um estado "active"
+   próprio (fundo terracota sutil, cantos arredondados) em vez do
+   destaque padrão do Infima, pra combinar com o resto da paleta. */
+.menu__link {
+  padding: 0.5rem 0.75rem;
+  margin: 0.1rem 0;
+  border-radius: var(--ifm-global-radius);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu__link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.menu__link--active {
+  background-color: var(--curso-accent-soft);
+  color: var(--ifm-color-primary-light);
+  font-weight: 600;
+}
+
+.menu__link--active:hover {
+  background-color: var(--curso-accent-soft);
+}
+
+/* Transições suaves nos links de navegação/rodapé, na mesma linha dos
+   botões (Hero/styles.module.css). */
+.navbar__link,
+.footer__link {
+  transition: color 0.3s ease;
+}
+
 /* Glow que segue o cursor nos cards reais do site (opções do Quiz,
    Checkpoint, cards de paginação Anterior/Próxima) — ver
    src/clientModules/cardGlow.js, que define --mx/--my no mousemove.
