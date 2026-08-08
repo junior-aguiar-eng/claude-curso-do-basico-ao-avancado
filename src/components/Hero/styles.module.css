@@ -52,9 +52,10 @@
 
 .titulo {
   margin: 0 0 1.25rem;
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
 }
 
 .tituloDestaque {
@@ -89,7 +90,7 @@
   font-weight: 500;
   font-size: 0.95rem;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  transition: all 0.3s ease;
 }
 
 .botaoPrimario {
@@ -104,16 +105,19 @@
   box-shadow: 0 12px 28px -6px rgba(217, 119, 87, 0.7);
 }
 
+/* Outline transparente — borda fina semi-transparente em vez de card
+   sólido, pra ficar claramente "secundário" ao lado do botão primário. */
 .botaoSecundario {
-  background: var(--curso-bg-card);
-  border: 1px solid var(--curso-borda);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   color: var(--ifm-font-color-base);
 }
 
 .botaoSecundario:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.28);
   color: var(--ifm-font-color-base);
   text-decoration: none;
-  border-color: #454b52;
 }
 
 @media (prefers-reduced-motion: no-preference) {
